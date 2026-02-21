@@ -4,8 +4,8 @@ node_modules/
 __pycache__/
 
 # Environment
-.env
-*.env
+**/.env
+**/*.env
 
 # Git
 .git/
