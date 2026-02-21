@@ -1,18 +1,18 @@
 # === Stage 1: Build Frontend ===
-FROM node:18-alpine AS frontend-builder
+FROM node:20-alpine AS frontend-builder
 WORKDIR /app/client
 COPY client/package*.json ./
-RUN npm ci --production=false
+RUN npm ci
 COPY client/ ./
 RUN npm run build
 
 # === Stage 2: Production Server ===
-FROM node:18-alpine
+FROM node:20-alpine
 WORKDIR /app
 
 # Install server deps
 COPY server/package*.json ./server/
-RUN cd server && npm ci --production
+RUN cd server && npm ci --omit=dev
 
 # Copy server code
 COPY server/ ./server/
