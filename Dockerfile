@@ -1,51 +1,29 @@
-# Build stage for frontend
-FROM node:18-alpine as frontend-builder
-
-WORKDIR /app
-
-# Copy package files
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy source code
-COPY . .
-
-# Build the frontend
+# === Stage 1: Build Frontend ===
+FROM node:18-alpine AS frontend-builder
+WORKDIR /app/client
+COPY client/package*.json ./
+RUN npm ci --production=false
+COPY client/ ./
 RUN npm run build
 
-# Production stage
+# === Stage 2: Production Server ===
 FROM node:18-alpine
-
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
-
-# Install production dependencies
-RUN npm install --production
-
-# Copy built frontend from builder stage
-COPY --from=frontend-builder /app/dist ./dist
+# Install server deps
+COPY server/package*.json ./server/
+RUN cd server && npm ci --production
 
 # Copy server code
-COPY server ./server
+COPY server/ ./server/
 
-# Set environment variables
+# Copy built frontend
+COPY --from=frontend-builder /app/client/dist ./client/dist
+
+# Runtime config (injected by Render)
 ENV NODE_ENV=production
-ENV PORT=3000
-ENV GOOGLE_API_KEY=replace_with_your_key
-ENV VITE_FIREBASE_API_KEY=your_firebase_api_key
-ENV VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
-ENV VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
-ENV VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
-ENV VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
-ENV VITE_FIREBASE_APP_ID=your_firebase_app_id
-ENV VITE_GEMINI_API_KEY=replace_with_your_key
+ENV PORT=8080
 
-# Expose the port
-EXPOSE 3000
+EXPOSE 8080
 
-# Start the server
-CMD ["node", "server/server.js"]
+CMD ["node", "server/app.js"]

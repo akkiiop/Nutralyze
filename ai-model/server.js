@@ -21,9 +21,13 @@ const PORT = process.env.PORT || 5000;
 // ---------------------------
 // Middleware
 // ---------------------------
+const allowedOrigins = (process.env.CORS_ORIGINS || "http://localhost:3000,http://localhost:8080")
+  .split(",")
+  .map((o) => o.trim());
+
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:8080"],
+    origin: allowedOrigins,
     credentials: true,
   })
 );

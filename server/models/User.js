@@ -2,20 +2,18 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String }, // Optional for Google Auth users
+    name: { type: String, required: true, trim: true },
+    email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+    password: { type: String },
     googleId: { type: String, unique: true, sparse: true },
     authMethod: { type: String, enum: ["local", "google"], default: "local" },
 
-    age: { type: Number },
+    age: { type: Number, min: 1, max: 150 },
     gender: { type: String, enum: ["male", "female", "other"] },
 
-    height: { type: Number }, // cm
-    weight: { type: Number }, // kg
-
-    // ✅ add this
-    targetWeight: { type: Number }, // kg
+    height: { type: Number, min: 30, max: 300 },
+    weight: { type: Number, min: 10, max: 500 },
+    targetWeight: { type: Number, min: 10, max: 500 },
 
     activityLevel: {
       type: String,
@@ -28,30 +26,28 @@ const UserSchema = new mongoose.Schema(
       ],
     },
 
-    sleepHours: { type: Number },
+    sleepHours: { type: Number, min: 0, max: 24 },
 
     medicalConditions: [{ type: String }],
     allergies: [{ type: String }],
     avoidIngredients: [{ type: String }],
 
-    // ✅ Use dietType everywhere (veg/non-veg etc.)
     dietType: {
       type: String,
       enum: ["veg", "non-veg", "vegan", "jain", "keto"],
       default: "veg",
     },
 
-    // ✅ add these
     preferredCuisine: { type: String, default: "indian" },
-    mealFrequency: { type: String, default: "3" }, // 3 meals
+    mealFrequency: { type: String, default: "3" },
 
-    goal: { type: String }, // gain, lose, maintain
+    goal: { type: String, enum: ["gain", "lose", "maintain"] },
 
-    calorieTarget: { type: Number },
-    proteinTarget: { type: Number },
-    sugarTarget: { type: Number, default: 50 },
-    fiberTarget: { type: Number, default: 30 },
-    waterIntakeGoal: { type: Number },
+    calorieTarget: { type: Number, min: 500, max: 10000 },
+    proteinTarget: { type: Number, min: 0 },
+    sugarTarget: { type: Number, default: 50, min: 0 },
+    fiberTarget: { type: Number, default: 30, min: 0 },
+    waterIntakeGoal: { type: Number, min: 0 },
 
     wakeupTime: { type: String },
     profilePhoto: { type: String },

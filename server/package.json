@@ -1,20 +1,19 @@
 {
-  "name": "server",
+  "name": "nutralyze-server",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "vitest run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Nutralyze backend API server",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
-    "@tensorflow/tfjs-node": "^4.22.0",
     "axios": "^1.13.2",
-    "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
@@ -25,8 +24,6 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.3",
     "multer": "^2.0.2",
-    "node-fetch": "^3.3.2",
-    "openai": "^6.16.0",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
