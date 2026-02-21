@@ -4,6 +4,7 @@ import { scanPackageFood } from "../../services/packageFoodApi";
 import { normalizeIngredients } from "../../utils/normalizeIngredients";
 import { FaCamera, FaKeyboard, FaInfoCircle } from "react-icons/fa";
 import "./BarcodeScanner.css";
+import { API } from "../../config/api";
 
 const BarcodeScanner = ({ onProductFetched, onHarmAnalyzed, setLoadingPhase, loadingPhase }) => {
   const scannerRef = useRef(null);
@@ -21,7 +22,8 @@ const BarcodeScanner = ({ onProductFetched, onHarmAnalyzed, setLoadingPhase, loa
 
     try {
       const normalized = normalizeIngredients(ingredients);
-      const res = await fetch("http://localhost:8002/predict", {
+      // Use the unified AI service URL
+      const res = await fetch(`${API.GET_HARMFUL}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ingredients: normalized }),
@@ -34,7 +36,7 @@ const BarcodeScanner = ({ onProductFetched, onHarmAnalyzed, setLoadingPhase, loa
       // Short delay to let user see "Finalizing"
       await new Promise(r => setTimeout(r, 600));
 
-      if (typeof onHarmAnalyzed === "function") onHarmAnalyzed(data.results || []);
+      if (typeof onHarmAnalyzed === "function") onHarmAnalyzed(data.all || data.results || []);
     } catch (error) {
       console.error("ML Analysis failed:", error);
     }

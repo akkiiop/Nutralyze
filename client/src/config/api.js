@@ -35,4 +35,6 @@ export const API = {
   GET_NUTRITION: `${getAiServerUrl()}/get_nutrition`,
   CLASSIFY: `${getAiServerUrl()}/classify_meal`,
   HEALTH: `${getAiServerUrl()}/health`,
+  GET_HARMFUL: `${getAiServerUrl()}/harmful-ingredients`,
+  OCR_INGREDIENTS: `${getAiServerUrl()}/ocr-ingredients`,
 };

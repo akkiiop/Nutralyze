@@ -5,6 +5,7 @@ import HarmfulReport from "./HarmfulReport";
 import { normalizeIngredients } from "../../utils/normalizeIngredients";
 import { FaBoxOpen, FaSearch, FaBarcode } from "react-icons/fa";
 import "./PackageFood.css";
+import { API } from "../../config/api";
 
 const PackageFood = () => {
   const [product, setProduct] = useState(null);
@@ -31,13 +32,13 @@ const PackageFood = () => {
       return;
     }
     const normalized = normalizeIngredients(ingredients);
-    const res = await fetch("http://localhost:8002/predict", {
+    const res = await fetch(`${API.GET_HARMFUL}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ingredients: normalized }),
     });
     const data = await res.json();
-    setHarmReport(Array.isArray(data.results) ? data.results : []);
+    setHarmReport(Array.isArray(data.all) ? data.all : (Array.isArray(data.results) ? data.results : []));
     setFreqAnalysis(data.frequency_analysis || null);
   };
 
@@ -52,16 +53,14 @@ const PackageFood = () => {
   const handleOCRScan = async (file) => {
     try {
       setLoadingOCR(true);
-      // Phase 1: Processing Image (using existing phase 1 or customized)
-      setLoadingPhase(1); // "Processing Barcode..." (can reuse or add new key if needed, but 1 is "Processing...")
+      setLoadingPhase(1);
 
       const formData = new FormData();
       formData.append("image", file);
 
-      // Phase 2: Fetching/OCR
       setLoadingPhase(2);
 
-      const ocrRes = await fetch("http://localhost:5000/api/ocr-ingredients", { method: "POST", body: formData });
+      const ocrRes = await fetch(`${API.OCR_INGREDIENTS}`, { method: "POST", body: formData });
       const ocrData = await ocrRes.json();
 
       if (!ocrData.ingredients?.length) {
@@ -69,23 +68,14 @@ const PackageFood = () => {
         return;
       }
 
-      // Phase 3: Extracting/Parsing
       setLoadingPhase(3);
+      // OCR result is now structured thanks to Gemini in Node!
+      const finalIngredients = ocrData.ingredients;
+      setProduct((prev) => ({ ...prev, ingredients: { list: finalIngredients } }));
 
-      const rawText = ocrData.ingredients.join(" ");
-      const groqRes = await fetch("http://localhost:8002/parse-ingredients", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ocrText: rawText }),
-      });
-      const groqData = await groqRes.json();
-      setProduct((prev) => ({ ...prev, ingredients: { list: groqData.ingredients } }));
-
-      // Phase 4: Analyzing
       setLoadingPhase(4);
-      analyzeIngredients(groqData.ingredients);
+      await analyzeIngredients(finalIngredients);
 
-      // Phase 5: Finalizing happens in analyzeIngredients implicitly or fast enough
       setLoadingPhase(5);
       await new Promise(r => setTimeout(r, 500));
 
