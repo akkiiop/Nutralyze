@@ -6,8 +6,8 @@ export const getAuthServerUrl = () => {
   const isLocal = host === "localhost" || host === "127.0.0.1";
 
   return isLocal
-    ? "http://localhost:8080/api" // your Express backend
-    : "https://nutrivision-oc9q.onrender.com/api"; // production backend
+    ? "http://localhost:8080/api" // local Express backend
+    : "/api"; // production: same-origin (served by Render)
 };
 
 

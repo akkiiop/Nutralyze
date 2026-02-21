@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: isLocal ? "http://localhost:8080/api" : "/api",
 });
 
 // Automatically attach JWT token to all requests
