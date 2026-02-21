@@ -1,0 +1,492 @@
+/* ========================================
+   MEAL LOG - FRESH MARKET THEME
+   ======================================== */
+:root {
+  --emerald-500: #22C55E;
+  --emerald-600: #16A34A;
+  --emerald-50: #F0FDF4;
+  --fresh-bg: #F7FBF7;
+  --fresh-text: #1F2937;
+  --fresh-border: #E5E7EB;
+  --fresh-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.meal-log-root {
+  min-height: 100vh;
+  position: relative;
+  background-image: url('/images/BG_1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--fresh-text) !important;
+  padding-bottom: 50px;
+  overflow-x: hidden;
+}
+
+/* Sticky Overlay */
+.meal-log-root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  z-index: -1;
+}
+
+/* Force Dark Text */
+.meal-log-root .MuiTypography-root {
+  color: var(--fresh-text) !important;
+}
+
+/* Compact Header Card */
+.header-glass-card {
+  background: #FFFFFF !important;
+  border: 1px solid var(--fresh-border) !important;
+  border-radius: 16px !important;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.2s ease;
+}
+
+.header-glass-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+  transform: translateY(-1px);
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.date-selector-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px !important;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+
+/* Ensure icon has just enough breathing room */
+.date-selector-wrapper .icon-neon {
+  margin-right: 0px !important;
+  /* Gap handles the spacing now */
+  font-size: 1.8rem !important;
+}
+
+/* Tweak input alignment to match icon center */
+.compact-date-picker {
+  margin-top: -12px !important;
+  /* Lift to align text with icons, compensating for label height */
+  width: auto !important;
+}
+
+.compact-date-picker .MuiInputBase-root {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  width: auto !important;
+  min-width: unset !important;
+  max-width: 150px !important;
+  /* Constrain width to pull icon closer */
+}
+
+/* Hide the label if user feels it creates distance/clutter, 
+   but for now just ensure it doesn't push width too much */
+.compact-date-picker .MuiInputLabel-root {
+  transform: translate(0, 0) scale(0.75) !important;
+  position: static !important;
+  margin-bottom: -12px !important;
+}
+
+.compact-date-picker input {
+  color: #0F172A !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.2rem !important;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.add-btn-neon {
+  background: var(--emerald-500) !important;
+  color: #fff !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  text-transform: none !important;
+  /* Keep natural case */
+  padding: 8px 24px !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.add-btn-neon:hover {
+  background: var(--emerald-600) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(34, 197, 94, 0.2) !important;
+}
+
+.icon-neon {
+  color: var(--fresh-green) !important;
+  filter: none !important;
+}
+
+.today-btn-neon {
+  color: var(--emerald-600) !important;
+  background: #FFFFFF !important;
+  border: 1px solid var(--emerald-500) !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  border-radius: 8px !important;
+}
+
+.today-btn-neon:hover {
+  background: var(--emerald-50) !important;
+}
+
+/* Macro Pods */
+.macro-stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid var(--fresh-border) !important;
+  border-radius: 14px !important;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.macro-stat-card:hover {
+  border-color: var(--emerald-500) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+  text-transform: uppercase;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 1px;
+  color: #6B7280 !important;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #1F2937 !important;
+}
+
+/* Date Picker Visual Fixes */
+.compact-date-picker .MuiInputBase-root {
+  background: transparent !important;
+  /* Remove grey/brown background */
+  box-shadow: none !important;
+}
+
+.compact-date-picker .MuiInputBase-input {
+  background: transparent !important;
+  padding: 4px 0 5px !important;
+}
+
+/* Remove bottom underline */
+.compact-date-picker .MuiInput-underline:before,
+.compact-date-picker .MuiInput-underline:after {
+  display: none !important;
+  border-bottom: none !important;
+}
+
+/* Meal Entry Cards */
+.meal-entry-card {
+  background: #FFFFFF !important;
+  border: 1px solid var(--fresh-border) !important;
+  border-radius: 16px !important;
+  padding: 24px;
+  height: 100%;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.meal-entry-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--emerald-500) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.meal-entry-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--emerald-500);
+  /* Solid Green */
+  opacity: 1;
+}
+
+.meal-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.meal-card-name {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.meal-card-time {
+  font-size: 0.85rem !important;
+  color: #64748B !important;
+  font-family: monospace;
+}
+
+.meal-card-type {
+  color: var(--fresh-orange) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+.ai-chip {
+  background: var(--emerald-50) !important;
+  color: var(--emerald-600) !important;
+  border: 1px solid var(--emerald-100) !important;
+  font-weight: 600 !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+.count-chip {
+  background: #F3F4F6 !important;
+  color: #6B7280 !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 500;
+}
+
+.card-divider {
+  background: #E2E8F0 !important;
+  margin: 15px 0 !important;
+}
+
+.meal-card-macros {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.m-label {
+  font-size: 0.7rem !important;
+  color: #94a3b8 !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.m-val {
+  font-size: 1rem !important;
+  font-weight: 700;
+  color: #334155 !important;
+}
+
+/* Misc */
+.section-title {
+  color: #0F172A !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 1.8rem !important;
+  text-transform: uppercase;
+  background: none !important;
+  -webkit-text-fill-color: #0F172A !important;
+}
+
+.empty-section-card {
+  background: #FFFFFF !important;
+  border: 1px dashed #E2E8F0 !important;
+  /* Reduced opacity/color */
+  padding: 40px;
+  text-align: center;
+  border-radius: 16px;
+  color: #9CA3AF !important;
+}
+
+.macro-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* Toggle Buttons Visibility Fix */
+.meal-log-root .sort-toggle-group .MuiToggleButton-root {
+  color: #64748B !important;
+  border: 1px solid #CBD5E1 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 1px;
+}
+
+.meal-log-root .sort-toggle-group .MuiToggleButton-root.Mui-selected {
+  color: #15803d !important;
+  background-color: #DCFCE7 !important;
+  /* Light Green */
+  border-color: var(--fresh-green) !important;
+}
+
+.meal-log-root .sort-toggle-group .MuiToggleButton-root:hover {
+  background-color: #F9FAFB !important;
+}
+
+.page-header-title {
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin-bottom: 5px;
+}
+
+/* --- MANUAL ENTRY DIALOG STYLES (LIGHT MODE) --- */
+.dark-dialog .MuiDialog-paper {
+  background: #FFFFFF !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1) !important;
+  padding: 10px;
+}
+
+.dark-dialog .dialog-title {
+  background: transparent !important;
+  color: #0F172A !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: none !important;
+  -webkit-text-fill-color: #0F172A !important;
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.dark-dialog .MuiDialogContent-root {
+  padding-top: 20px !important;
+}
+
+/* Inputs styling in dialog */
+.dark-dialog .MuiTextField-root label {
+  color: #64748B !important;
+  font-family: 'Rajdhani', sans-serif !important;
+}
+
+.dark-dialog .MuiTextField-root .MuiInputBase-input {
+  color: #0F172A !important;
+  font-weight: 600 !important;
+}
+
+.dark-dialog .MuiOutlinedInput-notchedOutline {
+  border-color: #CBD5E1 !important;
+}
+
+.dark-dialog .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: var(--fresh-green) !important;
+}
+
+.dark-dialog .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--fresh-green) !important;
+  border-width: 2px;
+}
+
+/* Actions */
+.dark-dialog .dialog-actions {
+  padding: 20px !important;
+  justify-content: space-between !important;
+  border-top: 1px solid #E2E8F0;
+}
+
+.dark-dialog .dialog-save-btn {
+  background: var(--fresh-green) !important;
+  color: #fff !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  padding: 8px 30px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 6px rgba(34, 197, 94, 0.2);
+}
+
+.dark-dialog .dialog-save-btn:hover {
+  background: #16a34a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px rgba(34, 197, 94, 0.3);
+}
+
+.dialog-dismiss-btn {
+  color: #EF4444 !important;
+  border: 1px solid #FECACA !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  padding: 8px 20px !important;
+  border-radius: 12px !important;
+  background: #FEF2F2 !important;
+}
+
+.dialog-dismiss-btn:hover {
+  background: #FEE2E2 !important;
+  border-color: #EF4444 !important;
+}
+
+/* --- DROPDOWN MENU OVERRIDES --- */
+.MuiMenu-paper {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.MuiMenuItem-root {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 600 !important;
+  color: #64748B !important;
+  transition: all 0.2s ease !important;
+}
+
+.MuiMenuItem-root:hover {
+  background: #F1F5F9 !important;
+  color: var(--fresh-green) !important;
+  padding-left: 20px !important;
+}
+
+.MuiMenuItem-root.Mui-selected {
+  background: #DCFCE7 !important;
+  color: #15803d !important;
+}

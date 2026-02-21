@@ -1,0 +1,223 @@
+/* --- BARCODE SCANNER - CALM THEME --- */
+
+.scanner-interface-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.interface-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* ===== INDIVIDUAL INTERFACE CARD ===== */
+.interface-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.interface-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-color: #22C55E;
+  /* Emerald Green Hover */
+}
+
+/* Removed card-top-decoration for cleaner look */
+
+/* ===== CARD HEADERS ===== */
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.header-icon {
+  font-size: 1.8rem;
+  color: #22C55E;
+  /* Emerald 500 */
+}
+
+.card-header h3 {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: #1F2937;
+  text-transform: uppercase;
+  margin: 0;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+}
+
+/* ===== OPTICAL SCANNER STYLES ===== */
+.scanner-frame-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#barcode-reader {
+  border: none !important;
+}
+
+.scan-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #22C55E;
+  /* Thinner, Green */
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.tl {
+  top: 12px;
+  left: 12px;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 4px 0 0 0;
+}
+
+.tr {
+  top: 12px;
+  right: 12px;
+  border-left: 0;
+  border-bottom: 0;
+  border-radius: 0 4px 0 0;
+}
+
+.bl {
+  bottom: 12px;
+  left: 12px;
+  border-right: 0;
+  border-top: 0;
+  border-radius: 0 0 0 4px;
+}
+
+.br {
+  bottom: 12px;
+  right: 12px;
+  border-left: 0;
+  border-top: 0;
+  border-radius: 0 0 4px 0;
+}
+
+/* ===== MANUAL CARD CONTENT ===== */
+.manual-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  /* Match height */
+  justify-content: center;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: #6B7280;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.cyber-input-field {
+  width: 100%;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.glow-input {
+  width: 100%;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 14px;
+  border-radius: 12px;
+  color: #1F2937;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-align: center;
+  outline: none;
+  transition: 0.2s;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.glow-input:focus {
+  border-color: #22C55E;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+/* Simple focus line instead of neon glow */
+.input-glow-bar {
+  display: none;
+}
+
+/* ===== PREMIUM BUTTON (Refined) ===== */
+.premium-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  /* Green Gradient */
+  background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.2s;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(34, 197, 94, 0.2);
+}
+
+.premium-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.3);
+  filter: brightness(1.05);
+}
+
+.premium-btn:disabled {
+  background: #E2E8F0;
+  color: #94A3B8;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-shine {
+  display: none;
+  /* Removed for cleaner look */
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .interface-grid {
+    grid-template-columns: 1fr;
+  }
+}

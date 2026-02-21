@@ -1,0 +1,672 @@
+/* ========================================
+   NUTRALYZE DASHBOARD - WELLNESS THEME
+   Based on: Nutrition, Health, AI Analysis
+   
+   COLOR PSYCHOLOGY:
+   - Primary Green: Health, freshness, nature (#22C55E)
+   - Secondary Orange: Energy, appetite, warmth (#F59E0B)
+   - Background: Clean, minimal (#F7FBF7)
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* ========================================
+   WELLNESS COLOR PALETTE
+   ======================================== */
+:root {
+  /* Primary - Softer Green */
+  --emerald-500: #10B981;
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+  --emerald-100: #D1FAE5;
+  --emerald-50: #ECFDF5;
+
+  /* Secondary - Amber/Orange */
+  --teal-500: #F59E0B;
+  /* Mapped to Secondary/Upload */
+  --teal-600: #D97706;
+
+  /* Accent */
+  --orange-500: #F59E0B;
+  --orange-100: #FEF3C7;
+
+  /* Background */
+  --bg-main: #F7FBF7;
+  --bg-card: #FFFFFF;
+  /* Pure White */
+  --bg-scanner: #F0FDF4;
+  /* Mint Tint */
+
+  /* Text - High Contrast */
+  --text-primary: #0F172A;
+  /* Dark Slate */
+  --text-secondary: #374151;
+  /* Slate Body */
+  --text-muted: #64748B;
+  /* Slate Muted */
+
+  /* Neutrals */
+  --white: #FFFFFF;
+  --stone-50: #F9FAFB;
+  --stone-100: #F1F5F9;
+  --stone-200: #E2E8F0;
+  /* Borders */
+  --stone-400: #94A3B8;
+
+  /* Danger */
+  --red-500: #EF4444;
+  --red-100: #FEE2E2;
+}
+
+/* ========================================
+   BODY - SOFT NATURE-INSPIRED BACKGROUND
+   ======================================== */
+body {
+  font-family: 'Outfit', sans-serif !important;
+  background-color: var(--bg-main) !important;
+  color: var(--text-primary) !important;
+  min-height: 100vh;
+}
+
+/* ========================================
+   PAGE ROOT
+   ======================================== */
+.dash-page-root {
+  min-height: 100vh;
+  position: relative;
+  /* Keep existing nature background but make it sticky */
+  background-image: url('/images/BG_1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Sticky background */
+  color: var(--text-primary);
+  padding-bottom: 100px;
+  overflow-x: hidden;
+  isolation: isolate;
+}
+
+/* Soft White Overlay (No Blur - Reverted) */
+.dash-page-root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: -1;
+}
+
+.main-content {
+  position: relative;
+  z-index: 10;
+  padding-top: 50px;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+.dash-page-root .MuiTypography-root {
+  color: var(--text-primary) !important;
+}
+
+.dash-page-root .MuiTypography-caption,
+.dash-page-root .MuiTypography-body2 {
+  color: var(--text-muted) !important;
+}
+
+.dash-page-root .MuiSvgIcon-root {
+  color: var(--emerald-500);
+}
+
+.dash-title {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  font-size: 2rem !important;
+  letter-spacing: 1px !important;
+  color: var(--text-primary) !important;
+}
+
+.dash-subtitle {
+  font-family: 'Outfit', sans-serif !important;
+  color: var(--text-muted) !important;
+  font-size: 1rem !important;
+}
+
+/* ========================================
+   CARDS - CLEAN WHITE
+   ======================================== */
+.glass-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--stone-200) !important;
+  border-radius: 16px !important;
+  /* Rounded corners 16px */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Emerald Left Border Accent */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 0;
+  width: 4px;
+  background: var(--emerald-500);
+  border-radius: 0 4px 4px 0;
+  opacity: 0.8;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  border-color: var(--emerald-500) !important;
+}
+
+.glass-card-inner {
+  background: var(--stone-50);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--stone-200);
+}
+
+/* ========================================
+   CARD HEADERS
+   ======================================== */
+.card-header-text {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-primary) !important;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem !important;
+  margin-bottom: 20px !important;
+  border-bottom: 1px solid var(--stone-200);
+  padding-bottom: 15px;
+}
+
+.card-header-text .MuiSvgIcon-root {
+  color: var(--emerald-500) !important;
+  margin-right: 10px;
+}
+
+.dash-mini-title {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted) !important;
+  margin-bottom: 15px !important;
+  font-weight: 700 !important;
+}
+
+/* ========================================
+   MACRO GRID
+   ======================================== */
+.dash-macros-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.macro-pod {
+  background: var(--bg-card);
+  padding: 16px 8px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--stone-200);
+  transition: all 0.3s ease;
+}
+
+.macro-pod:hover {
+  border-color: var(--emerald-500);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.macro-label {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px !important;
+  color: var(--text-muted) !important;
+}
+
+.macro-value {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 800 !important;
+  color: var(--emerald-600) !important;
+  margin-top: 5px;
+}
+
+/* ========================================
+   PROGRESS BARS
+   ======================================== */
+.neon-progress {
+  height: 8px !important;
+  border-radius: 10px !important;
+  background: var(--stone-200) !important;
+  margin: 10px 0 !important;
+}
+
+.neon-progress .MuiLinearProgress-bar {
+  background: var(--emerald-500) !important;
+  box-shadow: none !important;
+}
+
+/* ========================================
+   SCANNER HUD - CLEAN & MINIMAL
+   ======================================== */
+.corner-bracket {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: var(--emerald-500);
+  border-style: solid;
+  z-index: 15;
+  pointer-events: none;
+  opacity: 0.7;
+  /* Reduced visual noise */
+  transition: all 0.3s ease;
+}
+
+.corner-tl {
+  top: 12px;
+  left: 12px;
+  border-width: 3px 0 0 3px;
+  border-top-left-radius: 12px;
+}
+
+.corner-tr {
+  top: 12px;
+  right: 12px;
+  border-width: 3px 3px 0 0;
+  border-top-right-radius: 12px;
+}
+
+.corner-bl {
+  bottom: 12px;
+  left: 12px;
+  border-width: 0 0 3px 3px;
+  border-bottom-left-radius: 12px;
+}
+
+.corner-br {
+  bottom: 12px;
+  right: 12px;
+  border-width: 0 3px 3px 0;
+  border-bottom-right-radius: 12px;
+}
+
+.camera-viewport-wrapper {
+  position: relative;
+  height: 480px;
+  /* Slight height adjustment */
+  background: var(--bg-scanner);
+  border-radius: 16px;
+  overflow: hidden;
+  /* Clearer dashed border */
+  border: 2px dashed #6EE7B7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  transition: border-color 0.3s ease;
+}
+
+.camera-viewport-wrapper:hover {
+  border-color: var(--emerald-500);
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--emerald-500), transparent);
+  box-shadow: 0 0 10px var(--emerald-500);
+  animation: scanning 2.5s ease-in-out infinite;
+  z-index: 10;
+  opacity: 0.8;
+}
+
+@keyframes scanning {
+  0% {
+    top: 5%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 95%;
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   WEBCAM & PREVIEW
+   ======================================== */
+.webcam-view,
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--white);
+}
+
+.placeholder-view {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  /* Removed border from here as wrapper provides it */
+}
+
+.placeholder-view .MuiSvgIcon-root {
+  font-size: 50px;
+  color: var(--stone-400);
+  margin-bottom: 16px !important;
+  transition: transform 0.2s ease;
+}
+
+.camera-viewport-wrapper:hover .placeholder-view .MuiSvgIcon-root {
+  transform: scale(1.1);
+  color: var(--emerald-500);
+}
+
+/* ========================================
+   BUTTONS - REFINED
+   ======================================== */
+.neon-btn-primary {
+  /* Green Background, White Text */
+  background: var(--emerald-500) !important;
+  color: var(--white) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  height: 48px !important;
+  padding: 0 24px !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.3px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.neon-btn-primary:hover {
+  background: var(--emerald-600) !important;
+  /* Removed transform to keep professional static feel */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Secondary Action (Upload) - Orange Background */
+.neon-btn-secondary {
+  /* Orange Background, White Text */
+  background: var(--teal-500) !important;
+  /* using orange var */
+  color: var(--white) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  height: 48px !important;
+  padding: 0 24px !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.3px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.neon-btn-secondary:hover {
+  background: var(--teal-600) !important;
+  /* Removed transform */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Disabled State */
+.MuiButton-root.Mui-disabled {
+  background-color: var(--stone-200) !important;
+  color: var(--stone-400) !important;
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
+/* Capture Button */
+.capture-btn {
+  background: var(--emerald-500) !important;
+  color: var(--white) !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  padding: 12px 40px !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.capture-btn:hover {
+  background: var(--emerald-600) !important;
+  /* Removed transform */
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+.cancel-btn {
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--stone-200) !important;
+  border-radius: 12px !important;
+  padding: 12px 30px !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.cancel-btn:hover {
+  background: var(--stone-50) !important;
+  border-color: var(--stone-400) !important;
+  color: var(--text-primary) !important;
+}
+
+.camera-controls {
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  z-index: 20;
+}
+
+/* ========================================
+   CHIPS & BADGES
+   ======================================== */
+.dash-chip-row {
+  margin: 20px 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.ai-badge {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  padding: 8px 0 !important;
+  border-radius: 8px !important;
+  height: auto !important;
+  background: var(--emerald-50) !important;
+  color: var(--emerald-700) !important;
+  border: 1px solid var(--emerald-200) !important;
+}
+
+.nutri-score-chip {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  padding: 8px 0 !important;
+  border-radius: 8px !important;
+  height: auto !important;
+  background: var(--emerald-500) !important;
+  color: var(--white) !important;
+  border: none !important;
+}
+
+/* ========================================
+   SLIDERS
+   ======================================== */
+.portion-box {
+  margin-top: 24px !important;
+  padding: 20px;
+  background: var(--stone-50);
+  border-radius: 12px;
+  border: 1px solid var(--stone-200);
+}
+
+.portion-text {
+  color: var(--text-primary) !important;
+}
+
+.neon-slider {
+  margin-top: 10px !important;
+}
+
+.neon-slider .MuiSlider-thumb {
+  background: var(--emerald-500) !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 4px solid var(--white) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.neon-slider .MuiSlider-thumb:hover {
+  box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.16) !important;
+}
+
+.neon-slider .MuiSlider-track {
+  background: var(--emerald-500) !important;
+  height: 6px;
+  border: none;
+}
+
+.neon-slider .MuiSlider-rail {
+  opacity: 1 !important;
+  background: var(--stone-200) !important;
+  height: 6px;
+}
+
+/* ========================================
+   NAVIGATION & MISC
+   ======================================== */
+.action-stack {
+  margin-top: 30px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.meal-btn-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  margin-bottom: 20px !important;
+}
+
+.quick-log-btn {
+  border: 1px solid var(--emerald-500) !important;
+  color: var(--emerald-600) !important;
+  background: var(--emerald-50) !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 500 !important;
+  min-width: 90px !important;
+  transition: all 0.2s ease;
+}
+
+.quick-log-btn:hover {
+  background: var(--emerald-500) !important;
+  color: var(--white) !important;
+  transform: translateY(-1px);
+}
+
+.reset-btn {
+  margin-top: 15px !important;
+  color: var(--text-muted) !important;
+  background: transparent !important;
+  border: 1px solid var(--stone-200) !important;
+  border-radius: 8px !important;
+  padding: 10px 30px !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: var(--stone-100) !important;
+  border-color: var(--stone-400) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Hide unused elements */
+.animated-bg,
+.remaining-grid {
+  display: none;
+}
+
+/* ========================================
+   MISSING UTILITIES
+   ======================================== */
+.neon-text-green {
+  color: var(--emerald-500) !important;
+}
+
+.neon-input {
+  background: var(--white) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--stone-200) !important;
+  border-radius: 8px;
+  padding: 8px;
+  outline: none;
+  font-family: 'Outfit', sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+.neon-input:focus {
+  border-color: var(--emerald-500) !important;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.1);
+}

@@ -1,0 +1,290 @@
+/* --- DIET PLAN - REFINED V2 --- */
+
+.diet-page-root {
+    min-height: 100vh;
+    background-color: #F7FBF7;
+    /* Fallback */
+    color: #000000;
+    padding-top: 40px;
+    padding-bottom: 80px;
+    position: relative;
+    isolation: isolate;
+    /* BACKGROUND IMAGE - Moved to root for visibility */
+    background-image: url('/images/BG_1.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* BACKGROUND OVERLAY - Subtly lightens the image */
+.diet-page-root::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Slightly stronger overlay for text readability */
+    z-index: -1;
+}
+
+.diet-header-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    padding: 32px !important;
+    margin-bottom: 32px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.diet-header-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.diet-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem !important;
+    letter-spacing: 0.5px !important;
+}
+
+.diet-subtitle {
+    color: #000000 !important;
+    /* Black */
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem !important;
+    margin-top: 6px;
+    opacity: 1;
+}
+
+/* BUTTONS - Soft Green */
+.action-btn {
+    background: linear-gradient(135deg, #4ade80, #16a34a) !important;
+    /* Softer gradient */
+    color: #fff !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+    border-radius: 12px !important;
+    padding: 10px 28px !important;
+    letter-spacing: 0.5px;
+}
+
+.action-btn:hover {
+    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.3);
+    transform: translateY(-1px);
+}
+
+/* CONTENT CARDS */
+.content-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    height: 100%;
+    padding: 32px !important;
+    /* Increased padding */
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.content-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.card-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    /* Pure Black */
+    margin-bottom: 24px !important;
+    display: flex;
+    align-items: center;
+    font-size: 1.15rem !important;
+    letter-spacing: 0.5px;
+}
+
+/* MACRO GAUGES */
+.macro-gauge-container {
+    background: transparent;
+    border-radius: 12px;
+    padding: 10px 0;
+    margin-bottom: 24px;
+    /* Increased spacing */
+}
+
+.macro-label {
+    display: inline-block;
+    font-weight: 700 !important;
+    /* Increased weight */
+    color: #000000 !important;
+    /* Black */
+    background: #F1F5F9;
+    /* Solid Light Slate */
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem !important;
+    /* Slightly larger */
+    text-transform: uppercase;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 8px;
+    opacity: 1 !important;
+}
+
+.macro-value {
+    color: #000000 !important;
+    /* Pure Black */
+    font-weight: 800 !important;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem !important;
+}
+
+.macro-value-sub {
+    display: block;
+    color: #000000 !important;
+    /* Black for visibility */
+    font-weight: 600 !important;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem !important;
+    margin-left: 2px;
+    margin-bottom: 4px;
+    /* Space between text and bar */
+}
+
+.linear-progress-track {
+    background-color: #E2E8F0 !important;
+    /* Slightly darker track for contrast */
+    border-radius: 6px;
+    height: 10px !important;
+    /* Slightly thicker */
+    overflow: hidden;
+    margin-top: 8px !important;
+}
+
+/* Softened Colors for Progress Bars */
+.linear-progress-track .MuiLinearProgress-bar {
+    border-radius: 6px;
+    transition: width 0.3s ease-out !important;
+    /* Smooth fill */
+    filter: saturate(0.95) brightness(1.05);
+    /* Adjusted saturation */
+}
+
+/* AI INSIGHT BOX */
+.ai-insight-box {
+    margin-top: 32px;
+    padding: 24px;
+    background: rgba(220, 252, 231, 0.7);
+    /* Reduced brightness/opacity for text contrast */
+    border-radius: 16px;
+    border: 1px solid #86EFAC;
+    /* Stronger border */
+}
+
+.ai-insight-title {
+    color: #000000 !important;
+    /* Black */
+    font-weight: 800 !important;
+    font-family: 'Rajdhani', sans-serif;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.ai-insight-text {
+    color: #000000 !important;
+    /* Pure Black */
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+}
+
+/* MEAL ITEMS */
+.meal-item-box {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.2s ease;
+    height: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.meal-item-box:hover {
+    background: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border-color: #22C55E;
+}
+
+.meal-name {
+    color: #000000 !important;
+    /* Pure Black */
+    font-weight: 700 !important;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px !important;
+}
+
+.meal-description {
+    color: #000000 !important;
+    /* Pure Black */
+    font-size: 0.95rem !important;
+    line-height: 1.6;
+}
+
+.meal-divider {
+    margin: 12px 0 12px 0 !important;
+    border-color: #F1F5F9 !important;
+}
+
+/* DIET LISTS */
+.power-food-title {
+    color: #000000 !important;
+    /* Black */
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    background: #ECFDF5;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.avoid-food-title {
+    color: #000000 !important;
+    /* Black */
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    background: #FEF2F2;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.markdown-content {
+    font-size: 0.9rem !important;
+    margin-top: 16px !important;
+    color: #000000 !important;
+    /* Pure Black */
+    font-weight: 400 !important;
+    line-height: 1.7 !important;
+}
+
+.markdown-content li {
+    margin-bottom: 8px !important;
+    position: relative;
+    padding-left: 0 !important;
+}

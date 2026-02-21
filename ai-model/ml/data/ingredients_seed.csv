@@ -1,0 +1,99 @@
+ingredient,label,severity,source
+tartrazine,1,high,FSSAI
+e102,1,high,FSSAI
+sunset yellow,1,high,FSSAI
+e110,1,high,FSSAI
+ponceau 4r,1,high,FSSAI
+e124,1,high,FSSAI
+aspartame,1,high,WHO
+acesulfame k,1,medium,WHO
+saccharin,1,medium,WHO
+cyclamate,1,high,WHO
+monosodium glutamate,1,medium,FSSAI
+msg,1,medium,FSSAI
+e621,1,medium,FSSAI
+sodium nitrite,1,high,FDA
+e250,1,high,FDA
+sodium nitrate,1,high,FDA
+bha,1,high,FDA
+bht,1,high,FDA
+propyl gallate,1,high,FDA
+potassium bromate,1,high,FSSAI
+benzoic acid,1,medium,FSSAI
+sodium benzoate,1,medium,FSSAI
+e211,1,medium,FSSAI
+sulphur dioxide,1,high,FSSAI
+e220,1,high,FSSAI
+sodium metabisulfite,1,high,FSSAI
+e223,1,high,FSSAI
+artificial color,1,high,General
+artificial flavour,1,medium,General
+
+salt,0,none,General
+sugar,0,none,General
+rice,0,none,General
+wheat flour,0,none,General
+potatoes,0,none,General
+edible vegetable oil,0,none,General
+milk solids,0,none,General
+corn starch,0,none,General
+spices,0,none,General
+pgpr (ins476),1,medium,FSSAI
+pgpr,1,medium,FSSAI
+ins476,1,medium,FSSAI
+ins471,1,medium,FSSAI
+e471,1,medium,FSSAI
+ins472e,1,medium,FSSAI
+e472e,1,medium,FSSAI
+artificial flavour,1,medium,General
+artificial flavouring substances,1,medium,General
+e476,1,medium,FSSAI
+
+sugar,1,high,General
+dextrose,1,high,General
+corn syrup solids,1,high,General
+maltodextrin,1,high,General
+
+refined vegetable oil,1,high,General
+corn oil,1,high,General
+canola oil,1,high,General
+sunflower oil,1,high,General
+
+red 40,1,high,General
+yellow 5,1,high,General
+blue 1,1,high,General
+
+monosodium glutamate,1,medium,General
+disodium inosinate,1,medium,General
+disodium guanylate,1,medium,General
+sodium acetate,1,medium,General
+artificial flavour,1,medium,General
+artificial flavouring substances,1,medium,General
+natural and artificial flavours,1,medium,General
+
+e476,1,medium,FSSAI
+
+
+refined wheat flour,1,high,General
+enriched wheat flour,1,high,General
+white flour,1,high,General
+degermed yellow cornmeal,1,high,General
+sugar,1,high,General
+soybean oil,1,high,General
+
+natural flavor,1,medium,General
+natural flavours,1,medium,General
+artificial flavor,1,medium,General
+artificial flavours,1,medium,General
+
+folic acid,1,low,General
+high fructose corn syrup,1,high,General
+
+honey powder,1,high,General
+
+palmolein oil,1,high,General
+cottonseed oil,1,high,General
+refined vegetable oil,1,high,General
+
+semolina,1,medium,General
+starch,1,medium,General

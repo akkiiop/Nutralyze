@@ -1,0 +1,262 @@
+/* --- PACKAGE FOOD - CALM PROFESSIONAL THEME --- */
+
+:root {
+  --primary-green: #22C55E;
+  /* Emerald 500 */
+  --primary-dark: #15803D;
+  /* Emerald 700 */
+  --secondary-accent: #F59E0B;
+  /* Amber 500 (Warnings) */
+
+  --bg-page: #F7FBF7;
+  /* Soft Health White */
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  /* Simpler, less transparent */
+  --border-subtle: #E2E8F0;
+
+  --text-main: #1F2937;
+  --text-muted: #6B7280;
+}
+
+/* ===== BASE STYLES ===== */
+.packagefood-container {
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: 'Outfit', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  overflow-x: hidden;
+  position: relative;
+  background-image: url('/images/BG_1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Soft White Overlay (Matching Dashboard/Profile) */
+.packagefood-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  /* Low opacity to show BG */
+  /* No Blur */
+  z-index: 0;
+}
+
+/* Ensure content sits above overlay */
+.packagefood-header-card,
+.perspective-container,
+.product-details-card,
+.harmful-section,
+.loading-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== HEADER CARD ===== */
+.packagefood-header-card {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: left;
+  margin-bottom: 40px !important;
+  padding: 32px !important;
+  max-width: 800px;
+  background: var(--glass-bg) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+
+.header-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  /* Slightly smaller */
+  height: 70px;
+  background: rgba(34, 197, 94, 0.1);
+  border-radius: 16px;
+  color: var(--primary-green);
+}
+
+.header-main-icon {
+  font-size: 2rem;
+  color: var(--primary-green);
+}
+
+.header-text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 4px 0;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+  max-width: 500px;
+}
+
+@media (max-width: 600px) {
+  .packagefood-header-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px !important;
+  }
+}
+
+/* ===== CLEAN CARDS (No 3D Tilt typically for professional apps) ===== */
+.glass-card {
+  background: #FFFFFF !important;
+  /* Solid clean white */
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 20px !important;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+  /* Very soft shadow */
+  width: 100%;
+  max-width: 900px;
+  overflow: visible !important;
+  /* Allow dropdowns/tooltips if any */
+}
+
+/* Container Wrapper */
+.perspective-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* STEP TITLES */
+.step-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-main);
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 16px;
+}
+
+/* INGREDIENT CHIPS (if used) */
+.ingredient-chip {
+  background: #F0FDF4;
+  /* Emerald 50 */
+  border: 1px solid #BBF7D0;
+  color: var(--primary-dark);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ===== SAFETY SECTION (Calmer) ===== */
+.harmful-section {
+  border-top: 4px solid var(--primary-green) !important;
+  /* Green top as default "Assessment" color, or simple border */
+  border-left: none !important;
+  background: white !important;
+}
+
+/* If you want a specific "Caution" styling only when hazards exist, logic inside component handles content, 
+   but container can remain clean. */
+
+/* ===== LOADING OVERLAY ===== */
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+  color: var(--text-secondary);
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  border-top-color: var(--primary-glow);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Clean Borders for the Scanner Input */
+input[type="text"] {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  color: var(--text-primary);
+  border-radius: 12px;
+  padding: 12px 20px;
+  outline: none;
+  transition: border-color 0.3s;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+button {
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--neon-cyan), #16a34a);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+button:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+  transform: translateY(-1px);
+}

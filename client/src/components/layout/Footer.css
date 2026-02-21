@@ -1,0 +1,91 @@
+.academic-footer {
+    background: linear-gradient(180deg, #0F1F1A 0%, #0B1A16 100%);
+    border-top: 1px solid rgba(34, 197, 94, 0.25);
+    padding: 48px 64px;
+    color: #B7D9CD;
+    height: auto;
+    position: relative;
+    z-index: 10;
+    margin-top: auto;
+}
+
+.academic-footer.compact {
+    padding: 24px 64px;
+}
+
+/* Typography map */
+.af-brand {
+    color: #E5F5EF;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.af-subtitle {
+    color: #86B5A6;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    font-weight: 400;
+}
+
+.af-badge {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22C55E;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.af-heading {
+    color: #E5F5EF;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.af-text {
+    color: #B7D9CD;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 4px;
+}
+
+.af-guide {
+    color: #86B5A6;
+    font-size: 0.9rem;
+    margin-top: 12px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.af-disclaimer {
+    color: #EF4444;
+    font-size: 12px;
+    margin-top: 12px;
+    display: block;
+    font-weight: 500;
+    max-width: 250px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .academic-footer {
+        padding: 40px 24px;
+        text-align: center;
+    }
+
+    .academic-footer.compact {
+        padding: 24px;
+    }
+
+    .af-disclaimer {
+        max-width: 100%;
+        margin-top: 16px;
+    }
+}

@@ -1,0 +1,12 @@
+flask==3.0.2
+flask-cors==4.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.26.0
+pillow>=10.2.0
+google-generativeai==0.3.2
+python-dotenv==1.0.1
+fastapi
+uvicorn
+groq
+pandas

@@ -1,0 +1,826 @@
+{
+  "acesulfame potassium": {
+    "risk": 55,
+    "nova": 4,
+    "source": "CSPI / FDA",
+    "desc": "Zero-calorie sweetener. CSPI advises caution due to potential thyroid effects in animal studies.",
+    "aliases": [
+      "e950",
+      "ace-k",
+      "acesulfame k"
+    ],
+    "confidence": 1.0
+  },
+  "allura red": {
+    "risk": 75,
+    "nova": 4,
+    "source": "CSPI / FDA",
+    "desc": "Red 40 (E129). CSPI report links it to behavioral issues in children. Most common food dye.",
+    "aliases": [
+      "e129",
+      "red 40",
+      "fd&c red 40"
+    ],
+    "confidence": 1.0
+  },
+  "ammonium carbonate": {
+    "risk": 20,
+    "nova": 3,
+    "source": "FSSAI",
+    "desc": "E503. Industrial leavening agent permitted by FSSAI.",
+    "aliases": [
+      "e503",
+      "503"
+    ],
+    "confidence": 1.0
+  },
+  "artificial color": {
+    "risk": 70,
+    "nova": 4,
+    "source": "FSSAI Labeling",
+    "desc": "Undisclosed synthetic dyes. FSSAI requires specific declaration to avoid hidden risks.",
+    "aliases": [
+      "artificial colour",
+      "synthetic food colour"
+    ],
+    "confidence": 1.0
+  },
+  "artificial flavouring substances": {
+    "risk": 50,
+    "nova": 4,
+    "source": "FSSAI",
+    "desc": "Synthetic mixtures. FSSAI distinguishes them from natural flavors. Drivers of hyper-palatability.",
+    "aliases": [
+      "artificial flavor",
+      "nature identical flavouring substances",
+      "artificial flavour",
+      "natural and artificial flavours"
+    ],
+    "confidence": 1.0
+  },
+  "artificial flavours": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "aspartame": {
+    "risk": 60,
+    "nova": 4,
+    "source": "IARC / WHO",
+    "desc": "Classified by IARC (WHO) as 'Possibly Carcinogenic to Humans' (Group 2B). Also linked to headaches.",
+    "aliases": [
+      "e951",
+      "nutrasweet"
+    ],
+    "confidence": 1.0
+  },
+  "baking powder": {
+    "risk": 25,
+    "nova": 3,
+    "source": "General",
+    "desc": "Chemical leavener. Often contains sodium aluminium sulfate (neurotoxicity concerns).",
+    "aliases": [],
+    "confidence": 1.0
+  },
+  "bha": {
+    "risk": 85,
+    "nova": 4,
+    "source": "IARC / NIH",
+    "desc": "E320. NIH lists it as 'Reasonably Anticipated to be a Human Carcinogen'.",
+    "aliases": [
+      "e320"
+    ],
+    "confidence": 1.0
+  },
+  "bht": {
+    "risk": 80,
+    "nova": 4,
+    "source": "European Commission",
+    "desc": "E321. Restricted in EU due to potential endocrine disrupting effects.",
+    "aliases": [
+      "e321"
+    ],
+    "confidence": 1.0
+  },
+  "brilliant blue": {
+    "risk": 65,
+    "nova": 4,
+    "source": "FDA",
+    "desc": "Blue 1 (E133). Coal-tar derivative. FDA approved but concerns exist regarding hypersensitivity.",
+    "aliases": [
+      "e133",
+      "blue 1",
+      "fd&c blue 1"
+    ],
+    "confidence": 1.0
+  },
+  "canola oil": {
+    "risk": 60,
+    "nova": 4,
+    "source": "Processing Industry",
+    "desc": "Extracted using hexane. While low in sat fat, the refining process removes antioxidants (Vitamin E).",
+    "aliases": [
+      "rapeseed oil"
+    ],
+    "confidence": 1.0
+  },
+  "carboxymethyl cellulose": {
+    "risk": 60,
+    "nova": 4,
+    "source": "Gastroenterology",
+    "desc": "CMC (E466). Clinical trial in Gastroenterology (2021) showed it alters gut microbiome diversity.",
+    "aliases": [
+      "e466",
+      "cellulose gum",
+      "sodium carboxymethyl cellulose"
+    ],
+    "confidence": 1.0
+  },
+  "carrageenan": {
+    "risk": 65,
+    "nova": 4,
+    "source": "JECFA (Review)",
+    "desc": "E407. JECFA reviewed. Degraded carrageenan is unsafe; food-grade is controversial for gut inflammation.",
+    "aliases": [
+      "e407"
+    ],
+    "confidence": 1.0
+  },
+  "citric acid": {
+    "risk": 20,
+    "nova": 3,
+    "source": "Dental Associations",
+    "desc": "E330. Erosive potential. Dental studies link high intake to enamel erosion.",
+    "aliases": [
+      "e330"
+    ],
+    "confidence": 1.0
+  },
+  "corn starch": {
+    "risk": 40,
+    "nova": 3,
+    "source": "USDA / FDA",
+    "desc": "Highly refined carbohydrate used as a thickener. Calorie dense with zero nutrition. FDA classifies it as a processed additive.",
+    "aliases": [
+      "cornstarch",
+      "maize starch",
+      "modified corn starch"
+    ],
+    "confidence": 1.0
+  },
+  "cottonseed oil": {
+    "risk": 80,
+    "nova": 4,
+    "desc": "Identified as high risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "cyclamate": {
+    "risk": 80,
+    "nova": 4,
+    "desc": "Identified as high risk in training dataset. (Source: WHO)",
+    "aliases": [],
+    "source": "WHO",
+    "confidence": 0.85
+  },
+  "degermed yellow cornmeal": {
+    "risk": 55,
+    "nova": 3,
+    "source": "USDA",
+    "desc": "Corn meal with the nutritious germ removed. Lacks fiber and essential fats.",
+    "aliases": [],
+    "confidence": 1.0
+  },
+  "dextrose": {
+    "risk": 65,
+    "nova": 4,
+    "source": "FDA",
+    "desc": "Chemically pure glucose. recognized by FDA as an added sugar that spikes insulin rapidly.",
+    "aliases": [],
+    "confidence": 1.0
+  },
+  "disodium guanylate": {
+    "risk": 40,
+    "nova": 4,
+    "source": "Codex",
+    "desc": "E627. Flavor potentiator. Often implies high-salt ultra-processed food.",
+    "aliases": [
+      "e627"
+    ],
+    "confidence": 1.0
+  },
+  "disodium inosinate": {
+    "risk": 40,
+    "nova": 4,
+    "source": "Codex",
+    "desc": "E631. Synergistic enhancer. Codex approved but caution for uric acid/gout.",
+    "aliases": [
+      "e631"
+    ],
+    "confidence": 1.0
+  },
+  "e124": {
+    "risk": 80,
+    "nova": 4,
+    "desc": "Identified as high risk in training dataset. (Source: FSSAI)",
+    "aliases": [],
+    "source": "FSSAI",
+    "confidence": 0.85
+  },
+  "erythritol": {
+    "risk": 20,
+    "nova": 4,
+    "source": "Nature Medicine (2023)",
+    "desc": "Generally safe, but a 2023 Nature Medicine study found links to increased blood clotting risk.",
+    "aliases": [
+      "e968"
+    ],
+    "confidence": 1.0
+  },
+  "folic acid": {
+    "risk": 20,
+    "nova": 1,
+    "desc": "Identified as low risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "glycerol": {
+    "risk": 30,
+    "nova": 4,
+    "source": "FDA GRAS",
+    "desc": "Humectant (E422). Safe in moderation, but FDA notes laxative effects at high levels.",
+    "aliases": [
+      "e422",
+      "glycerin",
+      "glycerine"
+    ],
+    "confidence": 1.0
+  },
+  "high fructose corn syrup": {
+    "risk": 95,
+    "nova": 4,
+    "source": "NIH / PubMed",
+    "desc": "Industrial sweetener linked to fatty liver and diabetes. Research (NIH) indicates it bypasses hunger signals (leptin).",
+    "aliases": [
+      "hfcs",
+      "glucose-fructose",
+      "glucose-fructose syrup",
+      "corn syrup solids",
+      "isoglucose"
+    ],
+    "confidence": 1.0
+  },
+  "honey powder": {
+    "risk": 80,
+    "nova": 4,
+    "desc": "Identified as high risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "hydrogenated vegetable oil": {
+    "risk": 99,
+    "nova": 4,
+    "source": "WHO / FSSAI",
+    "desc": "Source of Trans Fats. WHO explicitly targets global elimination of industrially produced trans fats due to heart disease risk.",
+    "aliases": [
+      "partially hydrogenated oil",
+      "trans fat",
+      "vanaspati",
+      "margarine"
+    ],
+    "confidence": 1.0
+  },
+  "ins471": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: FSSAI)",
+    "aliases": [],
+    "source": "FSSAI",
+    "confidence": 0.85
+  },
+  "ins472e": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: FSSAI)",
+    "aliases": [],
+    "source": "FSSAI",
+    "confidence": 0.85
+  },
+  "ins476": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: FSSAI)",
+    "aliases": [],
+    "source": "FSSAI",
+    "confidence": 0.85
+  },
+  "interesterified vegetable fat": {
+    "risk": 75,
+    "nova": 4,
+    "source": "Nutrition Reviews",
+    "desc": "Chemically modified fat. Nutrition Reviews suggest it affects blood sugar similarly to trans fats.",
+    "aliases": [
+      "interesterified fat"
+    ],
+    "confidence": 1.0
+  },
+  "invert sugar syrup": {
+    "risk": 70,
+    "nova": 4,
+    "source": "EFSA (EU)",
+    "desc": "'Pre-digested' sugar syrup. EFSA notes rapid absorption leading to high glycemic response.",
+    "aliases": [
+      "invert sugar",
+      "invert syrup"
+    ],
+    "confidence": 1.0
+  },
+  "malic acid": {
+    "risk": 25,
+    "nova": 3,
+    "source": "General",
+    "desc": "E296. Tartness regulator. High acidity affects enamel.",
+    "aliases": [
+      "e296"
+    ],
+    "confidence": 1.0
+  },
+  "maltodextrin": {
+    "risk": 60,
+    "nova": 4,
+    "source": "PubMed / GI Database",
+    "desc": "Ultra-processed thickener. Has a Glycemic Index (85-105) higher than table sugar, causing sharp insulin spikes.",
+    "aliases": [],
+    "confidence": 1.0
+  },
+  "milk solids": {
+    "risk": 30,
+    "nova": 3,
+    "source": "Food Science",
+    "desc": "Oxidized cholesterol (oxysterols) found in spray-dried milk powders.",
+    "aliases": [
+      "milk powder",
+      "skim milk powder",
+      "whey powder"
+    ],
+    "confidence": 1.0
+  },
+  "modified palm oil": {
+    "risk": 70,
+    "nova": 4,
+    "source": "Scientific Consensus",
+    "desc": "Interesterified fat. Used to replace trans fats but may still negatively alter lipid metabolism.",
+    "aliases": [],
+    "confidence": 1.0
+  },
+  "mono- and di-glycerides of fatty acids": {
+    "risk": 55,
+    "nova": 4,
+    "source": "EFSA / Research",
+    "desc": "E471. Evaluated by EFSA. While 'safe', emerging research suggests gut inflammation risks.",
+    "aliases": [
+      "e471",
+      "ins 471",
+      "471",
+      "e472e",
+      "ins 472e",
+      "472e",
+      "datem"
+    ],
+    "confidence": 1.0
+  },
+  "monosodium glutamate": {
+    "risk": 50,
+    "nova": 4,
+    "source": "FDA / FSSAI",
+    "desc": "E621. FSSAI requires 'Contains MSG' warning. FDA recognizes it as safe but monitors 'MSG Complex'.",
+    "aliases": [
+      "e621",
+      "msg",
+      "ajinomoto",
+      "hydrolyzed vegetable protein"
+    ],
+    "confidence": 1.0
+  },
+  "natural flavour": {
+    "risk": 30,
+    "nova": 4,
+    "source": "FDA",
+    "desc": "FDA: 'Derived from natural source' but can be heavily processed containing solvents.",
+    "aliases": [
+      "natural flavor",
+      "natural flavoring",
+      "natural flavouring"
+    ],
+    "confidence": 1.0
+  },
+  "natural flavours": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "palmolein oil": {
+    "risk": 80,
+    "nova": 4,
+    "desc": "Identified as high risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "pgpr": {
+    "risk": 50,
+    "nova": 4,
+    "source": "Codex Alimentarius",
+    "desc": "E476. Approved by Codex as chocolate emulsifier replacement for cocoa butter. Marker of ultra-processing.",
+    "aliases": [
+      "e476",
+      "ins 476",
+      "476"
+    ],
+    "confidence": 1.0
+  },
+  "pgpr (ins476)": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: FSSAI)",
+    "aliases": [],
+    "source": "FSSAI",
+    "confidence": 0.85
+  },
+  "phenylalanine": {
+    "risk": 70,
+    "nova": 1,
+    "source": "FSSAI / FDA",
+    "desc": "FSSAI/FDA require mandatory warning for Phenylketonurics.",
+    "aliases": [],
+    "confidence": 1.0
+  },
+  "polysorbate 80": {
+    "risk": 65,
+    "nova": 4,
+    "source": "Nature Journal",
+    "desc": "Nature study (2015) shows it erodes gut mucus barrier, leading to 'leaky gut' and colitic symptoms.",
+    "aliases": [
+      "e433",
+      "tween 80"
+    ],
+    "confidence": 1.0
+  },
+  "ponceau 4r": {
+    "risk": 80,
+    "nova": 4,
+    "desc": "Identified as high risk in training dataset. (Source: FSSAI)",
+    "aliases": [],
+    "source": "FSSAI",
+    "confidence": 0.85
+  },
+  "potassium bromate": {
+    "risk": 99,
+    "nova": 4,
+    "source": "FSSAI (Banned)",
+    "desc": "E924a. Banned in India (FSSAI) and EU. Validated carcinogen in animal models.",
+    "aliases": [
+      "e924",
+      "e924a"
+    ],
+    "confidence": 1.0
+  },
+  "potassium sorbate": {
+    "risk": 20,
+    "nova": 3,
+    "source": "EFSA",
+    "desc": "E202. EFSA established ADI. Considered one of the safer preservatives.",
+    "aliases": [
+      "e202"
+    ],
+    "confidence": 1.0
+  },
+  "potato starch": {
+    "risk": 40,
+    "nova": 3,
+    "source": "Open Food Facts",
+    "desc": "Refined starch that breaks down rapidly into glucose. Often used in ultra-processed snacks.",
+    "aliases": [],
+    "confidence": 1.0
+  },
+  "potatoes": {
+    "risk": 0,
+    "nova": 1,
+    "desc": "Identified as none risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "propyl gallate": {
+    "risk": 80,
+    "nova": 4,
+    "desc": "Identified as high risk in training dataset. (Source: FDA)",
+    "aliases": [],
+    "source": "FDA",
+    "confidence": 0.85
+  },
+  "refined palm oil": {
+    "risk": 65,
+    "nova": 4,
+    "source": "EFSA (Contaminants)",
+    "desc": "EFSA warns about process contaminants (GE/MCPD) formed during high-temp refining, which are genotoxic.",
+    "aliases": [
+      "palmolein",
+      "palm kernel oil",
+      "palm oil"
+    ],
+    "confidence": 1.0
+  },
+  "refined vegetable oil": {
+    "risk": 60,
+    "nova": 4,
+    "source": "General Food Science",
+    "desc": "Generic solvent-extracted oils. Stripped of nutrients and prone to oxidation.",
+    "aliases": [
+      "edible vegetable oil",
+      "refined oil",
+      "sunflower oil",
+      "corn oil"
+    ],
+    "confidence": 1.0
+  },
+  "refined wheat flour": {
+    "risk": 60,
+    "nova": 3,
+    "source": "FSSAI / WHO",
+    "desc": "Stripped of fiber and nutrients. Acts like sugar, causing rapid glucose spikes. WHO guidelines warn against high intake of refined grains.",
+    "aliases": [
+      "maida",
+      "white flour",
+      "all purpose flour",
+      "enriched wheat flour",
+      "wheat flour"
+    ],
+    "confidence": 1.0
+  },
+  "rice": {
+    "risk": 0,
+    "nova": 1,
+    "desc": "Identified as none risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "saccharin": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: WHO)",
+    "aliases": [],
+    "source": "WHO",
+    "confidence": 0.85
+  },
+  "salt": {
+    "risk": 0,
+    "nova": 1,
+    "desc": "Identified as none risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "semolina": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "shea fat": {
+    "risk": 50,
+    "nova": 3,
+    "source": "EU Regulation",
+    "desc": "Cocoa butter equivalent. Allowed in chocolates up to 5% (EU). High saturated fat.",
+    "aliases": [
+      "shea butter",
+      "shea oil",
+      "illipe"
+    ],
+    "confidence": 1.0
+  },
+  "silicon dioxide": {
+    "risk": 20,
+    "nova": 4,
+    "source": "EFSA (Re-eval)",
+    "desc": "E551. EFSA re-evaluation highlighted need to investigate nanoparticle potential.",
+    "aliases": [
+      "e551"
+    ],
+    "confidence": 1.0
+  },
+  "sodium acetate": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "sodium benzoate": {
+    "risk": 70,
+    "nova": 4,
+    "source": "FDA / Lancet",
+    "desc": "E211. FDA monitors for benzene formation (carcinogen). Lancet study linked it to hyperactivity.",
+    "aliases": [
+      "e211",
+      "benzoate",
+      "benzoic acid"
+    ],
+    "confidence": 1.0
+  },
+  "sodium bicarbonate": {
+    "risk": 15,
+    "nova": 1,
+    "source": "General",
+    "desc": "E500. Baking soda. Contributes to sodium load.",
+    "aliases": [
+      "baking soda",
+      "e500"
+    ],
+    "confidence": 1.0
+  },
+  "sodium nitrate": {
+    "risk": 85,
+    "nova": 4,
+    "source": "IARC",
+    "desc": "E251. Precursor to nitrite/nitrosamines in the body.",
+    "aliases": [
+      "e251"
+    ],
+    "confidence": 1.0
+  },
+  "sodium nitrite": {
+    "risk": 90,
+    "nova": 4,
+    "source": "IARC / WHO",
+    "desc": "E250. IARC classifies processed meats with nitrites as Group 1 Carcinogens.",
+    "aliases": [
+      "e250",
+      "nitrite"
+    ],
+    "confidence": 1.0
+  },
+  "sorbitol": {
+    "risk": 30,
+    "nova": 4,
+    "source": "EFSA",
+    "desc": "Polyol sweetener. EFSA warns excessive consumption causes bloating and laxative effects.",
+    "aliases": [
+      "e420"
+    ],
+    "confidence": 1.0
+  },
+  "soy lecithin": {
+    "risk": 15,
+    "nova": 3,
+    "source": "FDA GRAS",
+    "desc": "Generally Recognized As Safe (GRAS). Source of choline. Caution only for soy allergies.",
+    "aliases": [
+      "e322",
+      "lecithin",
+      "soya lecithin",
+      "ins 322"
+    ],
+    "confidence": 1.0
+  },
+  "soy protein isolate": {
+    "risk": 45,
+    "nova": 4,
+    "source": "Clean Label Project",
+    "desc": "Hexane-extracted. Clean Label Project often finds industrial contaminants in isolates.",
+    "aliases": [],
+    "confidence": 1.0
+  },
+  "soybean oil": {
+    "risk": 60,
+    "nova": 4,
+    "source": "PubMed",
+    "desc": "High Omega-6 linoleic acid. Studies link excess Omega-6 to systemic inflammation.",
+    "aliases": [
+      "soya oil",
+      "soy oil"
+    ],
+    "confidence": 1.0
+  },
+  "spices": {
+    "risk": 0,
+    "nova": 1,
+    "desc": "Identified as none risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "starch": {
+    "risk": 50,
+    "nova": 4,
+    "desc": "Identified as medium risk in training dataset. (Source: Open Food Facts / Common Knowledge)",
+    "aliases": [],
+    "source": "Open Food Facts / Common Knowledge",
+    "confidence": 0.85
+  },
+  "sucralose": {
+    "risk": 55,
+    "nova": 4,
+    "source": "NCBI / Research",
+    "desc": "Chlorinated sugar. Studies suggest it may reduce healthy gut bacteria and affect insulin sensitivity (NCBI).",
+    "aliases": [
+      "e955",
+      "splenda"
+    ],
+    "confidence": 1.0
+  },
+  "sugar": {
+    "risk": 50,
+    "nova": 3,
+    "source": "WHO Guidelines",
+    "desc": "Free sugars. WHO recommends limiting intake to <5% of energy to prevent obesity and dental caries.",
+    "aliases": [
+      "sucrose",
+      "white sugar",
+      "refined sugar"
+    ],
+    "confidence": 1.0
+  },
+  "sulphur dioxide": {
+    "risk": 60,
+    "nova": 3,
+    "source": "FDA Labeling",
+    "desc": "E220. FDA requires explicit labeling due to severe respiratory risks for asthmatics.",
+    "aliases": [
+      "e220",
+      "sulfites",
+      "sodium metabisulfite",
+      "e223"
+    ],
+    "confidence": 1.0
+  },
+  "sunset yellow": {
+    "risk": 75,
+    "nova": 4,
+    "source": "EU / FSA",
+    "desc": "Yellow 6 (E110). Banned in some EU countries. FSA warns of hyperactivity risks.",
+    "aliases": [
+      "e110",
+      "yellow 6",
+      "fd&c yellow 6"
+    ],
+    "confidence": 1.0
+  },
+  "tartrazine": {
+    "risk": 80,
+    "nova": 4,
+    "source": "FSSAI / EU",
+    "desc": "Yellow 5 (E102). FSSAI mandates labeling. Linked to hyperactivity in children (Southampton Study).",
+    "aliases": [
+      "e102",
+      "yellow 5",
+      "fd&c yellow 5"
+    ],
+    "confidence": 1.0
+  },
+  "tbhq": {
+    "risk": 80,
+    "nova": 4,
+    "source": "FDA / NTP",
+    "desc": "E319. NTP (National Toxicology Program) studies found higher incidence of tumors in rats.",
+    "aliases": [
+      "e319",
+      "tertiary butylhydroquinone"
+    ],
+    "confidence": 1.0
+  },
+  "vegetable shortening": {
+    "risk": 90,
+    "nova": 4,
+    "source": "American Heart Assoc.",
+    "desc": "Solid fat high in pro-inflammatory omega-6s. AHA advises limiting saturated and solid fats.",
+    "aliases": [
+      "shortening",
+      "baking shortening"
+    ],
+    "confidence": 1.0
+  },
+  "xanthan gum": {
+    "risk": 20,
+    "nova": 3,
+    "source": "EFSA",
+    "desc": "E415. EFSA re-evaluation confirmed safety but noted laxative effect at high doses.",
+    "aliases": [
+      "e415"
+    ],
+    "confidence": 1.0
+  }
+}

@@ -1,0 +1,311 @@
+/* HARMFUL REPORT - CALM PROFESSIONAL */
+
+/* FREQUENCY CARD */
+.frequency-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Softer Shadow */
+  margin-bottom: 24px;
+  border: 1px solid #E2E8F0;
+}
+
+.freq-header {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.freq-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.freq-level {
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+.freq-body {
+  padding: 24px;
+  font-size: 1rem;
+  color: #334155;
+  /* Slate 700 */
+  line-height: 1.6;
+}
+
+/* COLORS - Updated for Professional Look */
+.bg-green {
+  background: #10B981;
+}
+
+/* Emerald */
+.bg-blue {
+  background: #3B82F6;
+}
+
+/* Royal Blue */
+.bg-yellow {
+  background: #F59E0B;
+}
+
+/* Amber */
+.bg-orange {
+  background: #F97316;
+}
+
+/* Orange */
+.bg-red {
+  background: #EF4444;
+}
+
+/* Red */
+
+/* Border overrides generally not needed if using cleaner cards, but keeping for legacy compatibility if color passed */
+.border-green {
+  border-color: #10B981;
+}
+
+.border-blue {
+  border-color: #3B82F6;
+}
+
+.border-yellow {
+  border-color: #F59E0B;
+}
+
+.border-orange {
+  border-color: #F97316;
+}
+
+.border-red {
+  border-color: #EF4444;
+}
+
+
+/* WRAPPER */
+.hazard-report-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- GROUPS --- */
+.hazard-report-group {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+}
+
+/* Theme Groups - Header Colors only, no aggressive borders */
+.danger-group .hazard-header-compact {
+  background: #FEF2F2;
+  /* Very soft Red */
+  border-bottom: 1px solid #FECACA;
+}
+
+.warning-group .hazard-header-compact {
+  background: #FFF7ED;
+  /* Very soft Orange */
+  border-bottom: 1px solid #FED7AA;
+}
+
+/* --- HEADER --- */
+.hazard-header-compact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.hazard-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #1E293B;
+}
+
+.hazard-title-group h2 {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.count-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: white;
+}
+
+.bg-danger {
+  background: #EF4444;
+}
+
+.bg-warning {
+  background: #F97316;
+}
+
+/* --- LIST STRUCTURE --- */
+.hazard-list-container {
+  font-family: 'Outfit', sans-serif;
+}
+
+.hazard-list-header {
+  display: flex;
+  padding: 12px 24px;
+  background: #FFFFFF;
+  /* White */
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.hazard-list-row {
+  display: flex;
+  padding: 16px 24px;
+  border-bottom: 1px solid #F1F5F9;
+  align-items: flex-start;
+  transition: background 0.2s;
+}
+
+.hazard-list-row:last-child {
+  border-bottom: none;
+}
+
+.hazard-list-row:hover {
+  background: #F8FAFC;
+}
+
+/* --- COLUMNS --- */
+.col-name {
+  flex: 0 0 30%;
+  padding-right: 16px;
+}
+
+.col-risk {
+  flex: 1;
+  padding-right: 16px;
+}
+
+.col-sev {
+  flex: 0 0 100px;
+  text-align: right;
+}
+
+/* --- TYPOGRAPHY --- */
+.row-name {
+  display: block;
+  font-weight: 600;
+  color: #1E293B;
+  font-size: 0.95rem;
+}
+
+.row-source {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  display: block;
+  margin-top: 4px;
+}
+
+.col-risk p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* --- BADGES --- */
+.sev-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.sev-high {
+  background: #FEF2F2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+}
+
+.sev-medium {
+  background: #FFF7ED;
+  color: #EA580C;
+  border: 1px solid #FED7AA;
+}
+
+.sev-low {
+  background: #F0FDF4;
+  color: #16A34A;
+  border: 1px solid #BBF7D0;
+}
+
+/* SAFE STATE */
+.safe-status-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.safe-badge {
+  color: #16A34A;
+  /* Emerald Green */
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: #F0FDF4;
+  padding: 16px 32px;
+  border-radius: 12px;
+  border: 1px solid #BBF7D0;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hazard-list-header {
+    display: none;
+  }
+
+  .hazard-list-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .col-name,
+  .col-risk,
+  .col-sev {
+    width: 100%;
+    flex: none;
+    text-align: left;
+  }
+
+  .col-sev {
+    margin-top: 8px;
+  }
+}
