@@ -83,7 +83,12 @@ export const scanPackageFood = async (req, res) => {
 
   try {
     const offRes = await axios.get(
-      `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`
+      `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`,
+      {
+        headers: {
+          "User-Agent": "Nutralyze - Final Year Project - Product Identification"
+        }
+      }
     );
 
     if (offRes.data.status === 0) {
