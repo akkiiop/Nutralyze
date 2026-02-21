@@ -10,7 +10,12 @@ export const detectProduct = async (req, res) => {
 
     // Step 1: Try Open Food Facts
     const offRes = await axios.get(
-      `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`
+      `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`,
+      {
+        headers: {
+          "User-Agent": "Nutralyze - AI Model Service - Barcode Detection"
+        }
+      }
     );
 
     if (offRes.data.status === 1) {

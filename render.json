@@ -75,6 +75,10 @@
           "sync": false
         },
         {
+          "key": "VITE_AI_MODEL_URL",
+          "value": "https://nutrivision-ai.onrender.com"
+        },
+        {
           "key": "VITE_GEMINI_API_KEY",
           "sync": false
         }

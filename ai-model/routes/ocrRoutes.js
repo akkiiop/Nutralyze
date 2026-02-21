@@ -14,7 +14,7 @@ router.post(
         return res.status(400).json({ error: "Image missing" });
       }
 
-      const data = await extractIngredientsFromImageFile(req.file);
+      const data = await extractIngredientsFromImageFile(req.file, req.app.locals.genAI);
 
       res.json(data);
     } catch (err) {

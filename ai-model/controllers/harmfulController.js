@@ -1,6 +1,4 @@
-import axios from "axios";
-
-const ML_SERVICE_URL = "http://localhost:8002/predict";
+import { predictIngredients } from "../utils/mlUtils.js";
 
 export const analyzeHarmfulIngredients = async (req, res) => {
   try {
@@ -14,29 +12,24 @@ export const analyzeHarmfulIngredients = async (req, res) => {
       });
     }
 
-    // Call Python ML service
-    const mlResponse = await axios.post(
-      ML_SERVICE_URL,
-      { ingredients },
-      { timeout: 15000 } // important for ML calls
-    );
+    // Call ported ML logic locally
+    const { results, frequency_analysis } = predictIngredients(ingredients);
 
-    const results = mlResponse.data.results || [];
-
-    // Filter harmful ingredients
+    // Filter harmful ingredients for specific response format if needed
     const harmful = results.filter(
       (item) =>
         item.label === "harmful" &&
-        item.confidence >= 0.7
+        item.risk >= 40 // adjusted to match common training thresholds
     );
 
     return res.json({
       harmful,
-      all: results
+      all: results,
+      frequency_analysis
     });
 
   } catch (error) {
-    console.error("ML integration error:", error.message);
+    console.error("ML analysis error:", error.message);
 
     return res.status(500).json({
       error: "Failed to analyze harmful ingredients"
