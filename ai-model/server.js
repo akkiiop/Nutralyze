@@ -21,9 +21,16 @@ const PORT = process.env.PORT || 5000;
 // ---------------------------
 // Middleware
 // ---------------------------
-const allowedOrigins = (process.env.CORS_ORIGINS || "http://localhost:3000,http://localhost:8080,https://nutralyze.onrender.com,https://nutrivision-oc9q.onrender.com")
-  .split(",")
-  .map((o) => o.trim());
+const defaultOrigins = [
+  "http://localhost:3000",
+  "http://localhost:8080",
+  "https://nutralyze.onrender.com",
+  "https://nutrivision-oc9q.onrender.com"
+];
+const envOrigins = process.env.CORS_ORIGINS
+  ? process.env.CORS_ORIGINS.split(",").map(o => o.trim())
+  : [];
+const allowedOrigins = [...new Set([...defaultOrigins, ...envOrigins])];
 
 app.use(
   cors({
