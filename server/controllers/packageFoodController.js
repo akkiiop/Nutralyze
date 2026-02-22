@@ -173,40 +173,41 @@ export const scanPackageFood = async (req, res) => {
     console.error("Open Food Facts Error - Attempting AI Fallback", err.message);
 
     // AI Fallback Phase
-     // AI Fallback Phase
-try {
-  const aiBaseUrl =
-    process.env.AI_MODEL_URL ||
-    process.env.VITE_AI_MODEL_URL ||
-    "https://nutralyze-ai.onrender.com";
+    // AI Fallback Phase
+    try {
+      const aiBaseUrl =
+        process.env.AI_MODEL_URL ||
+        process.env.VITE_AI_MODEL_URL ||
+        "https://nutralyze-ai.onrender.com";
 
-  const cleanedUrl = aiBaseUrl.endsWith("/")
-    ? aiBaseUrl.slice(0, -1)
-    : aiBaseUrl;
+      const cleanedUrl = aiBaseUrl.endsWith("/")
+        ? aiBaseUrl.slice(0, -1)
+        : aiBaseUrl;
 
-  const aiRes = await axios.post(
-    `${cleanedUrl}/api/detect`,
-    { barcode },
-    { timeout: 15000 }
-  );
+      const aiRes = await axios.post(
+        `${cleanedUrl}/api/detect`,
+        { barcode },
+        { timeout: 15000 }
+      );
 
-  if (aiRes.data && !aiRes.data.error) {
-    return res.json({
-      product: {
-        identity: aiRes.data,
-        nutrition: {
-          isEstimated: true,
-          hasNutrition: true,
-          per100g: aiRes.data.nutriments || {},
-        },
-        ingredients: {
-          list: aiRes.data.ingredients || [],
-        },
-      },
-    });
+      if (aiRes.data && !aiRes.data.error) {
+        return res.json({
+          product: {
+            identity: aiRes.data,
+            nutrition: {
+              isEstimated: true,
+              hasNutrition: true,
+              per100g: aiRes.data.nutriments || {},
+            },
+            ingredients: {
+              list: aiRes.data.ingredients || [],
+            },
+          },
+        });
+      }
+    } catch (aiErr) {
+      console.error("AI Fallback failed too:", aiErr.message);
+    }
+    res.status(500).json({ error: "Failed to fetch product" });
   }
-} catch (aiErr) {
-  console.error("AI Fallback failed too:", aiErr.message);
-}
-    
 };
