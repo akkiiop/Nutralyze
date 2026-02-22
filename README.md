@@ -1,130 +1,109 @@
-# Nutralyze
+# Nutralyze — Smart AI Nutrition & Safety Advisor
 
-An AI-powered nutrition and calorie estimation web application that helps users track their food intake and maintain a healthy lifestyle.
+![Nutralyze Banner](https://img.shields.io/badge/Status-Active-brightgreen)
+![Tech Stack](https://img.shields.io/badge/Stack-MERN%20+%20AI-blue)
+![License](https://img.shields.io/badge/License-ISC-orange)
 
-## Features
+**Nutralyze** is a state-of-the-art health application designed to bridge the gap between nutrition data and actionable health insights. Utilizing advanced AI models (Gemini & Groq) and a robust MERN architecture, it provides real-time food analysis, safety audits for packaged goods, and personalized diet planning through a glassmorphic "medical-tech" interface.
 
-- 🔍 AI-powered food recognition and nutrition analysis
-- 📊 Personalized diet plans based on user preferences
-- 📱 Real-time food logging with camera integration
-- 💬 AI nutrition assistant powered by Google's Gemini
-- 📈 Progress tracking and goal monitoring
-- 🔐 Secure Google authentication
-- 🎯 Daily goals and streak tracking
+---
 
-## Tech Stack
+## 🚀 Key Features
 
-- React + Vite
-- Material-UI
-- Firebase (Authentication, Firestore, Storage)
-- Google Gemini AI
-- EfficientNet (Food Detection Model)
+- **🔍 Intelligent Food Labelling**: Scan barcodes or search for products to receive instant nutritional breakdowns.
+- **🛡️ Safety Assessment**: Automated "High-Risk" and "Warning" classification for harmful additives, emulsifiers, and preservatives.
+- **📊 Interactive Dashboard**: Real-time tracking of macros, weight progress, and nutritional goals with dynamic visualizations.
+- **💬 AI Nutrition Assistant**: A 24/7 smart companion powered by Gemini for answering dietary queries and meal suggestions.
+- **🥗 Personalized Diet Plans**: Goal-oriented diet generation focused on user-specific biometric data and preferences.
+- **🌡️ Medical-Tech UI**: A premium, nature-inspired design system with smooth micro-animations and responsive glassmorphic components.
 
-## Prerequisites
+---
 
-- Node.js (v14 or higher)
-- npm or yarn
-- Firebase account
-- Google Cloud account with Gemini API access
+## 🏗️ System Architecture
 
-## Setup
+Nutralyze follows a distributed micro-service pattern to ensure high availability and efficient AI processing.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/nutri-vision.git
-   cd nutri-vision
-   ```
+### 1. Frontend (Client)
+- **Framework**: React 18 + Vite
+- **Styling**: Material UI (MUI) + Vanilla CSS (Dynamic Themes)
+- **Features**: Barcode scanning (HTML5-QRCode), Interactive Charts (Chart.js), Real-time state management.
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+### 2. Core Backend (Server)
+- **Runtime**: Node.js + Express
+- **Database**: MongoDB Atlas (Mongoose ODM)
+- **Auth**: Google OAuth Integration + JWT
+- **Logic**: User profiles, Meal logging, Progress tracking, and Session management.
 
-3. Create a Firebase project:
-   - Go to the [Firebase Console](https://console.firebase.google.com/)
-   - Create a new project
-   - Enable Authentication with Google sign-in
-   - Create a Firestore database
-   - Enable Storage
+### 3. AI Model Service
+- **LLMs**: Google Gemini Pro & Groq (Llama-3)
+- **ML Utilities**: Custom ingredient normalization and risk analysis logic.
+- **OCR**: Integrated image-to-text processing for ingredient lists.
 
-4. Set up environment variables:
-   - Copy `.env.example` to `.env`
-   - Fill in your Firebase configuration values
-   - Add your Gemini API key
+---
 
-5. Start the development server:
-   ```bash
-   npm run dev
-   ```
+## 🛠️ Tech Stack
 
-## Project Structure
+| Layer | Technologies |
+|---|---|
+| **Frontend** | React, Vite, MUI, Framer Motion, Recharts |
+| **Backend** | Node.js, Express, MongoDB, Mongoose |
+| **Intelligence** | Google Gemini API, Groq SDK, Tesseract.js |
+| **Deployment** | Docker, Render.com |
 
-```
-src/
-├── components/         # Reusable components
-│   ├── auth/          # Authentication components
-│   ├── chat/          # ChatBot components
-│   └── layout/        # Layout components
-├── pages/             # Page components
-├── firebase.js        # Firebase configuration
-├── theme.js           # Material-UI theme
-└── main.jsx          # Application entry point
+---
+
+## ⚙️ Installation & Setup
+
+### Prerequisites
+- Node.js (v18+)
+- MongoDB Atlas Account
+- Google AI (Gemini) API Key
+- Google Cloud Console for OAuth
+
+### 1. Clone & Install
+```bash
+git clone https://github.com/akkiiop/Nutralyze.git
+cd Nutralyze
+npm run install-all  # Root script to install client, server, and ai-model deps
 ```
 
-## Database Schema
+### 2. Environment Configuration
+Create `.env` files in `server/` and `ai-model/` following the provided `.env.example` templates.
 
-The application uses Firebase Firestore with the following collections:
+**Key Keys Required:**
+- `MONGO_URI`
+- `JWT_SECRET`
+- `GEMINI_API_KEY`
+- `GOOGLE_OAUTH_CLIENT_ID`
 
-- `users`: User profiles and authentication data
-- `userProfiles`: Detailed user information and preferences
-- `mealLogs`: Food logging entries with images and nutrition data
-- `dietPlans`: AI-generated personalized diet plans
-- `chatMessages`: User-AI chat history
-
-## AI Integration
-
-### Food Detection
-
-The application uses a pre-trained EfficientNet model for food detection. The model files should be placed in:
-
+### 3. Running Locally
+```bash
+# Start all services concurrently
+npm run dev
 ```
-public/
-└── models/
-    ├── efficientnet.pth
-    └── categories.txt
-```
+- Frontend: `http://localhost:3000`
+- API Server: `http://localhost:8080`
+- AI Model Server: `http://localhost:5000`
 
-### Nutrition Analysis
+---
 
-The application uses Google's Gemini AI to:
-- Generate personalized diet plans
-- Provide nutrition advice
-- Calculate nutritional values
-- Offer meal suggestions
+## 📦 Deployment
 
-## Contributing
+Nutralyze is containerized using **Docker** and optimized for **Render.com**. 
+The production instance can be accessed at: [https://nutrivision-oc9q.onrender.com](https://nutrivision-oc9q.onrender.com)
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+---
 
-## Deployment
+## 🛡️ Research & Development
 
-This site is deployed in render using docker you can access this site at https://nutrivision-oc9q.onrender.com
+Nutralyze is a real-time research project developed by **Team Sainz**. The project focuses on leveraging Large Language Models to improve nutritional literacy and consumer safety.
 
-## Real-time Research Project by the Team Sainz
+**The Team:**
+- **Vineel Yerubandi** — Project Lead & Architect
+- **K. Sri Rishikesh Varma** — AI & Backend Systems
+- **Kota Shiva Tarak Reddy** — UI/UX Design & Data Engineering
+- **Solomon Heron** — Backend Infrastructure & Data Science
+- **Satyadeva** — Frontend Engineering & QA
 
-- 🧠 Vineel Yerubandi — Team Lead & Database designer
-   - Led the team and played a key role in training the AI model & in creating the Database design.
-- 🤖 K. Sri Rishikesh Varma — AI Developer & Backend Developer
-   - Developed the AI model and implemented its integration with the backend system.
-- 🎨 Kota Shiva Tarak Reddy — UI Designer & AI Developer
-   - Designed the user interface and actively participated in data gathering for training the AI model.
-- 🔧 Solomon Heron — Backend Developer & Data Scientist
-   - Handled the backend systems and collaborated in data collection, preprocessing, and labeling.
-- 💻 Satyadeva — Frontend Developer & Tester
-   - Built the frontend interface and conducted rigorous testing of the application to ensure quality.
- 
-###### Done by 2nd Year Students of KMIT
+---
+###### © 2026 Team Sainz | Developed with ❤️ by KMIT Students
