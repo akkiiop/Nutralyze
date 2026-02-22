@@ -36,7 +36,9 @@ const BarcodeScanner = ({ onProductFetched, onHarmAnalyzed, setLoadingPhase, loa
       // Short delay to let user see "Finalizing"
       await new Promise(r => setTimeout(r, 600));
 
-      if (typeof onHarmAnalyzed === "function") onHarmAnalyzed(data.all || data.results || []);
+      if (typeof onHarmAnalyzed === "function" && !data.error) {
+        onHarmAnalyzed(data);
+      }
     } catch (error) {
       console.error("ML Analysis failed:", error);
     }

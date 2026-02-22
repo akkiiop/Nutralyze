@@ -43,6 +43,58 @@
   line-height: 1.6;
 }
 
+.freq-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.freq-icon {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* THEME CLASSES */
+.theme-green {
+  border-color: #10B981;
+}
+
+.theme-red {
+  border-color: #EF4444;
+}
+
+.theme-orange {
+  border-color: #F97316;
+}
+
+.theme-yellow {
+  border-color: #F59E0B;
+}
+
+.theme-blue {
+  border-color: #3B82F6;
+}
+
+.color-green {
+  background: #10B981;
+}
+
+.color-red {
+  background: #EF4444;
+}
+
+.color-orange {
+  background: #F97316;
+}
+
+.color-yellow {
+  background: #F59E0B;
+}
+
+.color-blue {
+  background: #3B82F6;
+}
+
 /* COLORS - Updated for Professional Look */
 .bg-green {
   background: #10B981;

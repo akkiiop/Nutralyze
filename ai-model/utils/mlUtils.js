@@ -150,15 +150,22 @@ export const predictIngredients = (ingredients) => {
         tokens.forEach(token => {
             const tokenClean = cleanText(token);
 
-            // Exact or fuzzy match in lookup
-            // In Node, we can do a quick check
             if (LOOKUP[tokenClean] && !seen.has(LOOKUP[tokenClean].ingredient)) {
+                const baseInfo = LOOKUP[tokenClean];
+
+                // Refine Label based on Risk for Frontend categorization
+                let refinedLabel = baseInfo.label;
+                if (baseInfo.risk >= 70) refinedLabel = "harmful";
+                else if (baseInfo.risk >= 40) refinedLabel = "warning";
+                else refinedLabel = "safe";
+
                 results.push({
-                    ...LOOKUP[tokenClean],
+                    ...baseInfo,
+                    label: refinedLabel,
                     confidence: 1.0,
-                    reason: LOOKUP[tokenClean].desc || "May impact health if consumed excessively"
+                    reason: baseInfo.desc || "May impact health if consumed excessively"
                 });
-                seen.add(LOOKUP[tokenClean].ingredient);
+                seen.add(baseInfo.ingredient);
             }
         });
     });

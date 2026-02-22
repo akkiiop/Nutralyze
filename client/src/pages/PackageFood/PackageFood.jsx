@@ -32,27 +32,34 @@ const PackageFood = () => {
       return;
     }
     const normalized = normalizeIngredients(ingredients);
-    const res = await fetch(`${API.GET_HARMFUL}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ingredients: normalized }),
-    });
-    const data = await res.json();
-    setHarmReport(Array.isArray(data.all) ? data.all : (Array.isArray(data.results) ? data.results : []));
-    setFreqAnalysis(data.frequency_analysis || null);
+    try {
+      const res = await fetch(`${API.GET_HARMFUL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ingredients: normalized }),
+      });
+      const data = await res.json();
+      handleHarmAnalyzed(data);
+    } catch (err) {
+      console.error("Analysis Error", err);
+    }
   };
 
   const handleProductFetched = useCallback((p) => {
     setProduct(p);
   }, []);
 
-  const handleHarmAnalyzed = useCallback((results) => {
-    setHarmReport(results);
+  const handleHarmAnalyzed = useCallback((data) => {
+    if (!data) return;
+    setHarmReport(data.all || data.results || []);
+    setFreqAnalysis(data.frequency_analysis || null);
   }, []);
 
   const handleOCRScan = async (file) => {
     try {
       setLoadingOCR(true);
+      setHarmReport([]); // Reset previous scan data
+      setFreqAnalysis(null);
       setLoadingPhase(1);
 
       const formData = new FormData();

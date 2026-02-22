@@ -3,19 +3,23 @@ import { FaShieldAlt, FaExclamationCircle, FaInfoCircle } from "react-icons/fa";
 import "./HarmfulReport.css";
 
 const HarmfulReport = ({ report = [], frequency = null }) => {
+  // Classification based on backend labels
   const hazards = report.filter((r) => r.label === "harmful");
   const warnings = report.filter((r) => r.label === "warning");
 
   // FREQUENCY CARD RENDERER
   const renderFrequencyCard = () => {
-    if (!frequency) return null;
+    if (!frequency || !frequency.level) return null;
     const { level, color, advice } = frequency;
 
-    // Map legacy colors to new soft classes if needed, or rely on CSS
+    // Use established color themes: green, red, orange, yellow, blue
     return (
-      <div className={`frequency-card border-${color}`}>
-        <div className={`freq-header bg-${color}`}>
-          <h3>Consumption Advice</h3>
+      <div className={`frequency-card theme-${color}`}>
+        <div className={`freq-header color-${color}`}>
+          <div className="freq-title-row">
+            <FaShieldAlt className="freq-icon" />
+            <h3>Consumption Advice</h3>
+          </div>
           <span className="freq-level">{level}</span>
         </div>
         <div className="freq-body">
