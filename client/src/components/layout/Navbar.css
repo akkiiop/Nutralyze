@@ -17,7 +17,6 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-inner {
@@ -100,14 +99,14 @@
 
 /* Active Tab */
 .nav-btn.active {
-    background-color: #1F7A4C;
-    color: #FFFFFF;
+    background-color: #1F7A4C !important;
+    color: #FFFFFF !important;
     box-shadow: 0 4px 10px rgba(31, 122, 76, 0.25);
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
 .nav-btn.active:hover {
-    background-color: #2E8B57;
+    background-color: #2E8B57 !important;
 }
 
 /* Hide Framer Motion background since we use direct backgrounds */
@@ -147,4 +146,68 @@
 .logout-btn:focus-visible {
     outline: 2px solid #1F7A4C;
     outline-offset: 2px;
+}
+
+/* ========================================
+   MOBILE DRAWER STYLES
+   ======================================== */
+.mobile-drawer {
+    background-color: #F5FAF7 !important;
+    width: 280px;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    border-bottom: 1px solid #E0EFE8;
+}
+
+.mobile-nav-list {
+    padding: 16px 0 !important;
+}
+
+.mobile-nav-list .MuiListItem-root {
+    margin: 4px 16px !important;
+    border-radius: 12px !important;
+    color: #2F4F4F !important;
+    transition: all 0.2s ease !important;
+    width: auto !important;
+}
+
+.mobile-nav-list .MuiListItem-root:hover {
+    background-color: #E6F4EC !important;
+    color: #1F7A4C !important;
+}
+
+.mobile-nav-list .MuiListItem-root.active {
+    background-color: #1F7A4C !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+.drawer-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 16px;
+    border-top: 1px solid #E0EFE8;
+}
+
+.mobile-logout-btn {
+    background-color: #E76F51 !important;
+    color: white !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+    text-transform: none !important;
+}
+
+.mobile-logout-btn:hover {
+    background-color: #D65A3B !important;
+}
+
+.hamburger-btn {
+    color: #1F7A4C !important;
 }

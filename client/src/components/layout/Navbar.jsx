@@ -99,7 +99,7 @@ const Navbar = () => {
                     button
                     key={item.label}
                     onClick={() => handleNavigate(item.path)}
-                    className={location.pathname === item.path ? "active" : ""}
+                    className={`mobile-nav-item ${location.pathname === item.path ? "active" : ""}`}
                   >
                     <ListItemText primary={item.label} />
                   </ListItem>
