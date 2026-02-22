@@ -1,26 +1,34 @@
 // ------------------------------
 // BACKEND 1: AUTH / USER / MEALS (Express server)
 // ------------------------------
-export const getAuthServerUrl = () => {
+const getIsLocal = () => {
   const host = window.location.hostname;
-  const isLocal = host === "localhost" || host === "127.0.0.1";
-
-  return isLocal
-    ? "http://localhost:8080/api" // local Express backend
-    : "/api"; // production: same-origin (served by Render)
+  return (
+    host === "localhost" ||
+    host === "127.0.0.1" ||
+    host.startsWith("192.168.") ||
+    host.startsWith("10.") ||
+    host.startsWith("172.")
+  );
 };
 
+export const getAuthServerUrl = () => {
+  return getIsLocal()
+    ? "http://localhost:8080/api"
+    : "/api";
+};
 
 // ------------------------------
 // BACKEND 2: AI MODEL SERVER
 // ------------------------------
 export const getAiServerUrl = () => {
-  const host = window.location.hostname;
-  const isLocal = host === "localhost" || host === "127.0.0.1";
+  // Use env var if available, otherwise fallback
+  const envUrl = import.meta.env?.VITE_AI_MODEL_URL;
+  if (envUrl && !getIsLocal()) return envUrl.endsWith("/api") ? envUrl : `${envUrl}/api`;
 
-  return isLocal
-    ? "http://localhost:5000/api" // your AI-model backend
-    : "https://nutrivision-ai.onrender.com/api"; // (or your prod AI URL if you deploy someday)
+  return getIsLocal()
+    ? "http://localhost:5000/api"
+    : "https://nutrivision-oc9q.onrender.com/api";
 };
 
 

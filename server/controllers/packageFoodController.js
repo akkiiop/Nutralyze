@@ -178,7 +178,7 @@ export const scanPackageFood = async (req, res) => {
       const aiBaseUrl =
         process.env.AI_MODEL_URL ||
         process.env.VITE_AI_MODEL_URL ||
-        "https://nutralyze-ai.onrender.com";
+        "https://nutrivision-oc9q.onrender.com";
 
       const cleanedUrl = aiBaseUrl.endsWith("/")
         ? aiBaseUrl.slice(0, -1)
