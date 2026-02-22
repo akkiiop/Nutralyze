@@ -45,8 +45,8 @@ const AppContent = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        background: "#F9FAFB",
-        backgroundAttachment: "fixed",
+        display: "flex",
+        flexDirection: "column"
       }}
     >
       {currentUser && <Navbar />}

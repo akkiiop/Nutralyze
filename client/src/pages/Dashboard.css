@@ -68,29 +68,13 @@ body {
 .dash-page-root {
   min-height: 100vh;
   position: relative;
-  /* Keep existing nature background but make it sticky */
-  background-image: url('/images/BG_1.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  /* Sticky background */
   color: var(--text-primary);
   padding-bottom: 100px;
   overflow-x: hidden;
-  isolation: isolate;
 }
 
 /* Soft White Overlay (No Blur - Reverted) */
-.dash-page-root::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
-  z-index: -1;
-}
+/* Removed local overlay - now handled by global .main-content overlay */
 
 .main-content {
   position: relative;

@@ -29,25 +29,10 @@
   padding: 40px 20px;
   overflow-x: hidden;
   position: relative;
-  background-image: url('/images/BG_1.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 
 /* Soft White Overlay (Matching Dashboard/Profile) */
-.packagefood-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
-  /* Low opacity to show BG */
-  /* No Blur */
-  z-index: 0;
-}
+/* Removed local overlay - now handled by global .main-content overlay */
 
 /* Ensure content sits above overlay */
 .packagefood-header-card,
