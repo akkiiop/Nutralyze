@@ -173,22 +173,40 @@ export const scanPackageFood = async (req, res) => {
     console.error("Open Food Facts Error - Attempting AI Fallback", err.message);
 
     // AI Fallback Phase
-    try {
-      // We try to call the AI model server's detection as fallback
-      // Since it uses Gemini, it can guess from the barcode if it's a known one, 
-      // or we can just return a generic AI-estimated shell here.
+     // AI Fallback Phase
+try {
+  const aiBaseUrl =
+    process.env.AI_MODEL_URL ||
+    process.env.VITE_AI_MODEL_URL ||
+    "https://nutralyze-ai.onrender.com";
 
-      const aiRes = await axios.post(`${process.env.VITE_AI_MODEL_URL || "http://localhost:5000"}/api/detect`, {
-        barcode: barcode
-      });
+  const cleanedUrl = aiBaseUrl.endsWith("/")
+    ? aiBaseUrl.slice(0, -1)
+    : aiBaseUrl;
 
-      if (aiRes.data && !aiRes.data.error) {
-        return res.json({ product: { identity: aiRes.data, nutrition: { isEstimated: true, hasNutrition: true } } });
-      }
-    } catch (aiErr) {
-      console.error("AI Fallback failed too:", aiErr.message);
-    }
+  const aiRes = await axios.post(
+    `${cleanedUrl}/api/detect`,
+    { barcode },
+    { timeout: 15000 }
+  );
 
-    res.status(500).json({ error: "Failed to fetch product" });
+  if (aiRes.data && !aiRes.data.error) {
+    return res.json({
+      product: {
+        identity: aiRes.data,
+        nutrition: {
+          isEstimated: true,
+          hasNutrition: true,
+          per100g: aiRes.data.nutriments || {},
+        },
+        ingredients: {
+          list: aiRes.data.ingredients || [],
+        },
+      },
+    });
   }
+} catch (aiErr) {
+  console.error("AI Fallback failed too:", aiErr.message);
+}
+    
 };
