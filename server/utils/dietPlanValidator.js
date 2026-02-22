@@ -37,11 +37,7 @@ export function validateAndSanitizeDietPlan({ aiPlan, profile, remaining }) {
     const violated = forbiddenKeywords.filter((k) => content.includes(k));
 
     if (violated.length > 0) {
-      warnings.push(`Dish violated safety rule: ${violated.join(", ")}`);
-      return {
-        ...meal,
-        description: `[REDACTED] Dish removed due to restricted items.`,
-      };
+      warnings.push(`Dish may contain restricted items: ${violated.join(", ")}`);
     }
 
     return meal;

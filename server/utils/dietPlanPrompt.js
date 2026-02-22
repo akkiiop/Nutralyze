@@ -15,7 +15,8 @@ Your task is to generate a corrective diet plan for the REMAINDER of the user's 
 - **Diet Type**: ${profile.dietType} (Only suggest dishes within this category)
 - **Cuisine**: ${profile.preferredCuisine}
 - **Medical Conditions**: ${profile.conditions.join(", ") || "None"}
-- **Allergies**: ${profile.allergies.join(", ") || "None"} (NEVER include these)
+- **Allergies**: ${profile.allergies.join(", ") || "None"}
+- **STRICTLY AVOID**: ${profile.avoid.join(", ") || "None"} (NEVER include these ingredients)
 
 ### REMAINING MACRO BUDGET (DELTA)
 - Calories remaining: ${remaining.calories} kcal
@@ -30,9 +31,10 @@ ${mealSlots.join(", ")}
 RULES:
 1. Number of meals MUST EXACTLY match the slots above.
 2. Use FULL DISH NAMES (not ingredients).
-3. Dishes must respect diet type, allergies, and medical conditions.
-4. Do NOT add or remove meals.
-5. Keep total calories within remaining budget.
+3. Dishes MUST respect diet type, allergies, medical conditions, and stay AWAY from the AVOID list.
+4. If a standard dish would violate these, suggest a modified/alternative dish that is SAFE.
+5. Do NOT add or remove meals.
+6. Keep total calories within remaining budget.
 
 ### OUTPUT FORMAT (STRICT JSON ONLY)
 No markdown, no explanations, no <think> blocks.
