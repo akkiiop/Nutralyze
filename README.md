@@ -94,16 +94,4 @@ The production instance can be accessed at: [https://nutrivision-oc9q.onrender.c
 
 ---
 
-## 🛡️ Research & Development
 
-Nutralyze is a real-time research project developed by **Team Sainz**. The project focuses on leveraging Large Language Models to improve nutritional literacy and consumer safety.
-
-**The Team:**
-- **Vineel Yerubandi** — Project Lead & Architect
-- **K. Sri Rishikesh Varma** — AI & Backend Systems
-- **Kota Shiva Tarak Reddy** — UI/UX Design & Data Engineering
-- **Solomon Heron** — Backend Infrastructure & Data Science
-- **Satyadeva** — Frontend Engineering & QA
-
----
-###### © 2026 Team Sainz | Developed with ❤️ by KMIT Students
