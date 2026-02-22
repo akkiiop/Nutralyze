@@ -309,3 +309,27 @@
     margin-top: 8px;
   }
 }
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .frequency-card {
+    margin-bottom: 20px;
+  }
+
+  .freq-header {
+    padding: 12px 16px;
+  }
+
+  .freq-body {
+    padding: 16px;
+    font-size: 0.9rem;
+  }
+
+  .hazard-header-compact {
+    padding: 12px 16px;
+  }
+
+  .hazard-list-row {
+    padding: 16px;
+  }
+}

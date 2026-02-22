@@ -1,18 +1,48 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  useMediaQuery,
+  useTheme
+} from "@mui/material";
+import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Navbar.css";
 
 const Navbar = () => {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDrawer = (open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setIsOpen(open);
+  };
 
   const handleLogout = () => {
     logout();
     navigate("/signin");
+    setIsOpen(false);
+  };
+
+  const handleNavigate = (path) => {
+    navigate(path);
+    setIsOpen(false);
   };
 
   const menuItems = [
@@ -41,40 +71,89 @@ const Navbar = () => {
           <span className="logo-dot">.</span>
         </motion.div>
 
-        <div className="nav-menu">
-          {menuItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            return (
-              <motion.button
-                key={item.label}
-                className={`nav-btn ${isActive ? 'active' : ''}`}
-                onClick={() => navigate(item.path)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                {isActive && (
-                  <motion.div
-                    className="active-bg"
-                    layoutId="activeTab"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-                <span className="nav-text">{item.label}</span>
-              </motion.button>
-            );
-          })}
-        </div>
+        {isMobile ? (
+          <>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleDrawer(true)}
+              className="hamburger-btn"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="right"
+              open={isOpen}
+              onClose={toggleDrawer(false)}
+              classes={{ paper: "mobile-drawer" }}
+            >
+              <Box className="drawer-header">
+                <IconButton onClick={toggleDrawer(false)}>
+                  <CloseIcon />
+                </IconButton>
+              </Box>
+              <List className="mobile-nav-list">
+                {menuItems.map((item) => (
+                  <ListItem
+                    button
+                    key={item.label}
+                    onClick={() => handleNavigate(item.path)}
+                    className={location.pathname === item.path ? "active" : ""}
+                  >
+                    <ListItemText primary={item.label} />
+                  </ListItem>
+                ))}
+                <Box className="drawer-footer">
+                  <Button
+                    fullWidth
+                    className="mobile-logout-btn"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
+                </Box>
+              </List>
+            </Drawer>
+          </>
+        ) : (
+          <>
+            <div className="nav-menu">
+              {menuItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <motion.button
+                    key={item.label}
+                    className={`nav-btn ${isActive ? 'active' : ''}`}
+                    onClick={() => handleNavigate(item.path)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
+                    {isActive && (
+                      <motion.div
+                        className="active-bg"
+                        layoutId="activeTab"
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
+                    <span className="nav-text">{item.label}</span>
+                  </motion.button>
+                );
+              })}
+            </div>
 
-        <motion.button
-          className="logout-btn"
-          onClick={handleLogout}
-          whileHover={{ scale: 1.05, backgroundColor: "#FEE2E2" }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        >
-          Logout
-        </motion.button>
+            <motion.button
+              className="logout-btn"
+              onClick={handleLogout}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              Logout
+            </motion.button>
+          </>
+        )}
       </div>
     </nav>
   );

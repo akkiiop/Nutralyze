@@ -490,3 +490,82 @@
   background: #DCFCE7 !important;
   color: #15803d !important;
 }
+
+/* ========================================
+   RESPONSIVE OVERRIDES
+   ======================================== */
+
+@media (max-width: 900px) {
+  .header-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .date-selector-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px !important;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sort-toggle-group {
+    width: 100%;
+    display: flex;
+  }
+
+  .sort-toggle-group .MuiToggleButton-root {
+    flex: 1;
+  }
+
+  .add-btn-neon {
+    width: 100%;
+  }
+
+  .macro-stat-card {
+    padding: 12px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem !important;
+  }
+
+  .meal-card-macros {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .meal-log-root {
+    padding-bottom: 80px;
+  }
+
+  .date-selector-wrapper {
+    align-items: center;
+    text-align: center;
+  }
+
+  .today-btn-neon {
+    width: 100%;
+  }
+
+  .meal-card-macros {
+    grid-template-columns: 1fr !important;
+  }
+
+  .macro-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--emerald-50);
+    border-radius: 8px;
+  }
+
+  .m-label {
+    margin-bottom: 0;
+  }
+}

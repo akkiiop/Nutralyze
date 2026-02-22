@@ -288,3 +288,39 @@
     position: relative;
     padding-left: 0 !important;
 }
+
+/* ========================================
+   RESPONSIVE OVERRIDES
+   ======================================== */
+
+@media (max-width: 900px) {
+
+    .diet-header-card,
+    .content-card {
+        padding: 24px !important;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+
+    .diet-title {
+        font-size: 1.4rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .diet-header-card,
+    .content-card {
+        padding: 20px 16px !important;
+    }
+
+    .diet-title {
+        font-size: 1.25rem !important;
+    }
+
+    .ai-insight-box {
+        padding: 16px;
+    }
+}

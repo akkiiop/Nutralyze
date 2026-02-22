@@ -76,6 +76,19 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 600px) {
+  .interactive-scanner-box {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .scanner-viewport {
+    height: 300px;
+    /* Shorter for mobile focus */
+  }
+}
+
 #barcode-reader {
   border: none !important;
 }

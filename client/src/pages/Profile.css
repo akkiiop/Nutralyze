@@ -236,23 +236,40 @@
 ---------------------------- */
 @media (max-width: 900px) {
   .profile-form-container {
-    padding: 40px 30px !important;
+    padding: 32px 20px !important;
   }
 
   .form-header {
-    font-size: 1.6rem !important;
+    font-size: 1.4rem !important;
+  }
+
+  .group-title {
+    font-size: 0.9rem !important;
   }
 }
 
 @media (max-width: 600px) {
+  .profile-page {
+    padding: 20px 0 60px;
+  }
+
+  .profile-form-container {
+    padding: 24px 16px !important;
+    border-radius: 20px !important;
+  }
+
   .progress-row {
     flex-direction: column;
     gap: 10px;
   }
 
   .update-btn {
-    padding: 14px !important;
-    font-size: 1rem !important;
+    padding: 16px !important;
+    font-size: 1.1rem !important;
+  }
+
+  .group-title {
+    margin: 25px 0 10px !important;
   }
 }
 

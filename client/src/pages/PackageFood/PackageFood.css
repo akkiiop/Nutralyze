@@ -115,11 +115,37 @@
   max-width: 500px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .packagefood-header-card {
     flex-direction: column;
     text-align: center;
+    gap: 16px;
+  }
+
+  .glass-card {
     padding: 24px !important;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .packagefood-container {
+    padding: 20px 12px;
+  }
+
+  .glass-card {
+    padding: 20px 16px !important;
+  }
+
+  .step-title {
+    font-size: 1.1rem;
   }
 }
 

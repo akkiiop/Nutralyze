@@ -491,24 +491,58 @@ body {
 /* =====================================================
    RESPONSIVE
 ===================================================== */
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .analysis-card-wrapper {
-    padding: 24px;
-  }
-
-  .header-action-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    padding: 20px 16px;
   }
 
   .header-controls {
-    width: 100%;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .product-overview-grid {
-    grid-template-columns: 1fr;
+  .view-toggle-container {
+    width: 100%;
+  }
+
+  .toggle-option {
+    flex: 1;
+    text-align: center;
+  }
+
+  .log-meal-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+  }
+
+  .plate-value {
+    font-size: 2.5rem;
+  }
+
+  .macro-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 10px;
+  }
+
+  .macro-divider {
+    display: none;
+  }
+
+  .macro-item {
+    background: #F8FAFC;
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+  }
+
+  .composition-full-width {
+    padding: 20px 16px;
   }
 }
 

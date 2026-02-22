@@ -243,3 +243,46 @@
     font-size: 0.65rem;
     margin-top: 15px;
 }
+
+@media (max-width: 900px) {
+    .hero-section {
+        padding: 80px 0 60px;
+    }
+
+    .brand-title {
+        letter-spacing: -4px;
+        margin-bottom: 20px !important;
+    }
+
+    .brand-title span {
+        letter-spacing: 2px;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 60px 0 40px;
+    }
+
+    .brand-title {
+        font-size: clamp(3rem, 12vw, 5rem) !important;
+        letter-spacing: -2px;
+    }
+
+    .brand-title span {
+        display: block;
+        margin-left: 0;
+        margin-top: 5px;
+        font-size: 0.8em;
+    }
+
+    .aero-card {
+        padding: 24px 20px !important;
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 16px !important;
+    }
+}

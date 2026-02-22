@@ -687,3 +687,99 @@ body {
   border-color: var(--emerald-500) !important;
   box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.1);
 }
+
+/* ========================================
+   RESPONSIVE OVERRIDES
+   ======================================== */
+
+@media (max-width: 900px) {
+  .dash-page-root {
+    padding-bottom: 60px;
+  }
+
+  .main-content {
+    padding-top: 20px;
+  }
+
+  .dash-macros-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .macro-pod {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    text-align: left;
+  }
+
+  .macro-label {
+    margin-bottom: 0 !important;
+    min-width: 80px;
+  }
+
+  .neon-progress {
+    flex: 1;
+    margin: 0 16px !important;
+  }
+
+  .macro-value {
+    margin-top: 0;
+    font-size: 1.1rem !important;
+    min-width: 80px;
+    text-align: right;
+  }
+
+  .dash-chip-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .camera-viewport-wrapper {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    padding: 20px;
+  }
+
+  .dash-title {
+    font-size: 1.5rem !important;
+  }
+
+  .scanner-card,
+  .analysis-card {
+    margin-bottom: 16px !important;
+  }
+
+  /* Buttons full width on mobile */
+  .neon-btn-primary,
+  .neon-btn-secondary,
+  .quick-log-btn,
+  .reset-btn,
+  .capture-btn {
+    width: 100% !important;
+    margin-bottom: 12px;
+  }
+
+  .meal-btn-row {
+    flex-direction: column;
+  }
+
+  .action-stack {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .camera-viewport-wrapper {
+    aspect-ratio: 1 / 1;
+  }
+
+  .corner-bracket {
+    width: 30px;
+    height: 30px;
+  }
+
+  .macro-value {
+    font-size: 1rem !important;
+  }
+}

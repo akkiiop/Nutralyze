@@ -227,6 +227,31 @@
 }
 
 
+@media (max-width: 600px) {
+    .auth-page-wrapper {
+        padding: 20px;
+    }
+
+    .auth-glass-card {
+        padding: 40px 24px !important;
+    }
+
+    .auth-header {
+        font-size: 1.5rem !important;
+        margin-bottom: 30px !important;
+    }
+
+    .google-custom-btn {
+        height: 52px;
+        /* Larger for touch */
+    }
+
+    .auth-submit-btn {
+        padding: 16px !important;
+        font-size: 1.1rem !important;
+    }
+}
+
 .staggered-1 {
     animation-delay: 0.1s;
 }

@@ -1,3 +1,40 @@
+:root {
+  /* Breakpoints Reference */
+  --mobile-small: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+
+  /* Spacing Scale - Mobile First */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Fluid Typography */
+  --font-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --font-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --font-lg: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  --font-xl: clamp(1.5rem, 1.25rem + 1vw, 2.25rem);
+  --font-2xl: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+
+  /* Layout Constraints */
+  --container-max-width: 1320px;
+  --navbar-height: 72px;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #F8FBFA !important;
   color: #0F172A !important;
@@ -7,6 +44,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.layout-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-container {
+    padding: var(--space-sm);
+  }
 }
 
 /* Specific fix for the 'Breakfast Analysis' header */
