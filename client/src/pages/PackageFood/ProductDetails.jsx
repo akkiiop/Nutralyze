@@ -18,10 +18,20 @@ import { useEffect, useState, useMemo } from "react";
 // Helper to clean and format ingredient names
 const formatIngredientName = (name) => {
   if (!name) return "";
-  // Remove trailing parentheses/punctuation and capitalize
-  return name.trim()
-    .replace(/[.,;)]+$/, "")
-    .replace(/^\w/, (c) => c.toUpperCase());
+
+  // 1. Remove prefixes like "Ingredients:", "Contains:", "Allergy Info:"
+  let clean = name.replace(/^(ingredients|contains|may contain|allergy information|allergy info|contains less than 2% of)[:\s]+/i, "");
+
+  // 2. Remove leading/trailing punctuation and extra spaces
+  clean = clean.trim().replace(/^[:\s.,]+|[:\s.,]+$/g, "");
+
+  // 3. Remove trailing parentheses if they are unbalanced
+  if (clean.endsWith(')') && !clean.includes('(')) {
+    clean = clean.slice(0, -1);
+  }
+
+  // 4. Capitalize first letter
+  return clean.charAt(0).toUpperCase() + clean.slice(1);
 };
 
 const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase }) => {
@@ -226,11 +236,13 @@ const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase
           </div>
 
           <div className="ingredients-simple-list">
-            {ingredients.map((ing, i) => (
-              <span key={i} className="ingredient-chip">
-                {formatIngredientName(ing.name || ing)}
-              </span>
-            ))}
+            {[...new Set(ingredients.map(ing => formatIngredientName(ing.name || ing)))]
+              .filter(name => name.length > 2)
+              .map((name, i) => (
+                <span key={i} className="ingredient-chip">
+                  {name}
+                </span>
+              ))}
           </div>
         </div>
       )}
