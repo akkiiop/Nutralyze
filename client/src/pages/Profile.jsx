@@ -111,7 +111,8 @@ const Profile = () => {
       await axiosInstance.put("/user/update", payload);
       setShowSuccess(true); /* Phase 2: Trigger custom UI */
     } catch (err) {
-      setError("Update failed. Check your network.");
+      const msg = err.response?.data?.message || err.response?.data?.error || "Update failed. Check your network.";
+      setError(msg);
     } finally {
       setSaving(false);
     }
