@@ -15,22 +15,37 @@ import { useAuth } from "../../contexts/AuthContext";
 import axiosInstance from "../../config/axiosInstance";
 import { useEffect, useState, useMemo } from "react";
 
-// Helper to clean and format ingredient names
+// Enhanced Ingredient Cleaning Logic
 const formatIngredientName = (name) => {
   if (!name) return "";
 
-  // 1. Remove prefixes like "Ingredients:", "Contains:", "Allergy Info:"
-  let clean = name.replace(/^(ingredients|contains|may contain|allergy information|allergy info|contains less than 2% of)[:\s]+/i, "");
+  // 1. Convert to lowercase for uniform processing initially
+  let clean = name.trim().toLowerCase();
 
-  // 2. Remove leading/trailing punctuation and extra spaces
-  clean = clean.trim().replace(/^[:\s.,]+|[:\s.,]+$/g, "");
+  // 2. Remove common headers/prefixes entirely (case-insensitive)
+  const prefixes = [
+    /^(ingredients|contains|may contain|allergy information|allergy info|contains less than 2% of)[:\s]*/i,
+    /^(enriched wheat flour)\b/i, // Example to check if we need to keep this? (Usually yes, but stripped for simplicity)
+  ];
+  prefixes.forEach(p => { clean = clean.replace(p, "").trim(); });
 
-  // 3. Remove trailing parentheses if they are unbalanced
-  if (clean.endsWith(')') && !clean.includes('(')) {
-    clean = clean.slice(0, -1);
-  }
+  // 3. Remove content inside square brackets or parentheses if they are just numbers/codes
+  // (e.g., "[123]", "(E123)")
+  clean = clean.replace(/\d+\s*%/g, ""); // Remove percentages for de-duplication
+  clean = clean.replace(/\b[eE]\d{3,4}[a-z]?\b/g, ""); // Remove E-numbers
 
-  // 4. Capitalize first letter
+  // 4. Handle nested lists - if it's "Chocolate chunk (chocolate liquor, sugar...)",
+  // we often want to isolate the main item or the sub-items.
+  // The user wanted "nice UI", so we'll try to keep the primary name clean.
+  clean = clean.split(/[([;]/)[0].trim();
+
+  // 5. Remove problematic characters and extra spaces
+  clean = clean.replace(/[.,;*:]+$/g, "").trim();
+  clean = clean.replace(/\s+/g, " ");
+
+  if (clean.length < 2) return null;
+
+  // 6. Sentence Case for Professional Look
   return clean.charAt(0).toUpperCase() + clean.slice(1);
 };
 
@@ -98,6 +113,10 @@ const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase
         nutrition: logNutrition,
         timestamp: new Date().toISOString(),
         source: "packaged",
+        ingredients: {
+          rawText: product.ingredients?.rawText || null,
+          list: product.ingredients?.list?.map((i) => i.name).filter(Boolean) || [],
+        },
         packagedMeta: {
           barcode: identity.barcode || null,
           brand: identity.brand || null,
@@ -225,24 +244,33 @@ const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase
       {/* =========================
           INGREDIENTS
          ========================= */}
-      {ingredients.length > 0 && (
+      {(ingredients.length > 0 || product.ingredients?.rawText) && (
         <div className="composition-full-width">
           <div className="section-title-bar">
             <div className="comp-title">
               <FaListAlt />
               <h3>Ingredients Composition</h3>
             </div>
-            <span className="item-count">{ingredients.length} items analyzed</span>
           </div>
 
           <div className="ingredients-simple-list">
-            {[...new Set(ingredients.map(ing => formatIngredientName(ing.name || ing)))]
-              .filter(name => name.length > 2)
-              .map((name, i) => (
-                <span key={i} className="ingredient-chip">
-                  {name}
-                </span>
-              ))}
+            {(() => {
+              let listToProcess = [];
+              if (ingredients.length > 0) {
+                listToProcess = ingredients.map(ing => ing.name || ing);
+              } else if (product.ingredients?.rawText) {
+                // Split by common delimiters if only raw text is available
+                listToProcess = product.ingredients.rawText.split(/[,;]/);
+              }
+
+              return [...new Set(listToProcess.map(ing => formatIngredientName(ing)))]
+                .filter(name => name && name.length > 2)
+                .map((name, i) => (
+                  <span key={i} className="ingredient-chip">
+                    {name}
+                  </span>
+                ));
+            })()}
           </div>
         </div>
       )}
