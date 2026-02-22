@@ -17,7 +17,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import MicIcon from '@mui/icons-material/Mic';
 import MicOffIcon from '@mui/icons-material/MicOff';
 import StopCircleIcon from '@mui/icons-material/StopCircle';
-import axios from "axios";
+import api from "../../services/api";
 import { useAuth } from "../../contexts/AuthContext";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
@@ -92,8 +92,8 @@ const ChatBot = () => {
 
     const token = localStorage.getItem("token");
 
-    axios
-      .get("http://localhost:8080/api/chat/messages", {
+    api
+      .get("/api/chat/messages", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setMessages(res.data.messages || []))
@@ -171,8 +171,8 @@ const ChatBot = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.post(
-        "http://localhost:8080/api/chat/send",
+      const res = await api.post(
+        "/api/chat/send",
         { message: messageToSend, language: lang },
         { headers: { Authorization: `Bearer ${token}` } }
       );

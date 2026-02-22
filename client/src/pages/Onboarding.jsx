@@ -28,7 +28,7 @@ import {
   OutlinedInput
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
+import api from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
 
 
@@ -54,7 +54,7 @@ const dietaryTypes = [
 ];
 
 const commonAllergies = [
-  'Milk', 'Eggs', 'Fish', 'Shellfish', 'Tree Nuts', 
+  'Milk', 'Eggs', 'Fish', 'Shellfish', 'Tree Nuts',
   'Peanuts', 'Wheat', 'Soy', 'Other', 'none'
 ];
 
@@ -103,28 +103,28 @@ const Onboarding = () => {
 
   const { currentUser } = useAuth();
 
-useEffect(() => {
-  if (!currentUser) {
-    navigate("/signin");
-    return;
-  }
+  useEffect(() => {
+    if (!currentUser) {
+      navigate("/signin");
+      return;
+    }
 
-  // Prefill name if exists
-  setFormData(prev => ({
-    ...prev,
-    name: currentUser.name || ""
-  }));
+    // Prefill name if exists
+    setFormData(prev => ({
+      ...prev,
+      name: currentUser.name || ""
+    }));
 
-  // If profile already completed → skip onboarding
-  if (
-    currentUser.age &&
-    currentUser.height &&
-    currentUser.weight &&
-    currentUser.activityLevel
-  ) {
-    navigate("/dashboard");
-  }
-}, [currentUser, navigate]);
+    // If profile already completed → skip onboarding
+    if (
+      currentUser.age &&
+      currentUser.height &&
+      currentUser.weight &&
+      currentUser.activityLevel
+    ) {
+      navigate("/dashboard");
+    }
+  }, [currentUser, navigate]);
 
 
   const handleNext = () => {
@@ -152,53 +152,57 @@ useEffect(() => {
   };
 
   const handleSubmit = async () => {
-  try {
-    setLoading(true);
-    setError(null);
+    try {
+      setLoading(true);
+      setError(null);
 
-    // Calculate age from date of birth
-    let age = "";
-    if (formData.dateOfBirth) {
-      const birthDate = new Date(formData.dateOfBirth);
-      const today = new Date();
-      age = today.getFullYear() - birthDate.getFullYear();
-      const monthDiff = today.getMonth() - birthDate.getMonth();
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
+      // Calculate age from date of birth
+      let age = "";
+      if (formData.dateOfBirth) {
+        const birthDate = new Date(formData.dateOfBirth);
+        const today = new Date();
+        age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
       }
+
+      const profileData = {
+        ...formData,
+        age,
+        foodAllergies: [
+          ...formData.foodAllergies.filter((a) => a !== "Other"),
+          ...(formData.otherAllergies ? [formData.otherAllergies] : []),
+        ],
+        medicalConditions: [
+          ...formData.medicalConditions.filter((c) => c !== "Other"),
+          ...(formData.otherConditions ? [formData.otherConditions] : []),
+        ],
+      };
+
+      delete profileData.otherAllergies;
+      delete profileData.otherConditions;
+
+      const token = localStorage.getItem("token");
+
+      await api.put("/api/user/update", {
+        ...profileData,
+        dietType: profileData.dietaryType, // Align with schema
+        allergies: profileData.foodAllergies, // Align with schema
+      }, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      navigate("/dashboard");
+
+    } catch (err) {
+      console.error(err);
+      setError("Failed to save profile. Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    const profileData = {
-      ...formData,
-      age,
-      foodAllergies: [
-        ...formData.foodAllergies.filter((a) => a !== "Other"),
-        ...(formData.otherAllergies ? [formData.otherAllergies] : []),
-      ],
-      medicalConditions: [
-        ...formData.medicalConditions.filter((c) => c !== "Other"),
-        ...(formData.otherConditions ? [formData.otherConditions] : []),
-      ],
-    };
-
-    delete profileData.otherAllergies;
-    delete profileData.otherConditions;
-
-    const token = localStorage.getItem("token");
-
-    await axios.post("http://localhost:8080/user/profile", profileData, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-
-    navigate("/dashboard");
-    
-  } catch (err) {
-    console.error(err);
-    setError("Failed to save profile. Please try again.");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
 
   const calculateDailyTargets = (profile) => {
@@ -392,7 +396,7 @@ useEffect(() => {
                     </Select>
                   </FormControl>
                 </Grid>
-                
+
                 <Grid item xs={12}>
                   <FormControl fullWidth>
                     <InputLabel>Medical Conditions</InputLabel>
@@ -548,13 +552,13 @@ useEffect(() => {
       <Typography variant="subtitle1" gutterBottom align="center" sx={{ mb: 4 }}>
         Let's set up your personalized nutrition plan
       </Typography>
-      
+
       {error && (
         <Alert severity="error" sx={{ mb: 3 }}>
           {error}
         </Alert>
       )}
-      
+
       <Stepper activeStep={activeStep} alternativeLabel sx={{ mb: 4 }}>
         {steps.map((label) => (
           <Step key={label}>
@@ -562,9 +566,9 @@ useEffect(() => {
           </Step>
         ))}
       </Stepper>
-      
+
       {renderStepContent(activeStep)}
-      
+
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>
         <Button
           disabled={activeStep === 0}

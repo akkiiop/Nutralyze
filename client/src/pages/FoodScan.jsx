@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Box, Typography, TextField, Button, Paper, CircularProgress } from "@mui/material";
 import BarcodeScanner from "react-qr-barcode-scanner";
-import axios from "axios";
-import imageCompression from 'browser-image-compression'; 
+import api from "../services/api";
+import imageCompression from 'browser-image-compression';
 
 export default function FoodScan() {
   const [barcode, setBarcode] = useState("");
@@ -15,7 +15,7 @@ export default function FoodScan() {
   // --- 1. BARCODE LOGIC (From your original file) ---
   const fetchProduct = async (code) => {
     try {
-      const res = await axios.get(`http://localhost:8080/api/scan/barcode/${code}`);
+      const res = await api.get(`/api/scan-food/barcode/${code}`);
       return res.data;
     } catch (err) {
       console.error("Fetch error:", err);
@@ -25,7 +25,7 @@ export default function FoodScan() {
 
   const analyzeHarmful = async (ingredientsText) => {
     try {
-      const res = await axios.post("http://localhost:8080/api/scan/analyze", {
+      const res = await api.post("/api/analysis/analyze", {
         ingredients: ingredientsText,
       });
       return res.data.harmfulFound;
@@ -71,11 +71,11 @@ export default function FoodScan() {
     try {
       const options = { maxSizeMB: 1, maxWidthOrHeight: 1024, useWebWorker: true };
       const compressedFile = await imageCompression(file, options);
-      
+
       const formData = new FormData();
       formData.append("image", compressedFile);
 
-      const res = await axios.post("http://localhost:8080/api/detect", formData);
+      const res = await api.post("/api/food/detect-fresh", formData);
 
       if (res.data.success) {
         setProduct({
@@ -101,10 +101,10 @@ export default function FoodScan() {
 
       {/* Mode Switcher */}
       <Box sx={{ mb: 3, display: "flex", gap: 2 }}>
-        <Button variant={mode === "barcode" ? "contained" : "outlined"} onClick={() => {setMode("barcode"); setProduct(null);}}>
+        <Button variant={mode === "barcode" ? "contained" : "outlined"} onClick={() => { setMode("barcode"); setProduct(null); }}>
           Scan Barcode
         </Button>
-        <Button variant={mode === "photo" ? "contained" : "outlined"} onClick={() => {setMode("photo"); setProduct(null);}}>
+        <Button variant={mode === "photo" ? "contained" : "outlined"} onClick={() => { setMode("photo"); setProduct(null); }}>
           Analyze Photo (Groq)
         </Button>
       </Box>
@@ -133,7 +133,7 @@ export default function FoodScan() {
 
       {/* SHARED RESULTS SECTION */}
       {loading && mode === "photo" && <Typography sx={{ mt: 2, textAlign: 'center' }}>AI is analyzing your food...</Typography>}
-      
+
       {product && (
         <Paper sx={{ p: 3, borderRadius: 3, mt: 3, boxShadow: 3 }}>
           <Typography variant="h5" color="primary" fontWeight={600}>{product.name}</Typography>
