@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5000;
 // ---------------------------
 // Middleware
 // ---------------------------
-const allowedOrigins = (process.env.CORS_ORIGINS || "http://localhost:3000,http://localhost:8080")
+const allowedOrigins = (process.env.CORS_ORIGINS || "http://localhost:3000,http://localhost:8080,https://nutralyze.onrender.com,https://nutrivision-oc9q.onrender.com")
   .split(",")
   .map((o) => o.trim());
 

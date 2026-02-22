@@ -27,7 +27,7 @@ app.set("trust proxy", 1);
 await connectDB();
 
 // --- CORS ---
-const allowedOrigins = (process.env.CORS_ORIGINS || "http://localhost:3000")
+const allowedOrigins = (process.env.CORS_ORIGINS || "http://localhost:3000,https://nutralyze.onrender.com")
   .split(",")
   .map((o) => o.trim());
 
