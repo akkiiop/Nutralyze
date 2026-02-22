@@ -42,50 +42,78 @@ const BarcodeScanner = ({ onProductFetched, onHarmAnalyzed, setLoadingPhase, loa
     }
   };
 
+  // Stabilize callbacks using a ref so scanner doesn't restart when they change
+  const callbacks = useRef({ onProductFetched, onHarmAnalyzed, setLoadingPhase });
   useEffect(() => {
+    callbacks.current = { onProductFetched, onHarmAnalyzed, setLoadingPhase };
+  }, [onProductFetched, onHarmAnalyzed, setLoadingPhase]);
+
+  useEffect(() => {
+    // Only initialize once
+    if (scannerRef.current) return;
+
+    console.log("Initializing Barcode Scanner...");
     const scanner = new Html5QrcodeScanner(
       "barcode-reader",
       {
-        fps: 15,
+        fps: 10,
         qrbox: { width: 250, height: 150 },
         showScanImageFile: false,
-        rememberLastUsedCamera: false,
+        rememberLastUsedCamera: true,
+        aspectRatio: 1.777778, // 16:9 for better mobile experience
       },
-      false
+      /* verbose= */ false
     );
+
     scannerRef.current = scanner;
-    scanner.render(async (text) => {
-      if (scanned.current) return;
-      scanned.current = true;
 
-      // Phase 1: Processing Barcode
-      if (setLoadingPhase) setLoadingPhase(1);
+    scanner.render(
+      async (text) => {
+        if (scanned.current) return;
+        scanned.current = true;
 
-      try {
-        // Phase 2: Fetching Product Details
-        if (setLoadingPhase) setLoadingPhase(2);
+        const { setLoadingPhase: setPhase, onProductFetched: onFetched, onHarmAnalyzed: onHarm } = callbacks.current;
 
-        const res = await scanPackageFood(text.trim());
-        onProductFetched(res.product);
+        // Phase 1: Processing Barcode
+        if (setPhase) setPhase(1);
 
-        // Phase 3: Extracting Ingredients
-        if (setLoadingPhase) setLoadingPhase(3);
+        try {
+          // Phase 2: Fetching Product Details
+          if (setPhase) setPhase(2);
 
-        const ingredients = res.product?.ingredients?.list || res.product?.ingredients_text?.split(",") || [];
-        await analyzeWithML(ingredients);
-      } catch (err) {
-        console.error(err);
-        scanned.current = false;
-        alert("Product not found or error occurred.");
-      } finally {
-        if (setLoadingPhase) setLoadingPhase(0);
-        scanner.clear().catch(() => { });
-        // NOTE: scanned.current remains true to prevent rapid re-scan loop until component remount
-        // or user manually resets. If you want continuous scanning, set it to false here.
+          const res = await scanPackageFood(text.trim());
+          onFetched(res.product);
+
+          // Phase 3: Extracting Ingredients
+          if (setPhase) setPhase(3);
+
+          const ingredients = res.product?.ingredients?.list ||
+            res.product?.ingredients?.rawText?.split(/[,;]/) || [];
+
+          await analyzeWithML(ingredients);
+        } catch (err) {
+          console.error("Scan Error:", err);
+          scanned.current = false;
+          alert("Product not found or error occurred.");
+        } finally {
+          if (setPhase) setPhase(0);
+          // Auto-reset scanned state after a delay to allow more scans without remounting
+          setTimeout(() => { scanned.current = false; }, 3000);
+        }
+      },
+      (error) => {
+        // Silent error for "no QR code found in frame"
       }
-    });
-    return () => scanner.clear().catch(() => { });
-  }, [onProductFetched, onHarmAnalyzed, setLoadingPhase]);
+    );
+
+    return () => {
+      if (scannerRef.current) {
+        console.log("Cleaning up Barcode Scanner...");
+        scannerRef.current.clear().catch(err => console.error("Cleanup error", err));
+        scannerRef.current = null;
+      }
+    };
+  }, []); // Empty dependency array is stable
 
   const handleManualSubmit = async () => {
     if (!manualBarcode.trim()) return;
