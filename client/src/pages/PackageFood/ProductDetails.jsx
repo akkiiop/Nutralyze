@@ -270,7 +270,7 @@ const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase
         <div className="missing-data-placeholder">
           <div className="warning-callout">
             <FaCamera />
-            <p>Ingredients not readable. Please capture a clear photo of the label.</p>
+            <p>Sorry, ingredients are not available. Please capture a clear photo of the label.</p>
           </div>
 
           <div className="custom-upload-wrapper">

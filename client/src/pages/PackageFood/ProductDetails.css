@@ -496,7 +496,7 @@ body {
 .warning-callout {
   display: flex;
   flex-direction: column;
-  items-center: center;
+  align-items: center;
   gap: 12px;
   max-width: 400px;
 }
@@ -568,5 +568,7 @@ body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
