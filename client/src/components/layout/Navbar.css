@@ -1,11 +1,16 @@
-/* Navbar Container */
+/* ========================================
+   NUTRALYZE NAVBAR - MEDICAL-TECH THEME
+   PRD Redesign (Green Palette)
+   ======================================== */
+
 .navbar {
     height: 72px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+    background-color: #F5FAF7;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid #E0EFE8;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +20,6 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-/* Inner Wrapper */
 .navbar-inner {
     width: 100%;
     max-width: 1320px;
@@ -25,53 +29,52 @@
     justify-content: space-between;
 }
 
-/* Logo */
+/* Logo: "NUTRALYZE." */
 .nav-logo {
     font-family: 'Outfit', sans-serif;
     font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 0;
 }
 
-.logo-text {
-    background: linear-gradient(135deg, #365314 0%, #84CC16 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: all 0.3s ease;
+.logo-nutra {
+    color: #1F7A4C;
+}
+
+.logo-lyze {
+    color: #2E8B57;
 }
 
 .logo-dot {
-    color: #F97316;
+    color: #F4A300;
     font-size: 32px;
     line-height: 0;
     margin-top: -8px;
 }
 
-/* Navigation Button Group */
+/* Navigation Menu */
 .nav-menu {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(248, 250, 252, 0.5);
-    padding: 6px;
-    border-radius: 999px;
-    border: 1px solid rgba(229, 231, 235, 0.5);
+    background: transparent;
+    padding: 4px;
+    border-radius: 12px;
 }
 
 /* Default Nav Button Style */
 .nav-btn {
     position: relative;
-    min-height: 40px;
+    min-height: 44px;
     padding: 0 20px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
-    font-weight: 600;
-    color: #64748B;
+    font-weight: 500;
+    color: #2F4F4F;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -80,44 +83,68 @@
     justify-content: center;
     white-space: nowrap;
     z-index: 1;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
 }
 
 .nav-text {
     position: relative;
     z-index: 2;
-    transition: color 0.2s ease;
 }
 
-/* Active Button State */
-.nav-btn.active .nav-text {
+/* Hover State */
+.nav-btn:not(.active):hover {
+    background-color: #E6F4EC;
+    color: #1F7A4C;
+}
+
+/* Active Tab */
+.nav-btn.active {
+    background-color: #1F7A4C;
     color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(31, 122, 76, 0.25);
+    font-weight: 600;
 }
 
-/* Active Tab Background (Framer Motion target) */
+.nav-btn.active:hover {
+    background-color: #2E8B57;
+}
+
+/* Hide Framer Motion background since we use direct backgrounds */
 .active-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%);
-    border-radius: 999px;
-    z-index: 1;
-    box-shadow: 0 4px 12px rgba(132, 204, 22, 0.3);
+    display: none;
 }
 
-/* Hover Effect for non-active items */
-.nav-btn:not(.active):hover .nav-text {
-    color: #365314;
-}
-
-/* Logout Button */
+/* Logout Button - Soft Elevated Coral Style */
 .logout-btn {
-    padding: 10px 24px;
-    font-family: 'Outfit', sans-serif;
+    padding: 10px 22px;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 600;
-    color: #DC2626;
-    background-color: #FEF2F2;
-    border: 1px solid #FECACA;
-    border-radius: 999px;
+    color: #FFFFFF;
+    background-color: #E76F51;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.05);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 10px rgba(231, 111, 81, 0.25);
+    letter-spacing: 0.5px;
+    outline: none;
+}
+
+.logout-btn:hover {
+    background-color: #D65A3B;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(214, 90, 59, 0.35);
+}
+
+.logout-btn:active {
+    background-color: #B84C2E;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(231, 111, 81, 0.15);
+}
+
+.logout-btn:focus-visible {
+    outline: 2px solid #1F7A4C;
+    outline-offset: 2px;
 }
