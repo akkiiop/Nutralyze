@@ -54,7 +54,7 @@ const Profile = () => {
 
   const completeness = useMemo(() => {
     const requiredKeys = [
-      "age", "gender", "height", "weight", "targetWeight",
+      "name", "age", "gender", "height", "weight", "targetWeight",
       "activityLevel", "dietType", "goal",
       "calorieTarget", "proteinTarget", "waterIntakeGoal",
     ];
@@ -200,8 +200,9 @@ const Profile = () => {
             <Grid item xs={12} mt={2}><Typography className="group-title">DAILY NUTRITION GOALS</Typography></Grid>
             <Grid item xs={12} sm={3}><TextField fullWidth label="Calories" name="calorieTarget" value={formData.calorieTarget} onChange={handleChange} /></Grid>
             <Grid item xs={12} sm={3}><TextField fullWidth label="Protein (g)" name="proteinTarget" value={formData.proteinTarget} onChange={handleChange} /></Grid>
-            <Grid item xs={12} sm={3}><TextField fullWidth label="Sugar Cap (g)" name="sugarTarget" value={formData.sugarTarget} onChange={handleChange} /></Grid>
-            <Grid item xs={12} sm={3}><TextField fullWidth label="Fiber (g)" name="fiberTarget" value={formData.fiberTarget} onChange={handleChange} /></Grid>
+            <Grid item xs={12} sm={3}><TextField fullWidth label="Water Goal (L)" name="waterIntakeGoal" value={formData.waterIntakeGoal} onChange={handleChange} helperText="Liters per day" /></Grid>
+            <Grid item xs={12} sm={1.5}><TextField fullWidth label="Sugar Cap" name="sugarTarget" value={formData.sugarTarget} onChange={handleChange} /></Grid>
+            <Grid item xs={12} sm={1.5}><TextField fullWidth label="Fiber Goal" name="fiberTarget" value={formData.fiberTarget} onChange={handleChange} /></Grid>
 
             {/* AI GUARDRAILS */}
             <Grid item xs={12} mt={2}><Typography className="group-title">HEALTH & SAFETY PREFERENCES</Typography></Grid>
