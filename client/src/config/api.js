@@ -28,7 +28,7 @@ export const getAiServerUrl = () => {
 
   return getIsLocal()
     ? "http://localhost:5000/api"
-    : "https://nutrivision-oc9q.onrender.com/api";
+    : "https://nutrivision-ai.onrender.com/api";
 };
 
 
