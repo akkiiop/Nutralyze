@@ -447,6 +447,35 @@ body {
   font-weight: 700;
 }
 
+/* =====================================================
+   SIMPLIFIED INGREDIENTS LIST
+===================================================== */
+.ingredients-simple-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.ingredient-chip {
+  padding: 8px 18px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #334155;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.ingredient-chip:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  transform: translateY(-1px);
+}
+
 /* Hover Effects */
 .ing-pill:hover {
   transform: translateY(-1px);

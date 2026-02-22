@@ -14,48 +14,14 @@ import "./ProductDetails.css";
 import { useAuth } from "../../contexts/AuthContext";
 import axiosInstance from "../../config/axiosInstance";
 import { useEffect, useState, useMemo } from "react";
-import { classifyIngredients, getCategoryStyles } from "../../utils/classifyIngredients";
 
-// Helper Component for Grouped Ingredients
-const IngredientsGroupRenderer = ({ list }) => {
-  const groups = useMemo(() => classifyIngredients(list), [list]);
-
-  if (!groups) return <p>No ingredients data.</p>;
-
-  const sections = [
-    { key: 'primary', icon: <FaLeaf />, ...getCategoryStyles('primary') },
-    { key: 'sugarsFats', icon: <FaCube />, ...getCategoryStyles('sugarsFats') },
-    { key: 'additives', icon: <FaFlask />, ...getCategoryStyles('additives') },
-    { key: 'allergens', icon: <FaAllergies />, ...getCategoryStyles('allergens') }
-  ];
-
-  return (
-    <div className="ingredients-grouped-container">
-      {sections.map(({ key, label, color, icon }) => {
-        const items = groups[key];
-        if (!items || items.length === 0) return null;
-
-        return (
-          <div key={key} className={`ing-group-section group-${color}`}>
-            <h4 className="ing-group-title">
-              {icon} {label}
-            </h4>
-            <div className="ing-chips-wrapper">
-              {items.map((ing, i) => (
-                <span
-                  key={i}
-                  className={`ing-pill pill-${color} ${ing.isAllergen ? 'allergen-alert' : ''}`}
-                  title={ing.isAllergen ? "Potential Allergen" : label}
-                >
-                  {ing.name}
-                </span>
-              ))}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
+// Helper to clean and format ingredient names
+const formatIngredientName = (name) => {
+  if (!name) return "";
+  // Remove trailing parentheses/punctuation and capitalize
+  return name.trim()
+    .replace(/[.,;)]+$/, "")
+    .replace(/^\w/, (c) => c.toUpperCase());
 };
 
 const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase }) => {
@@ -259,7 +225,13 @@ const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase
             <span className="item-count">{ingredients.length} items analyzed</span>
           </div>
 
-          <IngredientsGroupRenderer list={ingredients} />
+          <div className="ingredients-simple-list">
+            {ingredients.map((ing, i) => (
+              <span key={i} className="ingredient-chip">
+                {formatIngredientName(ing.name || ing)}
+              </span>
+            ))}
+          </div>
         </div>
       )}
 
