@@ -118,7 +118,7 @@
   color: #fff !important;
   font-family: 'Outfit', sans-serif !important;
   font-weight: 600 !important;
-  border-radius: 12px !important;
+  border-radius: 8px !important;
   text-transform: none !important;
   /* Keep natural case */
   padding: 8px 24px !important;
@@ -141,14 +141,33 @@
   color: var(--emerald-600) !important;
   background: #FFFFFF !important;
   border: 1px solid var(--emerald-500) !important;
-  font-family: 'Outfit', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 500 !important;
+  font-size: 0.85rem !important;
   text-transform: none !important;
-  border-radius: 8px !important;
+  border-radius: 6px !important;
+  padding: 6px 16px !important;
 }
 
 .today-btn-neon:hover {
   background: var(--emerald-50) !important;
+}
+
+/* Date Nav Arrow Buttons */
+.date-nav-buttons .nav-btn {
+  border: 1px solid #E5E7EB !important;
+  border-radius: 6px !important;
+  width: 36px;
+  height: 36px;
+  color: #4B5563 !important;
+  background: #FFFFFF !important;
+  transition: all 0.15s ease !important;
+}
+
+.date-nav-buttons .nav-btn:hover {
+  background: var(--emerald-50) !important;
+  border-color: var(--emerald-500) !important;
+  color: var(--emerald-600) !important;
 }
 
 /* Macro Pods */
@@ -334,19 +353,35 @@
 }
 
 /* Toggle Buttons Visibility Fix */
+.meal-log-root .sort-toggle-group {
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
 .meal-log-root .sort-toggle-group .MuiToggleButton-root {
   color: #64748B !important;
   border: 1px solid #CBD5E1 !important;
-  font-family: 'Rajdhani', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 600 !important;
-  letter-spacing: 1px;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.5px;
+  text-transform: none !important;
+  border-radius: 0 !important;
+  padding: 8px 16px !important;
+}
+
+.meal-log-root .sort-toggle-group .MuiToggleButton-root:first-of-type {
+  border-radius: 8px 0 0 8px !important;
+}
+
+.meal-log-root .sort-toggle-group .MuiToggleButton-root:last-of-type {
+  border-radius: 0 8px 8px 0 !important;
 }
 
 .meal-log-root .sort-toggle-group .MuiToggleButton-root.Mui-selected {
   color: #15803d !important;
   background-color: #DCFCE7 !important;
-  /* Light Green */
-  border-color: var(--fresh-green) !important;
+  border-color: #22C55E !important;
 }
 
 .meal-log-root .sort-toggle-group .MuiToggleButton-root:hover {
@@ -478,24 +513,62 @@
 }
 
 /* ========================================
+   DATE NAV BUTTONS
+   ======================================== */
+.date-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+/* ========================================
    RESPONSIVE OVERRIDES
    ======================================== */
 
 @media (max-width: 900px) {
+  .meal-log-root .MuiContainer-root {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
   .header-flex {
     flex-direction: column;
     align-items: stretch;
+    gap: 16px;
   }
 
   .date-selector-wrapper {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px !important;
+    align-items: center;
+    text-align: center;
+    gap: 12px !important;
+  }
+
+  .date-selector-wrapper .compact-date-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .date-nav-buttons {
+    margin-left: 0;
+    justify-content: center;
+    width: auto;
+    gap: 6px;
+  }
+
+  .today-btn-neon {
+    min-width: 0 !important;
+    font-size: 0.8rem !important;
+    padding: 6px 14px !important;
+    border-radius: 8px !important;
   }
 
   .header-actions {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
 
   .sort-toggle-group {
@@ -505,18 +578,30 @@
 
   .sort-toggle-group .MuiToggleButton-root {
     flex: 1;
+    font-size: 0.75rem !important;
+    padding: 6px 8px !important;
   }
 
   .add-btn-neon {
     width: 100%;
   }
 
+  /* Stat cards — 3 columns */
   .macro-stat-card {
-    padding: 12px;
+    padding: 10px 6px;
+  }
+
+  .stat-label {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.5px;
   }
 
   .stat-value {
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  .stat-value .unit {
+    font-size: 0.7rem !important;
   }
 
   .meal-card-macros {
@@ -524,39 +609,62 @@
   }
 }
 
-@media (max-width: 480px) {
-  .meal-log-root {
-    padding-bottom: 80px;
+@media (max-width: 600px) {
+  .meal-log-root .MuiContainer-root {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 16px !important;
   }
 
-  .date-selector-wrapper {
-    align-items: center;
-    text-align: center;
+  .header-glass-card {
+    padding: 14px;
+    margin-bottom: 16px;
+    border-radius: 14px !important;
+  }
+
+  .compact-date-picker .MuiInputBase-root {
+    font-size: 1rem !important;
+    max-width: 130px !important;
+  }
+
+  .compact-date-picker input {
+    font-size: 1.05rem !important;
+  }
+
+  .date-nav-buttons {
+    gap: 4px;
   }
 
   .today-btn-neon {
-    width: 100%;
+    font-size: 0.8rem !important;
+    padding: 4px 10px !important;
   }
 
-  .meal-card-macros {
-    grid-template-columns: 1fr !important;
+  /* Stat cards */
+  .macro-stat-card {
+    padding: 8px 4px;
+    border-radius: 10px !important;
   }
 
-  .macro-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-    background: var(--emerald-50);
-    border-radius: 8px;
+  .stat-label {
+    font-size: 0.6rem !important;
+    letter-spacing: 0.3px;
+    margin-bottom: 2px;
   }
 
-  .m-label {
-    margin-bottom: 0;
+  .stat-value {
+    font-size: 0.95rem !important;
+    line-height: 1.2;
   }
 
+  .stat-value .unit {
+    font-size: 0.6rem !important;
+    font-weight: 500;
+  }
+
+  /* Meal cards */
   .meal-entry-card {
-    padding: 16px;
+    padding: 14px;
     border-radius: 12px !important;
   }
 
@@ -564,17 +672,25 @@
     font-size: 1.1rem !important;
   }
 
-  .macro-inputs-grid {
-    grid-template-columns: 1fr !important;
+  .meal-card-macros {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px;
   }
 
-  .header-glass-card {
-    padding: 16px;
-    margin-bottom: 20px;
+  .page-header-title {
+    font-size: 1.2rem !important;
   }
 
   .section-title {
     font-size: 1.4rem !important;
+  }
+
+  .empty-section-card {
+    padding: 24px 16px;
+  }
+
+  .macro-inputs-grid {
+    grid-template-columns: 1fr !important;
   }
 
   /* Dialog responsive */
@@ -590,10 +706,53 @@
   }
 }
 
+@media (max-width: 480px) {
+  .meal-log-root {
+    padding-bottom: 80px;
+  }
+
+  .meal-log-root .MuiContainer-root {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .header-glass-card {
+    padding: 12px;
+    margin-bottom: 14px;
+  }
+
+  .date-selector-wrapper {
+    align-items: center;
+    text-align: center;
+  }
+
+  .today-btn-neon {
+    width: auto;
+    font-size: 0.75rem !important;
+  }
+
+  .meal-card-macros {
+    grid-template-columns: 1fr !important;
+  }
+
+  .macro-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background: var(--emerald-50);
+    border-radius: 8px;
+  }
+
+  .m-label {
+    margin-bottom: 0;
+  }
+}
+
 /* Ultra-small screens */
 @media (max-width: 375px) {
   .header-glass-card {
-    padding: 12px;
+    padding: 10px;
     border-radius: 12px !important;
   }
 
@@ -606,11 +765,11 @@
   }
 
   .stat-value {
-    font-size: 1rem !important;
+    font-size: 0.85rem !important;
   }
 
   .stat-label {
-    font-size: 0.7rem !important;
+    font-size: 0.55rem !important;
   }
 
   .section-title {

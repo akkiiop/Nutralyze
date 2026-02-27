@@ -489,45 +489,119 @@ body {
 }
 
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE — MOBILE ONLY (Desktop unchanged)
 ===================================================== */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .analysis-card-wrapper {
-    padding: 20px 16px;
+    padding: 16px 12px;
+    gap: 20px;
+    border-radius: 14px;
+  }
+
+  /* Header stacks vertically */
+  .header-action-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding-bottom: 16px;
+  }
+
+  .title-group {
+    justify-content: center;
+  }
+
+  .title-group h2 {
+    font-size: 1.1rem;
+  }
+
+  .title-icon {
+    font-size: 1.2rem;
   }
 
   .header-controls {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    width: 100%;
   }
 
   .view-toggle-container {
     width: 100%;
+    border-radius: 8px;
   }
 
   .toggle-option {
     flex: 1;
     text-align: center;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    border-radius: 6px;
   }
 
   .log-meal-btn {
     width: 100%;
-    padding: 14px;
-    font-size: 1rem;
+    padding: 12px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  /* TWO-COLUMN → SINGLE COLUMN */
+  .product-overview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  /* Product identity */
+  .product-image-col {
+    gap: 14px;
+  }
+
+  .detail-box {
+    padding: 16px;
+    border-radius: 12px;
   }
 
   .product-name {
     font-size: 1.2rem;
   }
 
+  .product-brand {
+    font-size: 0.9rem;
+  }
+
+  .product-front-image {
+    max-height: 220px;
+  }
+
+  /* Nutri-Score */
+  .nutri-score-plate {
+    padding: 14px;
+    border-radius: 12px;
+    gap: 12px;
+  }
+
+  .plate-label {
+    font-size: 0.85rem;
+  }
+
   .plate-value {
     font-size: 2.5rem;
+  }
+
+  /* Nutrition card */
+  .nutrition-data-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .nutrition-mini-title {
+    font-size: 0.7rem;
+    margin-bottom: 14px;
   }
 
   .macro-stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px 10px;
+    gap: 10px;
   }
 
   .macro-divider {
@@ -536,13 +610,90 @@ body {
 
   .macro-item {
     background: #F8FAFC;
-    padding: 12px;
-    border-radius: 12px;
+    padding: 12px 8px;
+    border-radius: 10px;
     width: 100%;
   }
 
+  .macro-item.highlight {
+    grid-column: 1 / -1;
+  }
+
+  .macro-item.highlight .macro-value {
+    font-size: 1.5rem;
+  }
+
+  .macro-label {
+    font-size: 0.65rem;
+  }
+
+  .macro-value {
+    font-size: 1.1rem;
+  }
+
+  .nutrition-mini-est {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    margin-top: 12px;
+  }
+
+  /* Ingredients */
   .composition-full-width {
-    padding: 20px 16px;
+    padding: 16px 12px;
+    border-radius: 12px;
+  }
+
+  .section-title-bar {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+  }
+
+  .comp-title {
+    font-size: 1rem;
+    gap: 8px;
+  }
+
+  .comp-title h3 {
+    font-size: 1rem;
+  }
+
+  .ingredients-simple-list {
+    gap: 8px;
+  }
+
+  .ingredient-chip {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+
+  .ing-pill {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 0.8rem;
+  }
+
+  /* OCR Fallback */
+  .missing-data-placeholder {
+    padding: 40px 16px;
+    gap: 16px;
+  }
+
+  .warning-callout {
+    max-width: 100%;
+  }
+
+  .warning-callout svg {
+    font-size: 1.6rem;
+  }
+
+  .warning-callout p {
+    font-size: 0.9rem;
+  }
+
+  .premium-upload-btn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
   }
 }
 

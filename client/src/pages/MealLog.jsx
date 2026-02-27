@@ -360,7 +360,7 @@ export default function MealLog({ userId }) {
               </LocalizationProvider>
 
               {/* ✅ Date nav buttons */}
-              <Box sx={{ display: "flex", gap: 1, ml: 2 }}>
+              <Box className="date-nav-buttons">
                 <IconButton onClick={goPrevDay} size="small" className="nav-btn">
                   <ChevronLeft />
                 </IconButton>
@@ -402,7 +402,6 @@ export default function MealLog({ userId }) {
                 exclusive
                 onChange={(e, v) => v && setViewMode(v)}
                 className="sort-toggle-group"
-                sx={{ ml: 1 }}
               >
                 <ToggleButton value="grouped">Grouped by Meal</ToggleButton>
                 <ToggleButton value="timeline">Timeline View</ToggleButton>
@@ -421,9 +420,9 @@ export default function MealLog({ userId }) {
         </Paper>
 
         {/* TOTALS */}
-        <Grid container spacing={2} sx={{ mb: 4, mt: 0.5 }}>
+        <Grid container spacing={1.5} sx={{ mb: 3, mt: 0.5 }}>
           {Object.entries(totals).map(([label, val]) => (
-            <Grid item xs={6} sm={3} key={label}>
+            <Grid item xs={4} sm={4} md={2} key={label}>
               <Paper className="macro-stat-card" elevation={0}>
                 <Typography className="stat-label">{MACRO_LABELS[label] || label}</Typography>
                 <Typography className="stat-value">

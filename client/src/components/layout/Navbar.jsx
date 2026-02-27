@@ -10,17 +10,29 @@ import {
   List,
   ListItem,
   ListItemText,
+  ListItemIcon,
+  Avatar,
   useMediaQuery,
   useTheme
 } from "@mui/material";
-import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
+import {
+  Menu as MenuIcon,
+  Close as CloseIcon,
+  Dashboard as DashboardIcon,
+  RestaurantMenu as MealIcon,
+  EventNote as DietIcon,
+  Inventory2 as PackageIcon,
+  TrendingUp as ProgressIcon,
+  Person as ProfileIcon,
+  Logout as LogoutIcon
+} from "@mui/icons-material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { logout } = useAuth();
+  const { logout, currentUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const theme = useTheme();
@@ -46,13 +58,17 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { label: "Dashboard", path: "/dashboard" },
-    { label: "Meal Log", path: "/meal-log" },
-    { label: "Diet Plan", path: "/diet-plan" },
-    { label: "Package Food", path: "/package-food" },
-    { label: "Progress", path: "/progress" },
-    { label: "My Profile", path: "/profile" },
+    { label: "Dashboard", path: "/dashboard", icon: <DashboardIcon /> },
+    { label: "Meal Log", path: "/meal-log", icon: <MealIcon /> },
+    { label: "Diet Plan", path: "/diet-plan", icon: <DietIcon /> },
+    { label: "Package Food", path: "/package-food", icon: <PackageIcon /> },
+    { label: "Progress", path: "/progress", icon: <ProgressIcon /> },
+    { label: "My Profile", path: "/profile", icon: <ProfileIcon /> },
   ];
+
+  const userName = currentUser?.name || currentUser?.displayName || "User";
+  const userEmail = currentUser?.email || "";
+  const userInitial = userName.charAt(0).toUpperCase();
 
   return (
     <nav className="navbar">
@@ -74,13 +90,23 @@ const Navbar = () => {
         {isMobile ? (
           <>
             <IconButton
-              edge="start"
               color="inherit"
               aria-label="menu"
               onClick={toggleDrawer(true)}
               className="hamburger-btn"
+              disableRipple
+              sx={{
+                padding: '8px',
+                borderRadius: '10px',
+                '&:hover': {
+                  backgroundColor: 'rgba(31, 122, 76, 0.08)',
+                },
+                '&:focus': {
+                  outline: 'none',
+                },
+              }}
             >
-              <MenuIcon />
+              <MenuIcon sx={{ fontSize: 26 }} />
             </IconButton>
             <Drawer
               anchor="right"
@@ -88,32 +114,74 @@ const Navbar = () => {
               onClose={toggleDrawer(false)}
               classes={{ paper: "mobile-drawer" }}
             >
-              <Box className="drawer-header">
-                <IconButton onClick={toggleDrawer(false)}>
-                  <CloseIcon />
-                </IconButton>
-              </Box>
-              <List className="mobile-nav-list">
-                {menuItems.map((item) => (
-                  <ListItem
-                    button
-                    key={item.label}
-                    onClick={() => handleNavigate(item.path)}
-                    className={`mobile-nav-item ${location.pathname === item.path ? "active" : ""}`}
+              {/* Drawer Content Wrapper */}
+              <Box className="drawer-content-wrapper">
+                {/* Close Button */}
+                <Box className="drawer-close-row">
+                  <IconButton
+                    onClick={toggleDrawer(false)}
+                    className="drawer-close-btn"
                   >
-                    <ListItemText primary={item.label} />
-                  </ListItem>
-                ))}
+                    <CloseIcon />
+                  </IconButton>
+                </Box>
+
+                {/* Profile Section */}
+                <Box
+                  className="drawer-profile"
+                  onClick={() => handleNavigate("/profile")}
+                >
+                  <Avatar className="drawer-avatar">
+                    {userInitial}
+                  </Avatar>
+                  <Box className="drawer-profile-info">
+                    <Typography className="drawer-profile-name">
+                      {userName}
+                    </Typography>
+                    {userEmail && (
+                      <Typography className="drawer-profile-email">
+                        {userEmail}
+                      </Typography>
+                    )}
+                  </Box>
+                </Box>
+
+                {/* Navigation Items */}
+                <List className="mobile-nav-list">
+                  {menuItems.map((item) => (
+                    <ListItem
+                      button
+                      key={item.label}
+                      onClick={() => handleNavigate(item.path)}
+                      className={`mobile-nav-item ${location.pathname === item.path ? "active" : ""}`}
+                    >
+                      <ListItemIcon className="mobile-nav-icon">
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={item.label}
+                        primaryTypographyProps={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: '15px',
+                          fontWeight: location.pathname === item.path ? 600 : 500,
+                        }}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+
+                {/* Logout at bottom */}
                 <Box className="drawer-footer">
                   <Button
                     fullWidth
                     className="mobile-logout-btn"
                     onClick={handleLogout}
+                    startIcon={<LogoutIcon />}
                   >
                     Logout
                   </Button>
                 </Box>
-              </List>
+              </Box>
             </Drawer>
           </>
         ) : (

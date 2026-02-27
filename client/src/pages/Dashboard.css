@@ -755,6 +755,15 @@ body {
   /* Scanner button stack */
   .scanner-card .MuiStack-root {
     flex-direction: column !important;
+    gap: 12px !important;
+    width: 100%;
+  }
+
+  .scanner-card .MuiStack-root .MuiButton-root {
+    width: 100% !important;
+    border-radius: 12px !important;
+    padding: 12px 20px !important;
+    margin: 0 !important;
   }
 
   .glass-card-inner {
