@@ -277,6 +277,12 @@
         font-size: 0.8em;
     }
 
+    .hero-subtitle {
+        font-size: 0.85rem !important;
+        letter-spacing: 0.12em !important;
+        margin-bottom: 30px !important;
+    }
+
     .aero-card {
         padding: 24px 20px !important;
     }
@@ -284,5 +290,46 @@
     .cta-button {
         width: 100%;
         padding: 16px !important;
+        min-height: 48px;
+    }
+
+    .feature-container {
+        padding-bottom: 60px;
+    }
+
+    .card-title {
+        font-size: 1rem !important;
+    }
+
+    .card-desc {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Ultra-small screens (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    .hero-section {
+        padding: 40px 0 30px;
+    }
+
+    .brand-title {
+        font-size: clamp(2.5rem, 11vw, 4rem) !important;
+        letter-spacing: -1px;
+        margin-bottom: 15px !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.78rem !important;
+        margin-bottom: 24px !important;
+    }
+
+    .aero-card {
+        padding: 20px 16px !important;
+    }
+
+    .card-icon-wrapper {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 16px;
     }
 }

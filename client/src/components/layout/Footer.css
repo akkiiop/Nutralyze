@@ -89,3 +89,40 @@
         margin-top: 16px;
     }
 }
+
+@media (max-width: 480px) {
+    .academic-footer {
+        padding: 32px 16px;
+    }
+
+    .af-brand {
+        font-size: 1.2rem;
+    }
+
+    .af-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .af-heading {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+
+    .af-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .academic-footer {
+        padding: 24px 12px;
+    }
+
+    .academic-footer.compact {
+        padding: 16px 12px;
+    }
+
+    .af-brand {
+        font-size: 1.1rem;
+    }
+}

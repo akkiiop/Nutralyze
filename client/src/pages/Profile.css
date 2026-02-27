@@ -253,10 +253,61 @@
   .update-btn {
     padding: 16px !important;
     font-size: 1.1rem !important;
+    min-height: 48px;
   }
 
   .group-title {
     margin: 25px 0 10px !important;
+  }
+
+  /* iOS Zoom Prevention */
+  .MuiOutlinedInput-input {
+    font-size: 16px !important;
+  }
+
+  .profile-completeness-panel {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .form-header {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-form-container {
+    padding: 20px 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .form-header {
+    font-size: 1.2rem !important;
+  }
+
+  .group-title {
+    font-size: 0.85rem !important;
+    margin: 20px 0 8px !important;
+  }
+}
+
+/* Ultra-small screens */
+@media (max-width: 375px) {
+  .profile-page {
+    padding: 12px 0 40px;
+  }
+
+  .profile-form-container {
+    padding: 16px 12px !important;
+    border-radius: 14px !important;
+  }
+
+  .form-header {
+    font-size: 1.1rem !important;
+  }
+
+  .update-btn {
+    border-radius: 10px !important;
   }
 }
 

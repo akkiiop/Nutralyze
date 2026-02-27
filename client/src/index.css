@@ -146,3 +146,40 @@ body {
   background-color: rgba(255, 255, 255, 0.05) !important;
   border-radius: 8px;
 }
+
+/* ========================================
+   MOBILE RESPONSIVENESS — GLOBAL RULES
+   ======================================== */
+
+/* iOS Input Zoom Prevention — font-size must be ≥ 16px */
+@media (max-width: 768px) {
+
+  input,
+  select,
+  textarea,
+  .MuiInputBase-input,
+  .MuiOutlinedInput-input,
+  .MuiSelect-select {
+    font-size: 16px !important;
+  }
+
+  /* Touch target minimums (Apple HIG: 44px) */
+  button,
+  a,
+  .MuiButton-root,
+  .MuiIconButton-root,
+  .MuiToggleButton-root,
+  .MuiChip-root {
+    min-height: 44px;
+  }
+
+  .MuiIconButton-root {
+    min-width: 44px;
+  }
+}
+
+@media (max-width: 375px) {
+  .layout-container {
+    padding: 6px;
+  }
+}

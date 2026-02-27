@@ -211,3 +211,48 @@
 .hamburger-btn {
     color: #1F7A4C !important;
 }
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+   ======================================== */
+@media (max-width: 768px) {
+    .navbar {
+        height: 56px;
+    }
+
+    .navbar-inner {
+        padding: 0 16px;
+    }
+
+    .nav-logo {
+        font-size: 20px;
+    }
+
+    .logo-dot {
+        font-size: 26px;
+    }
+
+    .mobile-drawer {
+        width: min(280px, 85vw) !important;
+    }
+
+    .hamburger-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+@media (max-width: 375px) {
+    .navbar-inner {
+        padding: 0 12px;
+    }
+
+    .nav-logo {
+        font-size: 18px;
+    }
+
+    .logo-dot {
+        font-size: 24px;
+        margin-top: -6px;
+    }
+}

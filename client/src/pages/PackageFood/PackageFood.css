@@ -132,6 +132,40 @@
   .step-title {
     font-size: 1.1rem;
   }
+
+  .packagefood-header-card {
+    padding: 24px 16px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .header-icon-container {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 375px) {
+  .packagefood-container {
+    padding: 12px 8px;
+  }
+
+  .glass-card {
+    padding: 16px 12px !important;
+    border-radius: 16px !important;
+  }
+
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+    gap: 8px;
+  }
 }
 
 /* ===== CLEAN CARDS (No 3D Tilt typically for professional apps) ===== */

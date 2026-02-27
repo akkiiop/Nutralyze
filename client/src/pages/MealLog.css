@@ -554,4 +554,75 @@
   .m-label {
     margin-bottom: 0;
   }
+
+  .meal-entry-card {
+    padding: 16px;
+    border-radius: 12px !important;
+  }
+
+  .meal-card-name {
+    font-size: 1.1rem !important;
+  }
+
+  .macro-inputs-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .header-glass-card {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 1.4rem !important;
+  }
+
+  /* Dialog responsive */
+  .dark-dialog .MuiDialog-paper {
+    margin: 8px !important;
+    border-radius: 16px !important;
+    padding: 4px;
+    max-height: calc(100vh - 16px);
+  }
+
+  .dark-dialog .dialog-title {
+    font-size: 1.4rem !important;
+  }
+}
+
+/* Ultra-small screens */
+@media (max-width: 375px) {
+  .header-glass-card {
+    padding: 12px;
+    border-radius: 12px !important;
+  }
+
+  .meal-entry-card {
+    padding: 12px;
+  }
+
+  .meal-card-name {
+    font-size: 1rem !important;
+  }
+
+  .stat-value {
+    font-size: 1rem !important;
+  }
+
+  .stat-label {
+    font-size: 0.7rem !important;
+  }
+
+  .section-title {
+    font-size: 1.2rem !important;
+  }
+
+  .m-val {
+    font-size: 0.9rem !important;
+  }
+
+  .add-btn-neon {
+    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+  }
 }

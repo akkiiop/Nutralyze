@@ -228,9 +228,11 @@ const ChatBot = () => {
         }}
         sx={{
           position: "fixed",
-          bottom: 25,
-          right: 25,
+          bottom: { xs: 16, sm: 25 },
+          right: { xs: 16, sm: 25 },
           zIndex: 1500,
+          width: { xs: 52, sm: 56 },
+          height: { xs: 52, sm: 56 },
           bgcolor: open ? "#0f172a" : "#10b981",
           color: "white",
           boxShadow: open ? "0 10px 30px rgba(15, 23, 42, 0.3)" : "0 10px 30px rgba(16, 185, 129, 0.3)",
@@ -249,16 +251,19 @@ const ChatBot = () => {
           elevation={12}
           sx={{
             position: "fixed",
-            bottom: 90,
-            right: 25,
-            width: 380,
-            height: 550,
+            bottom: { xs: 0, sm: 90 },
+            right: { xs: 0, sm: 25 },
+            left: { xs: 0, sm: 'auto' },
+            top: { xs: 0, sm: 'auto' },
+            width: { xs: '100%', sm: 380 },
+            height: { xs: '100%', sm: 550 },
+            maxHeight: { xs: '100vh', sm: 550 },
             display: "flex",
             flexDirection: "column",
-            borderRadius: "24px",
+            borderRadius: { xs: 0, sm: '24px' },
             overflow: "hidden",
             zIndex: 1400,
-            border: "1px solid rgba(16, 185, 129, 0.1)",
+            border: { xs: 'none', sm: '1px solid rgba(16, 185, 129, 0.1)' },
             background: "rgba(255, 255, 255, 0.95)",
             backdropFilter: "blur(20px)",
           }}
@@ -425,6 +430,9 @@ const ChatBot = () => {
                     "& fieldset": { borderColor: "transparent" },
                     "&:hover fieldset": { borderColor: "rgba(16, 185, 129, 0.3)" },
                     "&.Mui-focused fieldset": { borderColor: "#10b981", borderWidth: '1px' },
+                  },
+                  "& .MuiOutlinedInput-input": {
+                    fontSize: '16px',
                   }
                 }}
               />

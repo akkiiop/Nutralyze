@@ -234,3 +234,34 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .interface-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .card-header h3 {
+    font-size: 1rem;
+  }
+
+  .glow-input {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .premium-btn {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .interface-card {
+    padding: 20px 12px;
+  }
+
+  .scanner-frame-wrapper {
+    max-width: 100%;
+  }
+}

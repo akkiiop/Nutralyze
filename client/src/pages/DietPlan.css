@@ -297,13 +297,79 @@
     .diet-header-card,
     .content-card {
         padding: 20px 16px !important;
+        border-radius: 16px !important;
     }
 
     .diet-title {
         font-size: 1.25rem !important;
     }
 
+    .diet-subtitle {
+        font-size: 0.8rem !important;
+    }
+
     .ai-insight-box {
         padding: 16px;
+    }
+
+    .meal-item-box {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .meal-name {
+        font-size: 0.95rem !important;
+    }
+
+    .meal-description {
+        font-size: 0.85rem !important;
+    }
+
+    .macro-label {
+        font-size: 0.75rem !important;
+        padding: 4px 10px;
+    }
+
+    .macro-value {
+        font-size: 0.85rem !important;
+    }
+
+    .action-btn {
+        padding: 10px 20px !important;
+        font-size: 0.85rem;
+    }
+
+    .markdown-content {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Ultra-small screens */
+@media (max-width: 375px) {
+
+    .diet-header-card,
+    .content-card {
+        padding: 16px 12px !important;
+    }
+
+    .diet-title {
+        font-size: 1.1rem !important;
+    }
+
+    .card-title {
+        font-size: 1rem !important;
+    }
+
+    .ai-insight-box {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .ai-insight-title {
+        font-size: 0.85rem !important;
+    }
+
+    .ai-insight-text {
+        font-size: 0.85rem !important;
     }
 }

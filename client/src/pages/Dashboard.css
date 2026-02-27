@@ -734,7 +734,7 @@ body {
     margin-bottom: 16px !important;
   }
 
-  /* Buttons full width on mobile */
+  /* Buttons full width and stacked on mobile */
   .neon-btn-primary,
   .neon-btn-secondary,
   .quick-log-btn,
@@ -751,11 +751,30 @@ body {
   .action-stack {
     width: 100% !important;
   }
+
+  /* Scanner button stack */
+  .scanner-card .MuiStack-root {
+    flex-direction: column !important;
+  }
+
+  .glass-card-inner {
+    padding: 16px;
+  }
+
+  .portion-box {
+    margin-top: 16px !important;
+  }
+
+  .insight-box {
+    padding: 16px;
+  }
 }
 
 @media (max-width: 480px) {
   .camera-viewport-wrapper {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: auto;
+    min-height: 220px;
+    padding: 16px;
   }
 
   .corner-bracket {
@@ -765,5 +784,97 @@ body {
 
   .macro-value {
     font-size: 1rem !important;
+  }
+
+  .dash-title {
+    font-size: 1.3rem !important;
+  }
+
+  .dash-subtitle {
+    font-size: 0.85rem !important;
+  }
+
+  .card-header-text {
+    font-size: 1rem !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 12px;
+  }
+
+  .glass-card::before {
+    top: 12px;
+    bottom: 12px;
+  }
+
+  .neon-btn-primary,
+  .neon-btn-secondary {
+    height: 48px !important;
+    font-size: 0.9rem !important;
+    padding: 0 20px !important;
+  }
+
+  .capture-btn {
+    padding: 10px 24px !important;
+  }
+
+  .cancel-btn {
+    padding: 10px 20px !important;
+  }
+
+  /* Portion/insight inner boxes */
+  .glass-card-inner {
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+
+  .dash-mini-title {
+    font-size: 0.8rem !important;
+  }
+
+  .ai-badge,
+  .nutri-score-chip {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Ultra-small screens */
+@media (max-width: 375px) {
+  .dash-page-root {
+    padding-bottom: 40px;
+  }
+
+  .main-content {
+    padding-top: 12px;
+  }
+
+  .dash-title {
+    font-size: 1.15rem !important;
+  }
+
+  .camera-viewport-wrapper {
+    min-height: 200px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .neon-btn-primary,
+  .neon-btn-secondary {
+    height: 44px !important;
+    font-size: 0.85rem !important;
+    border-radius: 10px !important;
+  }
+
+  .quick-log-btn {
+    padding: 8px 16px !important;
+    min-width: auto !important;
+    font-size: 0.85rem !important;
+  }
+
+  .macro-pod {
+    padding: 12px 16px;
+  }
+
+  .macro-label {
+    font-size: 0.75rem !important;
+    min-width: 60px;
   }
 }
