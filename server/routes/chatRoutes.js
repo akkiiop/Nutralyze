@@ -16,7 +16,7 @@ router.get("/messages", async (req, res) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    const messages = await ChatMessage.find({ userId: decoded.id });
+    const messages = await ChatMessage.find({ userId: decoded._id });
     res.json({ messages });
 
   } catch (err) {

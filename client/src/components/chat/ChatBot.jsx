@@ -100,6 +100,16 @@ const ChatBot = () => {
       .catch(() => console.log("No chat history found."));
   }, [currentUser, open]);
 
+  // Pre-load voices for SpeechSynthesis to prevent silent output on first use
+  useEffect(() => {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.getVoices();
+      window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.getVoices();
+      };
+    }
+  }, []);
+
   // Sync Transcript to Input
   useEffect(() => {
     if (transcript) {
@@ -132,8 +142,16 @@ const ChatBot = () => {
       // Set language-specific voice
       const voices = window.speechSynthesis.getVoices();
       // Try to find exact match first, then language code match
-      const preferredVoice = voices.find(v => v.lang === lang) ||
-        voices.find(v => v.lang.startsWith(lang.split('-')[0]));
+      let preferredVoice = voices.find(v => v.lang === lang);
+      
+      if (!preferredVoice) {
+        preferredVoice = voices.find(v => v.lang.startsWith(lang.split('-')[0]));
+      }
+      
+      // For Indian languages, fallback to any available Indian voice if exact match fails
+      if (!preferredVoice && (lang === 'hi-IN' || lang === 'mr-IN')) {
+         preferredVoice = voices.find(v => v.lang === 'hi-IN' || v.lang === 'en-IN');
+      }
 
       if (preferredVoice) utterance.voice = preferredVoice;
       utterance.lang = lang;
