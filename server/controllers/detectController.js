@@ -278,6 +278,17 @@ function applySafetyDefaults(aiResponse) {
     nut.sugar = Math.round(nut.carbs * 0.75); // sweets are mostly sugar
   }
 
+  // Estimate fiber if missing (vegetables/fruits have more, others have less)
+  if (!nut.fiber || nut.fiber === 0) {
+    if (cat.includes('fruit') || cat.includes('vegetable')) {
+      nut.fiber = Math.round(weight * 0.03); // ~3g per 100g
+    } else if (cat.includes('grain') || cat.includes('mixed')) {
+      nut.fiber = Math.round(weight * 0.02);
+    } else {
+      nut.fiber = Math.round(nut.carbs * 0.05); // roughly 5% of carbs for snacks
+    }
+  }
+
   aiResponse.nutrition = nut;
   aiResponse.scores = { nutriScore: isSweet || density > 4 ? "E" : "C" }; // Conservative score
 
