@@ -237,9 +237,10 @@ function applySafetyDefaults(aiResponse) {
   if (!identity || !identity.isEdible) return aiResponse;
 
   const hasMacros = (nut.protein > 0 || nut.carbs > 0 || nut.fats > 0);
+  const isSuspiciousZero = (nut.calories > 50 && (nut.carbs === 0 || nut.fats === 0));
 
-  // validation: Only apply defaults if nutrition is MISSING or strictly invalid
-  if (nut.calories > 10 && hasMacros) return aiResponse;
+  // validation: Only apply defaults if nutrition is MISSING or strictly invalid or suspiciously zero
+  if (nut.calories > 10 && hasMacros && !isSuspiciousZero) return aiResponse;
 
   console.log("⚠️ Zero nutrition detected for edible food. Applying Safety Defaults...");
 
@@ -249,6 +250,7 @@ function applySafetyDefaults(aiResponse) {
 
   // Density map (kcal per gram)
   let density = 2.0; // default (mixed meal)
+  let isSweet = false;
 
   if (cat.includes('snack') || name.includes('chip') || name.includes('fry') || name.includes('sev') || name.includes('bhujia')) {
     density = 5.5; // High calorie density for fried snacks
@@ -256,20 +258,28 @@ function applySafetyDefaults(aiResponse) {
     density = 0.6;
   } else if (cat.includes('vegetable')) {
     density = 0.3;
-  } else if (cat.includes('sweet') || name.includes('chocolate') || name.includes('cake')) {
+  } else if (cat.includes('sweet') || cat.includes('dessert') || name.includes('chocolate') || name.includes('cake') || name.includes('jamun') || name.includes('jalebi')) {
     density = 4.5;
+    isSweet = true;
   }
 
-  // Auto-fill calories
-  nut.calories = Math.round(weight * density);
+  // Auto-fill calories if completely missing
+  if (!nut.calories || nut.calories <= 10) {
+    nut.calories = Math.round(weight * density);
+  }
 
-  // Auto-fill macros (rough ratios)
-  nut.fats = Math.round((nut.calories * 0.45) / 9); // 45% fat for unknown high-cal foods
-  nut.carbs = Math.round((nut.calories * 0.45) / 4);
-  nut.protein = Math.round((nut.calories * 0.10) / 4);
+  // Auto-fill macros if they were hallucinated as 0
+  if (!nut.fats || nut.fats === 0) nut.fats = Math.round((nut.calories * 0.45) / 9); 
+  if (!nut.carbs || nut.carbs === 0) nut.carbs = Math.round((nut.calories * (isSweet ? 0.65 : 0.45)) / 4);
+  if (!nut.protein || nut.protein === 0) nut.protein = Math.round((nut.calories * 0.10) / 4);
+  
+  // For sweets, ensure sugar is populated based on carbs
+  if (isSweet && (!nut.sugar || nut.sugar === 0)) {
+    nut.sugar = Math.round(nut.carbs * 0.75); // sweets are mostly sugar
+  }
 
   aiResponse.nutrition = nut;
-  aiResponse.scores = { nutriScore: "D" }; // Conservative score for unknown food
+  aiResponse.scores = { nutriScore: isSweet || density > 4 ? "E" : "C" }; // Conservative score
 
   return aiResponse;
 }

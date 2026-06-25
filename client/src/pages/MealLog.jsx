@@ -256,6 +256,8 @@ export default function MealLog({ userId }) {
     const protein = macroValue(meal, "protein");
     const carbs = macroValue(meal, "carbs");
     const fat = macroValue(meal, "fat");
+    const sugar = macroValue(meal, "sugar");
+    const fiber = macroValue(meal, "fiber");
 
     const sourceTag =
       meal?.source === "package" || meal?.source === "packaged" ? "Packaged"
@@ -296,6 +298,14 @@ export default function MealLog({ userId }) {
             <Box className="macro-box">
               <Typography className="m-label">FAT</Typography>
               <Typography className="m-val">{fat.toFixed(1)}g</Typography>
+            </Box>
+            <Box className="macro-box">
+              <Typography className="m-label">SUGAR</Typography>
+              <Typography className="m-val">{sugar.toFixed(1)}g</Typography>
+            </Box>
+            <Box className="macro-box">
+              <Typography className="m-label">FIBER</Typography>
+              <Typography className="m-val">{fiber.toFixed(1)}g</Typography>
             </Box>
           </Box>
         </Paper>
@@ -527,6 +537,18 @@ export default function MealLog({ userId }) {
                 type="number"
                 value={newMeal.fat}
                 onChange={(e) => setNewMeal({ ...newMeal, fat: e.target.value })}
+              />
+              <TextField
+                label="Sugar"
+                type="number"
+                value={newMeal.sugar || ""}
+                onChange={(e) => setNewMeal({ ...newMeal, sugar: e.target.value })}
+              />
+              <TextField
+                label="Fiber"
+                type="number"
+                value={newMeal.fiber || ""}
+                onChange={(e) => setNewMeal({ ...newMeal, fiber: e.target.value })}
               />
             </Box>
           </DialogContent>
