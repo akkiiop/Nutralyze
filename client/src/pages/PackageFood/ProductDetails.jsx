@@ -14,6 +14,7 @@ import "./ProductDetails.css";
 import { useAuth } from "../../contexts/AuthContext";
 import axiosInstance from "../../config/axiosInstance";
 import { useEffect, useState, useMemo } from "react";
+import { Snackbar, Alert } from "@mui/material";
 
 // Enhanced Ingredient Cleaning Logic
 const formatIngredientName = (name) => {
@@ -51,6 +52,7 @@ const formatIngredientName = (name) => {
 
 const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase }) => {
   const { currentUser } = useAuth();
+  const [snackbar, setSnackbar] = useState({ open: false, message: "", severity: "success" });
 
   // View Mode: 'per100g' or 'serving'
   const [viewMode, setViewMode] = useState("per100g");
@@ -92,7 +94,7 @@ const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase
   const handleLogPackagedFood = async () => {
     try {
       if (!currentUser?._id) {
-        alert("Please login to log meals.");
+        setSnackbar({ open: true, message: "Please login to log meals.", severity: "error" });
         return;
       }
 
@@ -125,10 +127,10 @@ const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase
         },
       });
 
-      alert("✅ Logged successfully!");
+      setSnackbar({ open: true, message: "Logged successfully!", severity: "success" });
     } catch (err) {
       console.error("❌ Packaged log error:", err);
-      alert("Failed to log packaged food.");
+      setSnackbar({ open: true, message: "Failed to log packaged food.", severity: "error" });
     }
   };
 
@@ -310,6 +312,17 @@ const ProductDetails = ({ product, onUploadIngredients, loadingOCR, loadingPhase
           </div>
         </div>
       )}
+
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={4000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert severity={snackbar.severity} variant="filled" onClose={() => setSnackbar({ ...snackbar, open: false })}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
