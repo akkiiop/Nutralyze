@@ -38,11 +38,14 @@ export const getAiServerUrl = () => {
 export const API = {
   AUTH: `${getAuthServerUrl()}/auth`,
 
-  // AI model endpoints
+  // AI model endpoints (nutrivision-ai.onrender.com)
   DETECT: `${getAiServerUrl()}/detect`,
   GET_NUTRITION: `${getAiServerUrl()}/get_nutrition`,
   CLASSIFY: `${getAiServerUrl()}/classify_meal`,
   HEALTH: `${getAiServerUrl()}/health`,
-  GET_HARMFUL: `${getAiServerUrl()}/harmful-ingredients`,
   OCR_INGREDIENTS: `${getAiServerUrl()}/ocr-ingredients`,
+
+  // Harmful-ingredients is served by the MAIN server (not the AI model service)
+  // This avoids the 404 from nutrivision-ai.onrender.com which is not deployed
+  GET_HARMFUL: `${getAuthServerUrl()}/harmful-ingredients`,
 };

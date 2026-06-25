@@ -16,6 +16,7 @@ import ingredientAnalysis from "./routes/ingredientAnalysis.js";
 import packageFoodRoutes from "./routes/packageFoodRoutes.js";
 import ingredientParserRoute from "./routes/ingredientParser.js";
 import progressRoutes from "./routes/progressRoutes.js";
+import harmfulRoutes from "./routes/harmfulRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -50,6 +51,7 @@ app.use("/api/scan-food", foodScanRoutes);
 app.use("/api/analysis", ingredientAnalysis);
 app.use("/api/package-food", packageFoodRoutes);
 app.use("/api", ingredientParserRoute);
+app.use("/api", harmfulRoutes);
 app.use("/api/progress", progressRoutes);
 
 // --- Serve static frontend in production ---
