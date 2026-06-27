@@ -25,7 +25,7 @@ The **Nutralyze** project follows a **Microservice-inspired MERN Architecture**,
 *   **Groq API**:
     *   **Vision**: `meta-llama/llama-4-scout-17b-16e-instruct` for Fresh Food Identification.
     *   **Inference**: `llama-3.1-70b-versatile` for high-accuracy Nutrition Estimation.
-    *   **Fallback**: `llama-3.1-8b-instant` for fast/fallback tasks.
+    *   **Fallback**: `gpt-oss-20b` for fast/fallback tasks.
 *   **Google Vision / Gemini**: (Found in `foodService.js`) Alternative/Legacy vision provider for specific image analysis tasks.
 
 ---

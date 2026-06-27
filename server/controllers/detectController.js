@@ -197,7 +197,7 @@ Category Baselines (Use these ranges if Label Data is missing):
     // ✅ fallback fast model
     const completion8B = await retry(() =>
       groq.chat.completions.create({
-        model: "llama-3.1-8b-instant",
+        model: "gpt-oss-20b",
         temperature: 0.1,
         max_tokens: 250,
         response_format: { type: "json_object" },

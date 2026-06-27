@@ -172,7 +172,7 @@
     *   **Phase 16-20**: Verdict Logic (Daily Safe vs Moderation vs Avoid).
 
 ### 4. AI / ML / LLM Usage
-*   **Models**: `llama-3.1-8b-instant` (Groq).
+*   **Models**: `gpt-oss-20b` (Groq).
 *   **Usage**: Used for **Structured Cleaning**.
     *   *Input*: Broken OCR text ("Corn, Starch, Veg Oil").
     *   *Prompt*: "Fix this text, handle compound ingredients like 'Vegetable Oil (Palm, Sunflower)'".

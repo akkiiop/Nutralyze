@@ -88,7 +88,7 @@ $$ E_{kcal} = W_{est} \times \rho_{category} $$
 
 where $W_{est}$ is the estimated weight in grams, and $\rho_{category}$ represents the assigned caloric density coefficient (e.g., $5.5$ kcal/g for fried snacks, $0.6$ kcal/g for fruits).
 
-A model fallback mechanism is also implemented: if the primary 70B model fails (e.g., due to rate limiting), the system automatically retries with the `llama-3.1-8b-instant` model.
+A model fallback mechanism is also implemented: if the primary 70B model fails (e.g., due to rate limiting), the system automatically retries with the `gpt-oss-20b` model.
 
 ### B. Module 2: Ingredient Safety Analysis
 
@@ -100,7 +100,7 @@ When a user scans a barcode (using the Html5QrcodeScanner library), the system q
 **Tier 2 — OCR Ingredient Extraction:**
 When ingredient data is not available from the database, the user can photograph the ingredient label. **Tesseract.js** (an open-source OCR engine) extracts raw text from the label image using the English language pack (`eng.traineddata`). The raw OCR output undergoes LLM-based post-processing using one of two models:
 - **Gemini 1.5 Flash** (in the AI model service) for structured ingredient parsing
-- **Groq Llama-3.1-8b-instant** (in the Python microservice) with a detailed prompt implementing five parsing rules:
+- **Groq GPT OSS 20B** (in the Python microservice) with a detailed prompt implementing five parsing rules:
   1. Comma splitting rule (split at commas outside parentheses)
   2. Parenthesis container rule (keep compound ingredients together)
   3. Compound protection rule (protect terms like "corn starch", "citric acid")

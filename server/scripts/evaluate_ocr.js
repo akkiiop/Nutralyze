@@ -162,7 +162,7 @@ function calculateMetrics(predicted, expected) {
 async function runOCREvaluation() {
   console.log("=".repeat(80));
   console.log("  NUTRALYZE — OCR + INGREDIENT PARSING ACCURACY EVALUATION");
-  console.log("  Parser: Groq Llama-3.1-8b-instant (via FastAPI at port 8002)");
+  console.log("  Parser: Groq GPT OSS 20B (via FastAPI at port 8002)");
   console.log("  Test Cases: " + TEST_CASES.length + " real Indian packaged food labels");
   console.log("=".repeat(80));
   console.log();
