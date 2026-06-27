@@ -1,0 +1,18 @@
+{
+  "name": "nutralyze",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nutralyze — Smart AI Nutrition & Safety Advisor",
+  "scripts": {
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install && cd ../AI-model && npm install",
+    "dev:server": "cd server && npm start",
+    "dev:client": "cd client && npm run dev",
+    "dev:ai": "cd AI-model && npm start",
+    "dev": "npm run dev:server & npm run dev:client & npm run dev:ai",
+    "build": "cd client && npm run build"
+  },
+  "dependencies": {
+    "@mui/x-date-pickers": "^8.19.0",
+    "dayjs": "^1.11.19"
+  }
+}

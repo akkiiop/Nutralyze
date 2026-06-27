@@ -1,49 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22C55E"/>
-      <stop offset="50%" style="stop-color:#16A34A"/>
-      <stop offset="100%" style="stop-color:#15803D"/>
+    <!-- Main gradient for the N body - rich emerald tones -->
+    <linearGradient id="nGradMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34D399"/>
+      <stop offset="35%" style="stop-color:#22C55E"/>
+      <stop offset="70%" style="stop-color:#16A34A"/>
+      <stop offset="100%" style="stop-color:#166534"/>
     </linearGradient>
-    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#22C55E"/>
-      <stop offset="100%" style="stop-color:#4ADE80"/>
+    <!-- Shadow/depth gradient for the ribbon overlap -->
+    <linearGradient id="nGradShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#15803D"/>
+      <stop offset="100%" style="stop-color:#14532D"/>
     </linearGradient>
+    <!-- Leaf gradient - bright fresh green -->
+    <linearGradient id="leafGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22C55E"/>
+      <stop offset="100%" style="stop-color:#86EFAC"/>
+    </linearGradient>
+    <!-- Subtle drop shadow -->
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#166534" flood-opacity="0.2"/>
+    </filter>
   </defs>
   
-  <!-- White background -->
-  <rect width="512" height="512" rx="80" ry="80" fill="#FFFFFF"/>
-  
-  <!-- Ribbon N shape -->
+  <!-- Transparent background for clean tab icon -->
+
+  <!-- Left stroke of N - flowing upward ribbon -->
   <path d="
-    M 120 400
-    L 120 140
-    Q 120 112 148 112
-    Q 176 112 176 140
-    L 176 300
-    L 320 112
-    Q 336 96 352 112
-    Q 360 120 360 140
-    L 360 400
-    Q 360 428 336 428
-    Q 312 428 312 400
-    L 312 230
-    L 176 408
-    Q 160 428 144 408
+    M 108 420
+    Q 88 420 88 395
+    L 88 160
+    Q 88 80 150 80
+    Q 180 80 180 120
+    L 180 320
+    Q 180 340 195 340
+    Q 205 340 215 325
+    L 215 325
+    L 150 420
+    Q 140 435 120 420
     Z
-  " fill="url(#nGrad)"/>
+  " fill="url(#nGradMain)" filter="url(#softShadow)"/>
   
-  <!-- Leaf accent at top-right of N -->
+  <!-- Diagonal ribbon crossover - the flowing center stroke -->
   <path d="
-    M 348 108
-    Q 370 70 410 58
-    Q 420 56 418 66
-    Q 412 90 388 108
-    Q 370 120 348 118
+    M 155 395
+    Q 140 420 160 420
+    Q 172 420 180 408
+    L 340 130
+    Q 355 105 340 90
+    Q 330 82 315 95
+    L 155 395
+    Z
+  " fill="url(#nGradShadow)" opacity="0.85"/>
+
+  <!-- Right stroke of N - flowing downward ribbon -->
+  <path d="
+    M 320 100
+    Q 310 80 330 80
+    Q 370 80 390 120
+    Q 405 148 405 180
+    L 405 395
+    Q 405 420 380 430
+    Q 360 435 350 420
+    L 350 200
+    Q 350 175 338 160
+    Q 328 148 315 165
+    L 310 175
+    L 320 100
+    Z
+  " fill="url(#nGradMain)" filter="url(#softShadow)"/>
+
+  <!-- Leaf accent sprouting from top-right -->
+  <path d="
+    M 365 95
+    Q 380 55 420 40
+    Q 435 35 440 45
+    Q 440 55 430 70
+    Q 415 92 390 102
+    Q 375 108 365 100
     Z
   " fill="url(#leafGrad)"/>
   
-  <!-- Leaf vein -->
-  <line x1="350" y1="112" x2="410" y2="62" stroke="#15803D" stroke-width="2" opacity="0.4"/>
+  <!-- Leaf vein line -->
+  <line x1="368" y1="98" x2="430" y2="48" stroke="#15803D" stroke-width="2.5" opacity="0.35" stroke-linecap="round"/>
+  
+  <!-- Secondary small leaf detail -->
+  <path d="
+    M 370 88
+    Q 378 68 395 60
+    Q 400 58 400 63
+    Q 397 75 385 85
+    Q 377 92 370 90
+    Z
+  " fill="#4ADE80" opacity="0.5"/>
 </svg>

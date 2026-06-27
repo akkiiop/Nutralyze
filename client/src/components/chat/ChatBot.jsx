@@ -207,6 +207,11 @@ const ChatBot = () => {
   };
 
   const handleMicClick = () => {
+    if (!browserSupportsSpeechRecognition) {
+      alert("Microphone access failed. This is usually because:\n1. Your browser doesn't support Web Speech API (Try Chrome).\n2. The site is not using HTTPS (Microphone requires a secure connection).");
+      return;
+    }
+
     if (isSpeaking) handleStopSpeaking();
 
     if (listening) {

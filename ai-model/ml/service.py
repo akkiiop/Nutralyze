@@ -4,8 +4,12 @@ import json
 
 
 # ✅ LOAD ENV FIRST (CRITICAL FIX)
-from dotenv import load_dotenv
-load_dotenv()
+from dotenv import load_dotenv, find_dotenv
+# Try loading from parent directory (AI-model/.env) first
+parent_env = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+load_dotenv(parent_env)
+# Also load from current directory if one exists
+load_dotenv(find_dotenv())
 
 from groq import Groq
 from fastapi import FastAPI
