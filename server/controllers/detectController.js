@@ -161,11 +161,17 @@ Return ONLY JSON:
 Constraints:
 - Keep values realistic (no extreme values).
 - Numbers can be decimals (1 decimal).
-- If unsure, return best estimate and choose nutriScore conservatively.
 - NEVER return 0 for straight macros (Protein/Carbs/Fat) unless the food is Water, Black Coffee/Tea, or truly zero-calorie.
 - For cooked meats (Chicken/Lamb), Fat is NEVER 0 (usually 1-5g minimum).
 - For sweets (Gulab Jamun/Desserts), Carbs/Sugar is NEVER 0.
 - If unsure, use standard USDA/Indian Food Composition Table references.
+
+NutriScore Rules:
+- A: Fresh fruits, vegetables, salads (e.g., Banana, Apple, Spinach)
+- B: Healthy cooked proteins and grains (e.g., Dal, Grilled Chicken)
+- C: Moderate carbs/fats (e.g., Rice, Bread, Pasta)
+- D: Rich, high fat/calorie gravies (e.g., Paneer Butter Masala, Pizza)
+- E: Very unhealthy, deep fried, or pure sugar (e.g., Chips, Gulab Jamun, Chocolate)
 
 Category Baselines (Use these ranges if Label Data is missing):
 - Potato Chips / Wafers / Fried Snacks: 530 - 580 kcal/100g (NEVER below 500 for chips).
