@@ -582,20 +582,6 @@ Developed at the **Department of Computer Engineering, Dr. Vithalrao Vikhe Patil
 
 ---
 
-## 📜 Citation
-
-```bibtex
-@article{nutralyze2026,
-  title={Nutralyze: A Multimodal LLM-Driven System for Automated Nutrition Analysis, Ingredient Risk Detection, and Personalized Dietary Guidance},
-  author={Baviskar, Dipak J. and Ippalpelli, Pranav B. and Kawade, Akshay B. and Wadekar, Pravin B. and Vikhe, Narayan B. and Kale, Madhavi S.},
-  journal={Department of Computer Engineering, Dr. Vithalrao Vikhe Patil College of Engineering},
-  year={2026},
-  url={https://github.com/akkiiop/Nutralyze}
-}
-```
-
----
-
 <!-- FOOTER WAVE -->
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,24,32&height=120&section=footer" width="100%" alt="Footer Wave"/>
