@@ -560,25 +560,6 @@ docker run -d \
 
 ---
 
-## 👥 Research Team & Attribution
-
-Developed at the **Department of Computer Engineering, Dr. Vithalrao Vikhe Patil College of Engineering, Ahilyanagar, India**.
-
-<div align="center">
-
-| Contributor | Role & Domain Focus |
-|:---|:---|
-| **Akshay B. Kawade** | Project Lead, Multimodal Vision Pipeline & Full-Stack Architecture |
-| **Pranav B. Ippalpelli** | 20-Phase Hazard Forensics Engine, Additive DB & FastAPI Services |
-| **Pravin B. Wadekar** | Barcode Scanner, Open Food Facts Integration & OCR Subsystem |
-| **Dipak J. Baviskar** | Biometric Algorithms, BMR/TDEE Modeling & Streak Analytics |
-| **Prof. Narayan B. Vikhe** | Faculty Project Supervisor & Architecture Guidance |
-| **Dr. Madhavi S. Kale** | Head of Department & Research Advisor |
-
-</div>
-
----
-
 <!-- FOOTER -->
 <div align="center">
   <br/>
