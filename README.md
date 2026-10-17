@@ -1,18 +1,15 @@
 <div align="center">
 
-<!-- HERO WAVE BANNER -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,24,32&height=280&section=header&text=NUTRALYZE&fontSize=80&fontAlignY=40&desc=Next-Gen%20Multimodal%20LLM%20Nutrition%20%26%2020-Phase%20Food%20Safety%20Forensics&descFontSize=20&descAlignY=64&fontColor=ffffff" width="100%" alt="Nutralyze Hero Banner"/>
+# 🧬 Nutralyze
 
-<br/>
-
-<a href="https://github.com/akkiiop/Nutralyze">
-  <img src="docs/logo.png" width="120" height="120" alt="Nutralyze Logo" style="border-radius: 50%; box-shadow: 0 8px 24px rgba(0,230,118,0.25);"/>
-</a>
-
-### **Snap a Photo. Scan a Barcode. Know Exactly What Enters Your Body.**
+### **Multimodal LLM-Driven Nutrition Analysis, Ingredient Risk Detection & Personalized Dietary Intelligence**
 
 <p align="center">
-  <b>An end-to-end AI nutrition intelligence engine combining dual-stage vision reasoning, 20-phase regulatory additive hazard forensics (FSSAI / FDA / EU), and adaptive personalized dietary coaching.</b>
+  <b>Snap a Photo. Scan a Barcode. Know Exactly What Enters Your Body.</b>
+</p>
+
+<p align="center">
+  An end-to-end AI nutrition intelligence engine combining dual-stage vision reasoning, 20-phase regulatory additive hazard forensics (FSSAI / FDA / EU), and adaptive personalized dietary coaching.
 </p>
 
 <!-- BADGES ROW 1: PLATFORM & STACK -->
@@ -582,9 +579,8 @@ Developed at the **Department of Computer Engineering, Dr. Vithalrao Vikhe Patil
 
 ---
 
-<!-- FOOTER WAVE -->
+<!-- FOOTER -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,12,24,32&height=120&section=footer" width="100%" alt="Footer Wave"/>
   <br/>
   <sub>Built with ❤️ for global food transparency and intelligent preventive healthcare.</sub><br/>
   <sub>© 2026 Nutralyze Research Team. Licensed under the ISC License.</sub>
