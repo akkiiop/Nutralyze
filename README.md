@@ -569,14 +569,14 @@ Developed at the **Department of Computer Engineering, Dr. Vithalrao Vikhe Patil
 
 <div align="center">
 
-| Contributor | Focus Area | Profile |
-|:---|:---|:---:|
-| **Akshay B. Kawade** | Project Lead, Multimodal Vision Pipeline & Full-Stack Architecture | [@akkiiop](https://github.com/akkiiop) |
-| **Pranav B. Ippalpelli** | 20-Phase Hazard Forensics Engine, Additive DB & FastAPI Services | [GitHub](https://github.com) |
-| **Pravin B. Wadekar** | Barcode Scanner, Open Food Facts Integration & OCR Subsystem | [GitHub](https://github.com) |
-| **Dipak J. Baviskar** | Biometric Algorithms, BMR/TDEE Modeling & Streak Analytics | [GitHub](https://github.com) |
-| **Prof. Narayan B. Vikhe** | Faculty Project Supervisor & Architecture Guidance | [Faculty](https://enggnagar.com) |
-| **Dr. Madhavi S. Kale** | Head of Department & Research Advisor | [Faculty](https://enggnagar.com) |
+| Contributor | Role & Domain Focus |
+|:---|:---|
+| **Akshay B. Kawade** | Project Lead, Multimodal Vision Pipeline & Full-Stack Architecture |
+| **Pranav B. Ippalpelli** | 20-Phase Hazard Forensics Engine, Additive DB & FastAPI Services |
+| **Pravin B. Wadekar** | Barcode Scanner, Open Food Facts Integration & OCR Subsystem |
+| **Dipak J. Baviskar** | Biometric Algorithms, BMR/TDEE Modeling & Streak Analytics |
+| **Prof. Narayan B. Vikhe** | Faculty Project Supervisor & Architecture Guidance |
+| **Dr. Madhavi S. Kale** | Head of Department & Research Advisor |
 
 </div>
 
