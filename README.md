@@ -359,10 +359,8 @@ Nutralyze-Complete/
 │   ├── server.js                        # Node.js AI connector service (Port 5000)
 │   └── package.json                     # AI-model Node dependencies
 │
-├── docs/                                # Technical documentation, runbooks & diagrams
-│   ├── system_architecture.png          # System architecture flowchart
-│   ├── model-selection-playbook.md      # Model capability comparisons
-│   └── runbook.md                       # Operational troubleshooting runbook
+├── docs/                                # Technical diagrams & visual assets
+│   └── system_architecture.png          # System architecture flowchart
 │
 ├── Dockerfile                           # Production multi-stage Docker build
 ├── render.json                          # Render.com Blueprint deployment specification

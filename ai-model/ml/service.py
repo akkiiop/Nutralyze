@@ -372,7 +372,7 @@ OUTPUT (JSON ARRAY ONLY):
 
 
     completion = client.chat.completions.create(
-        model="gpt-oss-20b",
+        model="llama-3.1-8b-instant",
         messages=[
             {"role": "system", "content": "You are a precise data extraction engine."},
             {"role": "user", "content": prompt}

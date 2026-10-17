@@ -46,8 +46,9 @@ client/dist/
 render.yaml
 
 # ===============================
-# GSD Session Files
+# Agent & Tool Specific Files
 # ===============================
-.gsd/STATE.md
-.gsd/JOURNAL.md
-.gsd/TODO.md
+.agent/
+.gsd/
+.gemini/
+adapters/
