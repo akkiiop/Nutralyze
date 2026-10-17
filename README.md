@@ -2,43 +2,52 @@
 
 # 🧬 Nutralyze
 
-### **Multimodal LLM-Driven Nutrition Analysis, Ingredient Risk Detection & Personalized Dietary Intelligence**
+### **Next-Gen Multimodal AI Nutrition & 20-Phase Forensic Food Safety Platform**
 
 <p align="center">
   <b>Snap a Photo. Scan a Barcode. Know Exactly What Enters Your Body.</b>
 </p>
 
 <p align="center">
-  An end-to-end AI nutrition intelligence engine combining dual-stage vision reasoning, 20-phase regulatory additive hazard forensics (FSSAI / FDA / EU), and adaptive personalized dietary coaching.
+  A multimodal full-stack AI platform unifying dual-stage vision reasoning, 20-phase regulatory additive hazard forensics (FSSAI / FDA / EU), and adaptive personalized dietary coaching.
 </p>
 
-<!-- BADGES ROW 1: PLATFORM & STACK -->
+<br/>
+
+<!-- PRIMARY CTA BADGES -->
 <p align="center">
-  <img src="https://img.shields.io/badge/Release-v1.0%20Production-00E676?style=for-the-badge&logo=rocket&logoColor=white" alt="Release"/>
-  <img src="https://img.shields.io/badge/Frontend-React%2018%20%2B%20Vite-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React Vite"/>
-  <img src="https://img.shields.io/badge/Gateway-Node.js%20%2B%20Express-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node Express"/>
-  <img src="https://img.shields.io/badge/ML%20Engine-Python%20%2B%20FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
-  <img src="https://img.shields.io/badge/Database-MongoDB%20Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB Atlas"/>
+  <a href="https://nutralyze.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-nutralyze.onrender.com-00E676?style=for-the-badge&logo=render&logoColor=white" alt="Live Demo"/>
+  </a>
+  <a href="https://nutralyze.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Status-Production-38BDF8?style=for-the-badge&logo=statuspage&logoColor=white" alt="Status"/>
+  </a>
+  <a href="#-tech-stack">
+    <img src="https://img.shields.io/badge/Stack-MERN_%2B_FastAPI-6366F1?style=for-the-badge&logo=react&logoColor=white" alt="Stack"/>
+  </a>
 </p>
 
-<!-- BADGES ROW 2: AI & COMMUNITY -->
+<!-- SECONDARY BADGES -->
 <p align="center">
-  <img src="https://img.shields.io/badge/Vision%20AI-Llama--4--Scout-FF6F00?style=for-the-badge&logo=meta&logoColor=white" alt="Llama 4 Scout"/>
-  <img src="https://img.shields.io/badge/Reasoning-Llama--3.1--70B-7C4DFF?style=for-the-badge&logo=groq&logoColor=white" alt="Llama 3.1 70B"/>
+  <img src="https://img.shields.io/badge/Vision_AI-Llama--4--Scout-FF6F00?style=for-the-badge&logo=meta&logoColor=white" alt="Vision AI"/>
+  <img src="https://img.shields.io/badge/Reasoning-Llama--3.1--70B-A855F7?style=for-the-badge&logo=groq&logoColor=white" alt="Reasoning AI"/>
   <img src="https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
-  <img src="https://img.shields.io/badge/License-ISC-00B0FF?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License"/>
+  <img src="https://img.shields.io/badge/License-ISC-06B6D4?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License"/>
 </p>
 
-<!-- QUICK NAVIGATION PILLS -->
+<br/>
+
+<!-- QUICK NAVIGATION -->
 <p align="center">
-  <a href="#-quick-preview"><b>Quick Preview</b></a> •
+  <a href="https://nutralyze.onrender.com/"><b>🌐 Launch App</b></a> •
+  <a href="#-live-demonstration"><b>Live Demo</b></a> •
   <a href="#-why-nutralyze"><b>Why Nutralyze?</b></a> •
-  <a href="#-core-feature-grid"><b>Core Features</b></a> •
+  <a href="#-key-features"><b>Key Features</b></a> •
   <a href="#-system-architecture"><b>Architecture</b></a> •
-  <a href="#-the-20-phase-hazard-engine"><b>20-Phase Hazard Engine</b></a> •
-  <a href="#-empirical-benchmarks"><b>Research Benchmarks</b></a> •
+  <a href="#-the-20-phase-hazard-engine"><b>Hazard Engine</b></a> •
+  <a href="#-empirical-benchmarks"><b>Benchmarks</b></a> •
   <a href="#-quick-start"><b>Quick Start</b></a> •
-  <a href="#-api-playbook"><b>API Playbook</b></a>
+  <a href="#-api-playbook"><b>API Docs</b></a>
 </p>
 
 <br/>
@@ -47,118 +56,93 @@
 
 ---
 
-## ⚡ Quick Preview
-
-Experience sub-second multimodal food analysis in action:
-
-```
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│  📸 User Uploads Photo (e.g., Masala Dosa with Sambar & Coconut Chutney)              │
-│  ⏱️ Total Processing Time: ~820ms                                                      │
-├────────────────────────────────────────────────────────────────────────────────────────┤
-│  👁️  Llama-4-Scout Vision: Identifies 1 Masala Dosa, 1 Bowl Sambar, 2 tbsp Chutney     │
-│  🧠 Llama-3.1-70B Logic:   Calculates 480 kcal | 11g Protein | 68g Carbs | 18g Fats   │
-│  🛡️  Zero-Macro Guard:     Validates against physical food density boundaries (PASS)   │
-│  🥗 Health Status:         NOVA Group 2 (Culinary Food) | Glycemic Index: Moderate     │
-└────────────────────────────────────────────────────────────────────────────────────────┘
-```
+## 🌐 Live Demonstration
 
 > [!TIP]
-> **Zero Manual Typing**: Point your device's camera at any food plate or packaged food barcode to receive instant nutritional and forensic health reports.
+> **Production App Live on Render**:  
+> Experience real-time food plate scanning, packaged food barcode forensics, and the trilingual AI nutritionist directly in your web browser:  
+> 👉 **[https://nutralyze.onrender.com/](https://nutralyze.onrender.com/)**
+
+```bash
+# Test the live endpoint via cURL
+curl -X POST https://nutralyze.onrender.com/api/food/detect-fresh \
+  -F "image=@meal_sample.jpg"
+```
+
+```json
+{
+  "food": "Masala Dosa with Sambar & Chutney",
+  "serving": "1 Masala Dosa + 1 Bowl Sambar (~380g)",
+  "calories": 480,
+  "protein": "11.2g",
+  "carbs": "68.4g",
+  "fats": "17.8g",
+  "safety": "NOVA Group 2 (Culinary Food)",
+  "latency": "820ms"
+}
+```
 
 ---
 
 ## 💡 Why Nutralyze?
 
-Traditional apps (MyFitnessPal, Cronometer, HealthifyMe) require tedious manual logging, rely on closed dictionaries, and completely ignore **harmful food additives, synthetic preservatives, and ultra-processing risks**.
+Traditional apps (MyFitnessPal, Cronometer, HealthifyMe) demand tedious manual text searches, guess grams on kitchen scales, and completely ignore **hidden carcinogens, toxic emulsifiers, and ultra-processing risks**.
+
+Nutralyze automates the entire nutrition pipeline from raw pixels to clinical forensic safety reports:
 
 <div align="center">
 
-| Capability | ❌ Traditional Trackers | 🧬 Nutralyze AI Platform |
+| Capability | ❌ Traditional Apps | 🧬 Nutralyze Platform |
 |:---|:---|:---|
-| **Logging Experience** | Manual search & gram guesswork | 📸 **Instant Point & Shoot Camera Capture** |
-| **Portion Estimation** | User must weigh on a scale | 🧠 **Volumetric AI Inference (bowls, slices, grams)** |
-| **Cuisine Scope** | Limited database (~thousands) | 🌍 **Zero-Shot Open-Vocabulary Global Cuisines** |
-| **Ingredient Forensics** | Non-existent (calories only) | 🛡️ **20-Phase Toxic Additive & Regulatory Engine** |
-| **Safety Databases** | None | 🏛️ **Cross-referenced with FSSAI, US-FDA, and EFSA** |
+| **Logging Speed** | Manual text query & gram guessing | 📸 **Point camera & snap in sub-second** |
+| **Portion Estimation** | User must weigh each item | 🧠 **Volumetric AI Inference (bowls, pieces, grams)** |
+| **Cuisine Scope** | Limited static database | 🌍 **Zero-Shot Open-Vocabulary Global Cuisines** |
+| **Ingredient Safety** | Non-existent (calories only) | 🛡️ **20-Phase Regulatory Additive Forensics** |
+| **Regulatory Checks** | None | 🏛️ **Cross-referenced with FSSAI, US-FDA & EU** |
 | **Ultra-Processing** | Ignored | 🏭 **Automated NOVA Group 1 to 4 Classification** |
-| **Languages Supported** | Monolingual (English) | 🌐 **Tri-Lingual Voice & Text (English, हिंदी, मराठी)** |
+| **Language Support** | Monolingual English only | 🌐 **Tri-Lingual Voice & Text (English, हिंदी, मराठी)** |
 | **Caloric Accuracy** | Subject to user guess error (±40%) | 🔬 **10.07% Mean Absolute Percentage Error (MAPE)** |
 
 </div>
 
 ---
 
-## 🍱 Core Feature Grid
+## ✨ Key Features
 
-<div align="center">
-<table>
-<tr>
-<td width="33%" align="center">
-<img src="https://img.shields.io/badge/Dual--Stage-Vision%20Scanner-00E676?style=for-the-badge&logo=camera&logoColor=white"/><br/><br/>
-<b>📸 Multimodal Food Recognition</b><br/>
-<p align="left">
-• Llama-4-Scout (17B) identifies multiple food items on a single plate.<br/>
-• Llama-3.1-70B synthesizes USDA/IFCT compositions.<br/>
-• Calorie-density fallback prevents zero-macro hallucinations.
-</p>
-</td>
-<td width="33%" align="center">
-<img src="https://img.shields.io/badge/Forensic-Hazard%20Engine-FF5252?style=for-the-badge&logo=shield&logoColor=white"/><br/><br/>
-<b>🛡️ 20-Phase Regulatory Engine</b><br/>
-<p align="left">
-• Instant kill-switch triggers for carcinogenic additives.<br/>
-• Evaluates INS codes against FSSAI, FDA, and EU standards.<br/>
-• Issues color-coded verdicts: Safe 🟢, Moderation 🟡, Avoid 🔴.
-</p>
-</td>
-<td width="33%" align="center">
-<img src="https://img.shields.io/badge/1M%2B%20Products-Barcode%20%2B%20OCR-00B0FF?style=for-the-badge&logo=target&logoColor=white"/><br/><br/>
-<b>📦 Packaged Food Intelligence</b><br/>
-<p align="left">
-• Instant barcode scan via Open Food Facts database.<br/>
-• High-accuracy OCR extracts label text on the fly.<br/>
-• Normalizes complex compound ingredient arrays.
-</p>
-</td>
-</tr>
-<tr>
-<td width="33%" align="center">
-<img src="https://img.shields.io/badge/Context--Aware-Diet%20Planner-7C4DFF?style=for-the-badge&logo=leaf&logoColor=white"/><br/><br/>
-<b>🥗 Dynamic AI Diet Architect</b><br/>
-<p align="left">
-• Mifflin-St Jeor equation computes personalized BMR & TDEE.<br/>
-• Automatically filters allergies (gluten, peanuts, lactose).<br/>
-• Dynamically adjusts dinner based on calories already logged today.
-</p>
-</td>
-<td width="33%" align="center">
-<img src="https://img.shields.io/badge/Trilingual-Voice%20AI-FF9100?style=for-the-badge&logo=googlechat&logoColor=white"/><br/><br/>
-<b>🗣️ Voice-Enabled Chatbot</b><br/>
-<p align="left">
-• Full conversational fluency in <b>English</b>, <b>हिंदी</b>, and <b>मराठी</b>.<br/>
-• Hands-free voice queries using Web Speech Recognition.<br/>
-• Retains user biometric profile context during conversations.
-</p>
-</td>
-<td width="33%" align="center">
-<img src="https://img.shields.io/badge/Biometrics-Streak%20%26%20Coach-FF4081?style=for-the-badge&logo=recharts&logoColor=white"/><br/><br/>
-<b>📊 Analytics & 365-Day Streaks</b><br/>
-<p align="left">
-• Daily calorie rings & macro distributions with Recharts.<br/>
-• Gamified streak tracker with automated freeze-day protection.<br/>
-• Smart coach alerts when protein dips or sugar spikes.
-</p>
-</td>
-</tr>
-</table>
-</div>
+### 📸 1. Multimodal Food Vision & Zero-Macro Guard
+* **Dual-Stage Neural Inference**: Preprocesses user photos via `sharp` and pipes them into `Llama-4-Scout-17B` for multi-item identification and portion estimation, followed by `Llama-3.1-70B` for calibrated macronutrient deduction.
+* **Anti-Hallucination Guard**: Employs deterministic calorie-density boundaries (`curry = 1.8 kcal/g`, `chips = 5.5 kcal/g`, `salad = 0.4 kcal/g`) to catch and override zero-macro model hallucinations.
+
+### 🛡️ 2. 20-Phase Regulatory Ingredient Hazard Engine
+* **Additive Kill-Switch**: Immediately flags carcinogenic or banned substances (e.g., Potassium Bromate / INS 924a, Azodicarbonamide / INS 927a, BHA / INS 320).
+* **Multi-Jurisdiction Safety**: Cross-matches ingredient INS numbers and chemical synonyms against FSSAI, US-FDA, and European Commission databases.
+* **Tri-Color Safety Verdicts**: Emits clear health classifications — Safe (🟢), Consume in Moderation (🟡), or Avoid (🔴).
+
+### 📦 3. Packaged Food Forensic & Barcode Scanner
+* **1M+ Product Database**: High-speed barcode scanning accessing the global Open Food Facts repository.
+* **On-Device Label OCR**: Neural Tesseract engine extracts packaging text with Groq-powered compound ingredient normalization.
+* **Dual Perspective**: Toggle between standard per-100g and realistic per-serving nutritional metrics.
+
+### 🥗 4. Dynamic Context-Aware AI Diet Planner
+* **Mifflin-St Jeor Biometric Engine**: Computes exact BMR and TDEE based on age, gender, height, weight, and activity multipliers.
+* **Strict Allergy & Regimen Filters**: Automatically filters allergens (gluten, peanuts, dairy) and dietary styles (Jain, Vegan, Keto, High-Protein).
+* **Adaptive Meal Rebalancing**: Dynamically adjusts dinner recommendations based on calories and macros already logged earlier in the day.
+
+### 🗣️ 5. Trilingual Voice-Enabled AI Assistant
+* **Multilingual Fluency**: Full conversational capabilities in **English**, **Hindi (हिंदी)**, and **Marathi (मराठी)**.
+* **Hands-Free Kitchen Mode**: Integrated browser Speech Recognition (`react-speech-recognition`) for voice dictation while cooking.
+* **Profile-Aware Memory**: Injects user health parameters, target deficit, and daily intake context into conversation prompts.
+
+### 📊 6. Biometric Dashboard, 365-Day Streaks & Health Coach
+* **Interactive Data Visualization**: Circular progress rings and macro distribution charts powered by Recharts.
+* **Gamified 365-Day Streak Engine**: Daily consistency tracker with automated freeze-day protection rules.
+* **Automated Health Coach Alerts**: Proactively triggers warnings when protein drops below 60% of target or sugar exceeds daily thresholds.
 
 ---
 
 ## 🏗️ System Architecture
 
-Nutralyze uses a decoupled, service-oriented architecture where computationally intensive AI inference is isolated from the low-latency web application gateway:
+Nutralyze follows a decoupled, service-oriented architecture isolating compute-heavy AI inference from low-latency user CRUD operations:
 
 ```mermaid
 graph TB
@@ -232,7 +216,7 @@ graph TB
 ```
 
 <div align="center">
-  <img src="docs/system_architecture.png" width="90%" alt="Nutralyze Technical Flowchart Architecture" style="border-radius: 8px; border: 1px solid #334155;"/>
+  <img src="docs/system_architecture.png" width="90%" alt="System Architecture Flowchart" style="border-radius: 8px; border: 1px solid #334155;"/>
   <p><i>Figure: High-level system dataflow and architectural service boundaries.</i></p>
 </div>
 
@@ -240,52 +224,43 @@ graph TB
 
 ## 🛡️ The 20-Phase Hazard Engine
 
-Packaged foods hide harmful substances behind obscure names and codes. Our Python FastAPI engine processes ingredients through **20 deterministic analysis phases**:
+Packaged food labels conceal hazardous chemicals under complex E-numbers and trade names. Our Python FastAPI engine processes ingredient lists through **20 deterministic analysis phases**:
 
 ```
 [Ingredient Text] ──▶ Phase 1-5: Kill-Switch ──▶ Phase 6-10: Weighted Score ──▶ Phase 11-15: Toxicity Sum ──▶ Phase 16-20: Final Verdict
 ```
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ 🔴 PHASES 1–5: CRITICAL BANNED ADDITIVE KILL-SWITCH                                             │
-│    Instantly halts analysis and emits a RED alert upon detecting globally prohibited substances │
-│    • Potassium Bromate (INS 924a)  • Azodicarbonamide (INS 927a)  • BHA (INS 320)  • Titanium D.│
-├─────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🟠 PHASES 6–10: WEIGHTED TOXICITY SCORING (0–100)                                               │
-│    Cross-matches chemical synonyms and assigns hazard weights based on clinical studies         │
-│    • High-Fructose Corn Syrup (85)  • Artificial Colors Red 40/Yellow 5 (75)  • Aspartame (65)  │
-├─────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🟡 PHASES 11–15: CUMULATIVE MASS & PLACEMENT RATIO                                              │
-│    Accounts for ingredient order on the label (earlier ingredients represent higher mass %)     │
-│    • Applies decay weight: w_i = (N - i + 1) / N to prevent false alarms on trace additives     │
-├─────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🟢 PHASES 16–20: NOVA CLASSIFICATION & CONSUMPTION ADVISORY                                     │
-│    • Group 1: Unprocessed / Minimally Processed Foods (Fresh vegetables, grains, milk)          │
-│    • Group 2: Processed Culinary Ingredients (Oils, butter, sugar, salt)                        │
-│    • Group 3: Processed Foods (Canned vegetables, salted nuts, cheeses)                         │
-│    • Group 4: Ultra-Processed Food (UPF) — Formulations of industrial substances & emulsifiers  │
-└─────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+* **Phases 1–5: Critical Banned Additive Kill-Switch**  
+  Instantly triggers a high-severity alert upon detecting banned or carcinogenic additives:
+  * Potassium Bromate (`INS 924a`) • Azodicarbonamide (`INS 927a`) • BHA (`INS 320`) • Titanium Dioxide (`E171`)
+* **Phases 6–10: Weighted Toxicity Scoring (0–100)**  
+  Resolves hundreds of chemical synonyms and weights severity against FSSAI and FDA regulatory standards:
+  * High-Fructose Corn Syrup (85) • Artificial Colors Red 40 / Yellow 5 (75) • Aspartame (65)
+* **Phases 11–15: Cumulative Mass & Position Ratio**  
+  Accounts for ingredient order on the packaging (ingredients listed first constitute higher mass percentages). Decay formula:  
+  $$w_i = \frac{N - i + 1}{N}$$
+* **Phases 16–20: NOVA Classification & Consumption Advisory**  
+  * **Group 1**: Unprocessed or minimally processed whole foods  
+  * **Group 2**: Processed culinary ingredients (oils, butter, sugar, salt)  
+  * **Group 3**: Processed foods (canned vegetables, cheeses)  
+  * **Group 4**: Ultra-Processed Food (UPF) — industrial formulations of additives and emulsifiers  
 
 ---
 
 ## 📊 Empirical Benchmarks
 
-Empirical performance evaluation from our research paper:  
-*“Nutralyze: A Multimodal LLM-Driven System for Automated Nutrition Analysis, Ingredient Risk Detection, and Personalized Dietary Guidance”*  
-Validated against USDA FoodData Central and Indian Food Composition Tables (IFCT):
+Empirical performance evaluation from research validation against USDA FoodData Central and Indian Food Composition Tables (IFCT):
 
 <div align="center">
 
-| Evaluation Metric | Traditional CNN Baselines | Nutralyze AI Pipeline | Advantage |
+| Metric | Traditional CNN Baselines | Nutralyze AI Pipeline | Advantage |
 |:---|:---:|:---:|:---:|
 | **Caloric Estimation Error (MAPE)** | `24.32%` | **`10.07%`** | 🟢 **14.25% lower error** |
 | **Protein Estimation Accuracy** | `76.40%` | **`91.20%`** | 🟢 **+14.80% gain** |
 | **Carbohydrate Estimation** | `73.10%` | **`89.40%`** | 🟢 **+16.30% gain** |
 | **Fat Estimation Accuracy** | `71.80%` | **`88.70%`** | 🟢 **+16.90% gain** |
 | **OCR Ingredient Extraction (F1)** | `82.15%` | **`95.98%`** | 🟢 **+13.83% gain** |
-| **OCR Precision / Recall** | `84.1% / 80.3%` | **`96.8% / 95.2%`** | 🟢 **Higher recall on small text** |
+| **OCR Precision / Recall** | `84.1% / 80.3%` | **`96.8% / 95.2%`** | 🟢 **Superior on curved packages** |
 | **Dish Taxonomy Coverage** | Fixed (101–1,000 classes) | **Open-Vocabulary** | 🟢 **Global & Indian dishes** |
 | **Median Inference Latency** | `1,450ms` | **`820ms`** | ⚡ **43.4% faster response** |
 
@@ -293,17 +268,33 @@ Validated against USDA FoodData Central and Indian Food Composition Tables (IFCT
 
 ---
 
+## 🛠️ Tech Stack
+
+| Domain | Technologies |
+|:---|:---|
+| **Frontend** | React 18, Vite, Material UI v5, Emotion, Ant Design, Framer Motion |
+| **Visualizations** | Recharts, Chart.js, React Circular Progressbar |
+| **Scanning** | HTML5-QRCode, React Webcam, Browser Image Compression |
+| **Voice Dictation** | Web Speech API, React Speech Recognition |
+| **Core Gateway** | Node.js, Express 5, Mongoose, CORS, Dotenv, Sharp, Multer |
+| **Authentication** | JWT (JSON Web Tokens), Google Auth Library, Bcrypt.js |
+| **Hazard Microservice** | Python 3.10+, FastAPI, Uvicorn, Pydantic |
+| **OCR Engine** | Tesseract.js, Tesseract LSTM Neural Network |
+| **Large Language Models** | Llama-4-Scout (17B), Llama-3.1-70B, Llama-3.3-70B via Groq Cloud |
+| **Database** | MongoDB Atlas (Cloud Cluster) |
+| **Deployment** | Docker, Docker Compose, Render.com Blueprint |
+
+---
+
 ## 📂 Project Directory Structure
 
 <details>
-<summary><b>📁 Click to Expand Full Annotated Codebase Tree</b></summary>
+<summary><b>📁 Click to Expand Annotated Codebase Tree</b></summary>
 
 ```
 Nutralyze-Complete/
-├── client/                              # 🖥️ FRONTEND WEB APP (React 18 + Vite)
-│   ├── public/                          # Static images, PWA manifest, and app logos
-│   │   ├── images/                      # Branding assets (logo.png, backgrounds)
-│   │   └── manifest.json                # Web application manifest
+├── client/                              # 🖥️ FRONTEND APPLICATION (React 18 + Vite)
+│   ├── public/                          # Static web assets & icons
 │   ├── src/
 │   │   ├── assets/                      # Icons & design tokens
 │   │   ├── components/                  # Reusable UI component modules
@@ -336,7 +327,7 @@ Nutralyze-Complete/
 │
 ├── server/                              # ⚙️ CORE BACKEND GATEWAY (Node.js + Express 5)
 │   ├── config/                          # MongoDB Atlas connection pool
-│   ├── controllers/                     # Core Business Logic Controllers
+│   ├── controllers/                     # Business Logic Controllers
 │   │   ├── authController.js            # JWT generation & Google OAuth token validation
 │   │   ├── chatController.js            # Groq trilingual chat stream handler
 │   │   ├── detectController.js          # Dual-stage Llama-4-Scout + Llama-3.1 vision
@@ -369,7 +360,6 @@ Nutralyze-Complete/
 │   └── package.json                     # AI-model Node dependencies
 │
 ├── docs/                                # Technical documentation, runbooks & diagrams
-│   ├── logo.png                         # High-res application brand logo
 │   ├── system_architecture.png          # System architecture flowchart
 │   ├── model-selection-playbook.md      # Model capability comparisons
 │   └── runbook.md                       # Operational troubleshooting runbook
@@ -395,7 +385,7 @@ Nutralyze-Complete/
 ### 2. Install Dependencies
 
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/akkiiop/Nutralyze.git
 cd Nutralyze
 
@@ -410,9 +400,9 @@ cd ..
 
 ---
 
-### 3. Configure Environments
+### 3. Environment Variables Configuration
 
-Create `.env` in `server/`, `client/`, and `AI-model/`:
+Create `.env` in each service directory:
 
 ```bash
 # --- server/.env ---
@@ -447,7 +437,7 @@ cd AI-model
 uvicorn ml.service:app --host 127.0.0.1 --port 8002 --reload
 ```
 
-| Service | Local URL | Description |
+| Service | Local Address | Purpose |
 |:---|:---|:---|
 | **Frontend Web App** | `http://localhost:5173` | React / Vite Dashboard & Camera UI |
 | **API Gateway** | `http://localhost:8080` | Express REST API |
@@ -560,9 +550,7 @@ docker run -d \
 
 ---
 
-<!-- FOOTER -->
 <div align="center">
-  <br/>
   <sub>Built with ❤️ for global food transparency and intelligent preventive healthcare.</sub><br/>
-  <sub>© 2026 Nutralyze Research Team. Licensed under the ISC License.</sub>
+  <sub>© 2026 Nutralyze. Licensed under the ISC License.</sub>
 </div>
